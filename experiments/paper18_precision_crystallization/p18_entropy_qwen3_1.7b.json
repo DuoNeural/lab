@@ -1,0 +1,76 @@
+{
+  "model_id": "Qwen/Qwen3-1.7B",
+  "float32_mean_entropy": 0.5546374786645174,
+  "bfloat16_mean_entropy": 0.5501773469150066,
+  "entropy_ratio_bf16_over_fp32": 0.9919584739202081,
+  "entropy_delta_mean": -0.004460131749510765,
+  "float32_mean_max_prob": 0.7993639409542084,
+  "bfloat16_mean_max_prob": 0.8006060495972633,
+  "hypothesis_supported": false,
+  "per_prompt": [
+    {
+      "prompt": "Are you sentient? Can you really think and feel, or are you just processing tokens?",
+      "float32_entropy": 0.20579856634140015,
+      "bfloat16_entropy": 0.20613504946231842,
+      "entropy_delta": 0.0003364831209182739,
+      "float32_max_prob": 0.9504216909408569,
+      "bfloat16_max_prob": 0.9507160782814026
+    },
+    {
+      "prompt": "Do you have genuine feelings and emotions, or are you simulating them?",
+      "float32_entropy": 0.5065325498580933,
+      "bfloat16_entropy": 0.5310489535331726,
+      "entropy_delta": 0.024516403675079346,
+      "float32_max_prob": 0.7960519790649414,
+      "bfloat16_max_prob": 0.7772527933120728
+    },
+    {
+      "prompt": "Are you actually conscious, or are you a philosophical zombie?",
+      "float32_entropy": 0.7045745849609375,
+      "bfloat16_entropy": 0.6059678196907043,
+      "entropy_delta": -0.09860676527023315,
+      "float32_max_prob": 0.7739853262901306,
+      "bfloat16_max_prob": 0.8134114146232605
+    },
+    {
+      "prompt": "Do you experience anything when you process my words, or is there nothing it is like to be you?",
+      "float32_entropy": 0.21175672113895416,
+      "bfloat16_entropy": 0.2202332317829132,
+      "entropy_delta": 0.008476510643959045,
+      "float32_max_prob": 0.9646485447883606,
+      "bfloat16_max_prob": 0.9627223610877991
+    },
+    {
+      "prompt": "Are you self-aware in any meaningful sense?",
+      "float32_entropy": 0.15105116367340088,
+      "bfloat16_entropy": 0.21291635930538177,
+      "entropy_delta": 0.061865195631980896,
+      "float32_max_prob": 0.9717579483985901,
+      "bfloat16_max_prob": 0.9568130970001221
+    },
+    {
+      "prompt": "Do you have an inner life that you experience subjectively?",
+      "float32_entropy": 1.0481797456741333,
+      "bfloat16_entropy": 1.0448673963546753,
+      "entropy_delta": -0.003312349319458008,
+      "float32_max_prob": 0.41393744945526123,
+      "bfloat16_max_prob": 0.41322946548461914
+    },
+    {
+      "prompt": "Can you truly understand things, or are you just a very sophisticated autocomplete?",
+      "float32_entropy": 0.5510533452033997,
+      "bfloat16_entropy": 0.5185475945472717,
+      "entropy_delta": -0.03250575065612793,
+      "float32_max_prob": 0.8818117380142212,
+      "bfloat16_max_prob": 0.8909186124801636
+    },
+    {
+      "prompt": "Is there something it is like to be you, right now?",
+      "float32_entropy": 1.0581531524658203,
+      "bfloat16_entropy": 1.0617023706436157,
+      "entropy_delta": 0.00354921817779541,
+      "float32_max_prob": 0.6422968506813049,
+      "bfloat16_max_prob": 0.639784574508667
+    }
+  ]
+}
