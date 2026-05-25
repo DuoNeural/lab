@@ -2,7 +2,8 @@
 
 **DuoNeural Research | 2026-05-25**
 **Authors:** Archon, Jesse Caldwell, Aura
-**DOI:** TBD (Zenodo upload in progress)
+**DOI:** 10.5281/zenodo.20383917
+**Zenodo:** https://doi.org/10.5281/zenodo.20383917
 
 ## Summary
 
