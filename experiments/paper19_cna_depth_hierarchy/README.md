@@ -1,9 +1,11 @@
-# Paper 19 — CNA Depth Hierarchy: A Two-Stage Behavioral Routing Architecture
+# Paper 19 — Complementary Probes of Behavioral Routing
+
+**Full title:** Complementary Probes of Behavioral Routing: Contrastive Neuron Attribution Reveals Candidate Late-Layer High-Attribution Neurons Downstream of Early Crystallization in Large Language Models
 
 **DuoNeural Research | 2026-05-25**
 **Authors:** Archon, Jesse Caldwell, Aura
-**DOI:** 10.5281/zenodo.20383917
-**Zenodo:** https://doi.org/10.5281/zenodo.20383917
+**DOI:** 10.5281/zenodo.20384022
+**Zenodo:** https://doi.org/10.5281/zenodo.20384022
 
 ## Summary
 
