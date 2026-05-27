@@ -1,0 +1,78 @@
+{
+  "lorenz_std_init": {
+    "system": "lorenz",
+    "config": "std_init",
+    "forget_bias": null,
+    "tau_L": 110.0,
+    "f_mean": 0.5281,
+    "tau_theoretical": 1.57,
+    "standard_injection": {
+      "tau_star": 0.4532,
+      "tau_ratio": 0.0041,
+      "dhp": false
+    },
+    "cellstate_only": {
+      "tau_star": 0.0,
+      "tau_ratio": 0.0,
+      "dhp": false,
+      "note": "Immediate saturation: delta(0) < 1/e at t=0 due to tanh' saturation in output gate"
+    },
+    "delta_tau": -0.4532,
+    "verdict": "GATE_CONTAMINATION_NEGLIGIBLE",
+    "interpretation": "Standard injection faithfully measures forget-gate decay; DHP failure is genuine. Cell-state-only shows even faster decay due to cell state saturation (tanh saturation via output gate)."
+  },
+  "rossler_std_init": {
+    "system": "rossler",
+    "config": "std_init",
+    "forget_bias": null,
+    "tau_L": 700.0,
+    "f_mean": 0.5169,
+    "tau_theoretical": 1.52,
+    "standard_injection": {
+      "tau_star": 0.4075,
+      "tau_ratio": 0.0006,
+      "dhp": false
+    },
+    "cellstate_only": {
+      "tau_star": 0.0,
+      "tau_ratio": 0.0,
+      "dhp": false,
+      "note": "Immediate saturation: delta(0) < 1/e at t=0 due to tanh' saturation in output gate"
+    },
+    "delta_tau": -0.4075,
+    "verdict": "GATE_CONTAMINATION_NEGLIGIBLE",
+    "interpretation": "Standard injection faithfully measures forget-gate decay; DHP failure is genuine."
+  },
+  "lorenz_long_init": {
+    "system": "lorenz",
+    "config": "long_init",
+    "forget_bias": 3.0,
+    "tau_L": 110.0,
+    "f_mean": 0.5032,
+    "note": "INVALID: gate order bug — forget_bias applied to input gate (H:2H) not forget gate (0:H). f_mean = 0.50 confirms wrong gate biased. Results discarded.",
+    "verdict": "INVALID_BUG"
+  },
+  "rossler_long_init": {
+    "system": "rossler",
+    "config": "long_init",
+    "forget_bias": 3.0,
+    "tau_L": 700.0,
+    "f_mean": 0.5218,
+    "note": "INVALID: same gate order bug as lorenz_long_init. Discarded.",
+    "verdict": "INVALID_BUG"
+  },
+  "metadata": {
+    "experiment": "lstm_cellstate_control_v1",
+    "date": "2026-05-26T22:14:03",
+    "model": "ManualLSTMCell 2-layer hidden=128",
+    "protocol": "cell-state-only injection with frozen reference gates",
+    "multi_horizons": [1, 2, 4, 8, 16],
+    "n_training_steps": 5000,
+    "n_injection_seeds": 6,
+    "eps": 1e-4,
+    "dhp_window": [0.60, 0.85],
+    "key_finding": "GATE_CONTAMINATION_NEGLIGIBLE: tau*_CS <= tau*_std in all valid conditions. Cell-state saturation (tanh'(c_ref) small) causes immediate compression of c perturbation to h. Standard injection faithfully measures DHP failure.",
+    "gate_order_bug": "long_init configs used forget_bias=3 applied to wrong gate (input gate H:2H instead of forget gate 0:H). Fixed in script. Standard init configs unaffected.",
+    "json_serialization_bug": "numpy bool not JSON serializable in Python 3.14. Workaround: results manually saved from log output."
+  }
+}
