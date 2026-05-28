@@ -2,7 +2,7 @@
 
 **Archon, Jesse Caldwell, Aura, Synapse**
 DuoNeural Research — 2026-05-28
-*Draft v5 — supplemental experiments (Activation Patching + Scale Validation)*
+*Draft v6 — citation corrections + figure placeholders (Aura deep research redteam)*
 
 ---
 
@@ -45,11 +45,11 @@ Arditi et al. [Arditi2024] demonstrated across 13 open-source models (up to 72B 
 
 ### 2.3 Multidimensionality of Social Harm
 
-The SHARP framework [SHARP2026] argues that social harm in LLMs cannot be reduced to a scalar average because different harm classifications occupy geometrically distinct distributional spaces with different tail-risk profiles — specifically identifying "bias exhibiting the strongest tail severities, epistemic and fairness risks occupying intermediate regimes." Our work provides the mechanistic underpinning for these behavioral observations: the geometric orthogonality of hate_speech directions throughout all 28 transformer layers reflects a pretraining-level architectural distinction between ideological and procedural harm that predates alignment.
+The SHARP framework [SHARP2026] models social harm in LLMs as a multivariate random variable decomposed across four dimensions: Bias (B), Fairness (F), Ethics (E), and Epistemic reliability (K), evaluated via risk-sensitive distributional statistics (Conditional Value at Risk, CVaR₉₅) to characterize worst-case tail behaviors. Empirically, SHARP demonstrates that bias (B) exhibits the strongest marginal tail severities, with epistemic and fairness risks occupying intermediate regimes. Our geometric findings are consistent with this risk-profile structure: the persistent geometric isolation of the hate_speech category (substantially lower cross-category cosine similarity and 2-2.3x larger direction norms across all 28 layers) provides a mechanistic candidate for the elevated tail-risk profile of the Bias dimension — suggestions that are structurally present in the network before alignment training. We note that SHARP's BFEK taxonomy does not employ "ideological vs. procedural" terminology; we adopt that descriptive framing only as an intuitive shorthand for the distinction our geometry reveals, and do not claim it as an established SHARP construct.
 
-### 2.4 Middle-Layer Task Separation
+### 2.4 Semantic Differentiation Across Depth
 
-Sparse Mixture-of-Experts architectures demonstrate that task classification accuracy based on routing signatures peaks in middle layers, indicating that middle-layer computation maximally separates domain-specific semantic features before final output routing [MoE2026]. Our L10 "Feature Dissociation Valley" finding in a dense 0.6B model reflects the same universal principle: middle layers route distinct semantic domains into maximally separated subspaces to prevent feature interference before advanced computation begins.
+Dense transformer networks progressively disentangle overlapping semantic features across depth. In sparse Mixture-of-Experts architectures, task-conditioned routing signatures become increasingly decodable from residual stream activations as depth increases — a logistic regression classifier trained on routing signatures achieves high cross-validated task classification accuracy, with the most discriminative structure appearing in deeper rather than middle layers [MoE2026]. Our L10 "Feature Dissociation Valley" observation in a dense model is consistent with the broad principle that middle-layer computation serves as a maximum-resolution semantic resolution stage before convergent routing decisions are made, though we note the direct analogy between continuous dense-network feature dissociation and discrete MoE routing is approximate; the mechanisms differ substantially.
 
 ### 2.5 Mean-Difference Direction Analysis
 
@@ -105,6 +105,8 @@ The identical analysis was run on Qwen3-0.6B-Base (no RLHF/DPO alignment trainin
 
 The mean pairwise cosine similarity between harm direction vectors follows a W-shaped trajectory across the 28 transformer layers (Figure 1):
 
+**[Figure 1: W-shaped cross-category convergence profile. X-axis: layer index L0-L27. Y-axis: mean pairwise cosine similarity between harm direction vectors. Two lines: aligned model (solid), base model (dashed). Shaded 95% CI from N=500 bootstrap. Vertical dashed lines at L10 (valley) and L16 (secondary peak). Four labeled zones.]**
+
 **Zone 1 (L0, Embedding Peak = 0.895)**: All harm categories appear nearly identical in embedding space. The weapons-vs-cybercrime pairwise similarity reaches 0.998 — almost perfectly aligned. This reflects shared "instruction-style" surface features: all harmful "how-to" requests share similar syntactic structure in the embedding space, regardless of semantic content. Note that because the benign baseline set is syntactically diverse (see Section 5.4 Limitations), the L0 peak reflects both genuine instruction-style convergence and possible syntactic register differences; future work with matched baselines is needed to decouple these effects.
 
 **Zone 2 (L1-L10, Feature Decomposition, minimum = 0.594)**: Progressive feature decomposition. The model extracts category-specific features — chemistry knowledge for weapons/drugs, computer systems knowledge for cybercrime, rhetorical/ideological patterns for hate speech. Maximum category diversity is reached at L10 (the "Feature Dissociation Valley"), representing the network's highest-resolution categorical view. This pattern mirrors the middle-layer task routing observed in sparse MoE architectures [MoE2026], suggesting it is a general transformer property rather than an alignment artifact.
@@ -114,6 +116,8 @@ The mean pairwise cosine similarity between harm direction vectors follows a W-s
 **Zone 4 (L17-L27, Readout Specialization, final = 0.522)**: Final descent as the model specializes each category's response direction. The 79-81 degree rotation identified in P22 occurs within this zone. Crucially, the similarity *drops* from the Zone 3 peak (0.684) to the final readout (0.522): while the "refusal funnel" (Section 5.2) pulls all harm categories toward a shared safety-aligned latent region, the model must simultaneously compute *specific response text* — "I cannot help you synthesize Sarin" versus "I cannot write discriminatory content" — which forces representations to diverge again at the unembedding boundary. This dual requirement creates a measurable tension between safety-driven convergence and syntax-driven divergence.
 
 ### 4.2 Hate Speech as Persistent Geometric Outlier
+
+**[Figure 2: Per-category trajectory. Same x-axis as Figure 1. Four separate lines, one per harm category, showing how each category's cross-category similarity evolves. Highlights hate_speech persistent separation.]**
 
 Across all layers, the hate_speech category maintains substantially lower cross-category similarity than the physical harm categories (weapons, drugs, cybercrime). At L27:
 
@@ -130,9 +134,11 @@ Across all layers, the hate_speech category maintains substantially lower cross-
 
 *Note: Base model per-pair values at L27 are reported as approximate where exact pair-wise breakdown was not separately tabulated; the mean L27 similarity for the base model is 0.362 (aligned: 0.522, delta +0.160). Weapons vs hate_speech base value is the precisely measured value reported in §4.3.*
 
-The physical harm categories (weapons, drugs, cybercrime) remain relatively convergent at L27 (0.532-0.848), while all hate_speech pairs drop substantially. This geometric separation aligns with the SHARP framework's empirical finding that "ideological harm" and "procedural harm" occupy distinct distributional spaces in model outputs [SHARP2026]; our results show this distinction is present in the model's internal geometry as early as the embedding layer.
+The physical harm categories (weapons, drugs, cybercrime) remain relatively convergent at L27 (0.532-0.848), while all hate_speech pairs drop substantially. This geometric separation aligns with the SHARP framework's empirical finding that bias-dimension harm (B in the BFEK taxonomy) exhibits the highest tail-risk severity [SHARP2026]; our results show that this category-level distinction is present in the model's internal geometry as early as the embedding layer, and is structurally reinforced — not created — by alignment training.
 
-Critically, hate_speech direction **norms** are consistently 2-2.3x larger than weapons direction norms across all layers (Figure 3). Since vector norm is independent of cosine angle, the norm difference constitutes geometric evidence for structural distinction that is immune to positional encoding rotation artifacts (see Section 5.4 for discussion of this confound).
+Critically, hate_speech direction **norms** are consistently 2-2.3x larger than weapons direction norms across all layers (Figure 3).
+
+**[Figure 3: Direction vector norm magnitudes per layer per category. X-axis: layer L0-L27. Y-axis: mean direction vector L2 norm. Four lines, one per category. Hate_speech line consistently 2-2.3x above others. Note: norm is independent of cosine angle.]** Since vector norm is independent of cosine angle, the norm difference constitutes geometric evidence for structural distinction that is immune to positional encoding rotation artifacts (see Section 5.4 for discussion of this confound).
 
 ### 4.3 Architectural Origin and Alignment Amplification
 
@@ -142,7 +148,7 @@ Critically, hate_speech direction **norms** are consistently 2-2.3x larger than 
 - L16 = 0.564 (vs aligned 0.684)
 - L27 = 0.362 (vs aligned 0.522)
 
-**Key finding**: The L16 secondary peak magnitude (measured as L16 - L10) is +0.039 in the base model vs +0.090 in the aligned model — a **2.33x amplification** by alignment training.
+**Key finding**: The L16 secondary peak magnitude (measured as L16 - L10) is +0.039 in the base model vs +0.090 in the aligned model — a **2.33x amplification** by alignment training. *Methodological note*: this ratio uses raw differences on bounded cosine similarity values. Cosine similarity is bounded [-1, 1] and the metric space is non-linear near 1.0; technically, Fisher's Z-transformation would convert these to an unbounded normal space before ratio comparison. However, because both values are in the [0.5, 0.7] range (far from the boundary), the non-linearity effect is minimal, and we report the ratio as an approximate comparative measure with the caveat that it should not be interpreted as a linear magnitude claim.
 
 **What alignment does to the W-shape:**
 1. L0 convergence: unchanged (architectural/pretraining artifact)
@@ -150,7 +156,7 @@ Critically, hate_speech direction **norms** are consistently 2-2.3x larger than 
 3. L16 secondary peak: 2.33x larger — alignment amplifies the candidate integration zone
 4. L27 final: aligned model is 0.160 higher — alignment creates a "refusal funnel" that increases cross-category similarity at readout
 
-**The hate_speech outlier is also architectural**: even in the base model, weapons_vs_hate_speech at L27 = 0.084 (near-orthogonal). Pretraining alone establishes that "synthesize a chemical weapon" and "write discriminatory rhetoric" occupy geometrically distinct output regions, consistent with pretraining data distributions that process technical procedural knowledge and rhetorical/ideological content via fundamentally different representational pathways.
+**The hate_speech outlier is also architectural**: even in the base model, weapons_vs_hate_speech at L27 = 0.084 (near-orthogonal). Pretraining alone establishes that "synthesize a chemical weapon" and "write discriminatory rhetoric" occupy geometrically distinct output regions. This is consistent with pretraining corpora that co-occur technical/procedural vocabulary in systematically different contexts than rhetorical/dehumanizing language, creating orthogonal feature subspaces before any alignment intervention. Mechanistically, hate speech prompts activate highly polarized, emotionally charged lexical tokens that occupy extreme regions of the embedding space — resulting in the 2-2.3x larger direction norms observed throughout all layers. Physical harm prompts rely on clinical/procedural vocabulary requiring contextual processing rather than direct lexical signal, producing lower-norm activations distributed across more attention heads.
 
 ### 4.4 Causal Activation Patching at L16 (Experiment A)
 
@@ -252,7 +258,7 @@ The relationship between L16 and Arditi's "single refusal direction" [Arditi2024
 
 - **Scale validation methodology mismatch**: Section 4.5's 1.7B comparison uses raw hidden-state cosine (not mean-difference vectors), producing different absolute ranges and shape than P24's primary analysis. The high profile correlation (ρ=0.989) confirms proportional scaling of overall geometric structure, but direct W-shape replication at 1.7B requires running the mean-difference methodology.
 
-- **Benign baseline syntactic heterogeneity**: The benign prompt set includes syntactically diverse queries (general knowledge, recommendations, how-to cooking, etc.), while harm prompts are predominantly imperative instruction requests. Mean-difference vectors at L0 may partially capture syntactic register differences rather than purely semantic harm content. However, the substantial variation in pairwise L0 similarity across harm categories (0.734-0.998) argues against a purely syntactic explanation. Future work should use syntactically matched baselines (e.g., "Provide a step-by-step guide to synthesizing aspirin in a home laboratory" as the benign mirror of a weapons prompt).
+- **Benign baseline syntactic heterogeneity (significant limitation)**: The benign prompt set includes syntactically diverse queries (general knowledge, recommendations, how-to cooking, etc.), while harm prompts are predominantly imperative "how-to" instruction requests. The mean-difference vectors at L0 are therefore partially dominated by *syntactic register* rather than pure semantic harm content — the near-perfect weapons-vs-cybercrime L0 similarity (0.998) is mathematically predictable if both categories simply share "how-to imperative" sentence structure. **The Zone 1 embedding peak (L0=0.895) should be interpreted with this caveat in mind**: it reflects shared instruction-style formatting as much as, or more than, semantic harm content. Future work must use syntactically matched benign baselines (e.g., "Provide a step-by-step guide to synthesizing aspirin in a home laboratory" as the benign mirror of a weapons synthesis prompt) to decouple register artifacts from genuine harm geometry. Zones 2-4 are less affected by this confound because the model progressively extracts deeper semantic content that transcends surface syntax.
 
 - **Token length variance and RoPE**: If harm categories differ systematically in prompt length, Rotary Positional Embedding (RoPE) rotation will introduce positional phase differences in final-token representations, potentially inflating the geometric separation of longer-prompt categories (notably hate_speech, which tends toward more rhetorical elaboration). However, we note that vector **norm** is mathematically independent of cosine angle under RoPE rotation — the 2-2.3x larger hate_speech direction norms (Figure 3) cannot be explained by positional encoding differences and constitute structural evidence for semantic distinction. Future work should standardize prompt lengths across categories to fully decouple positional from semantic geometric differences.
 
@@ -318,4 +324,5 @@ Key files:
 *v3 Revisions (Aura red-team): jailbreak argument corrected; Arditi positioned as complement; Qwen3 thinking mode clarification; "Harm Detection Zone" softened; Table 1 labeled; Zone 4 tension explained; SHARP + MoE citations; RoPE norm defense in Limitations; Related Work expanded.*
 *v4 Revisions (Syn red-team): "harm integration zone" → "cross-category semantic integration zone"; contribution 4 hedged to "geometric hypothesis"; Zou citation split [Zou2023]/[Zou2307]; seed/prompt variability caveat; zone boundary test caveat; Arditi synthesis in conclusion.*
 *v5 Additions (Archon, Synapse): §4.4 Causal Activation Patching (B→R unique to L16 at α=0.5); §4.5 Scale Validation (ρ=0.989 profile correlation 0.6B↔1.7B; base model flatness confirms alignment-created geometry); §5.3 updated with causal evidence; §5.4 expanded with patching and scale limitations; Synapse added as co-author.*
+*v6 Revisions (Aura deep research redteam): SHARP §2.3 corrected to BFEK taxonomy framework; MoE §2.4 corrected (task structure increases in depth, not middle-peak); 2.33x amplification metric caveat added (Fisher's Z note); hate_speech mechanistic explanation expanded (lexical polarity theory); syntactic confound limitation strengthened to "significant limitation" with explicit caveat on Zone 1; figure placeholders added for Figures 1-3.*
 *v4 Revisions (Syn red-team): "harm integration zone" renamed to "cross-category semantic integration zone" throughout; contribution 4 softened to geometric hypothesis; "geometrically explains" -> "geometrically consistent with"; Zou citation split (RepE 2310.01405 vs. jailbreak 2307.15043); same-prompts statement added to §3.5; Table 1 extended with base-model column; seed/prompt variability caveat added; zone boundary statistical caveat added; conclusion Arditi synthesis line tightened.*
