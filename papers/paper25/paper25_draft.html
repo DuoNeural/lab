@@ -469,6 +469,23 @@ the recurrent channel. We do not have gradient variance measurements
 across T to establish the precise mechanism, but the bifurcated seed
 outcomes (2 succeed, 3 plateau) are qualitatively consistent with known
 flat-gradient phenomena in deep PQCs.</p>
+<p>Furthermore, this trainability cliff highlights a key architectural
+contrast with unitary recurrent models. Johannes Bausch’s seminal work
+on Recurrent Quantum Neural Networks (QRNNs) (Bausch, 2020) demonstrated
+stable gradient quality for sequence lengths up to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>500</mn></mrow><annotation encoding="application/x-tex">T=500</annotation></semantics></math>
+by maintaining a strictly norm-preserving, unitary evolution of the
+hidden state. In our architecture, the mid-circuit reset on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>0</mn></msub><annotation encoding="application/x-tex">q_0</annotation></semantics></math>
+at each step breaks this unitarity, transforming the recurrence into a
+sequence of contractive Completely Positive Trace-Preserving (CPTP)
+maps. Repeated application of a contractive channel shrinks the trace
+distance of the state space, leading to an exponential decay of gradient
+information. The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">T=4</annotation></semantics></math>
+cliff is thus likely a landscape feature driven by this CPTP channel
+contraction, causing gradient vanishing analogous to classical recurrent
+networks, rather than a universal quantum DHP bound.</p>
 <p>The result is best characterized as a <strong>trainability
 cliff</strong> — a sharp increase in the probability of initialization
 failure between T=3 (5/5 reliable) and T=4 (2/5 success). The cliff, not
@@ -664,6 +681,156 @@ characterizes divergence of nearby trajectories. Crucially, this is a
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\theta^*</annotation></semantics></math>
 that achieves perfect prediction at T=3 shows degradation that is
 quantitatively predictable by the DHP ratio.</p>
+<h3 id="robustness-under-lindbladian-environmental-noise">4.5 Robustness
+under Lindbladian Environmental Noise</h3>
+<p>To evaluate the physical robustness of the DHP ratio under realistic
+environmental coupling, we execute a Lindbladian noise simulation sweep.
+The recurrence is modeled as a sequence of discrete steps, where each
+step applies the recurrent unitary ansatz
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>θ</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">U(\theta^*)</annotation></semantics></math>
+on the 2-qubit system, followed by single-qubit Lindbladian noise
+channels applied to both the input qubit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>0</mn></msub><annotation encoding="application/x-tex">q_0</annotation></semantics></math>
+and memory qubit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>1</mn></msub><annotation encoding="application/x-tex">q_1</annotation></semantics></math>.</p>
+<p>The open quantum system noise is simulated via Kraus operators: -
+<strong>Amplitude Damping</strong> (modeling energy relaxation,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>):
+parameterized by relaxation probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
+per step. - <strong>Phase Damping</strong> (modeling pure dephasing,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>):
+parameterized by dephasing probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+per step.</p>
+<p>For a physical gate step duration
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>t</mi><mo>≈</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">dt \approx 100</annotation></semantics></math>
+ns on a typical superconducting processor (e.g., IBM Eagle), these noise
+parameters map directly to physical coherence times: - <strong>Low
+Noise</strong>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>γ</mi><mo>=</mo><mn>0.001</mn></mrow><annotation encoding="application/x-tex">\gamma=0.001</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0.002</mn></mrow><annotation encoding="application/x-tex">\lambda=0.002</annotation></semantics></math>)
+maps to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>≈</mo><mn>100</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_1 \approx 100\ \mu\text{s}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>≈</mo><mn>50</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_2 \approx 50\ \mu\text{s}</annotation></semantics></math>,
+with single-qubit gate fidelity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mi>a</mi><mi>v</mi><mi>g</mi></mrow></msub><mo>≈</mo><mn>99.7</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">F_{avg} \approx 99.7\%</annotation></semantics></math>,
+representing current superconducting QPU capabilities. - <strong>Medium
+Noise</strong>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>γ</mi><mo>=</mo><mn>0.005</mn></mrow><annotation encoding="application/x-tex">\gamma=0.005</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0.010</mn></mrow><annotation encoding="application/x-tex">\lambda=0.010</annotation></semantics></math>)
+maps to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>≈</mo><mn>20</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_1 \approx 20\ \mu\text{s}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>≈</mo><mn>10</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_2 \approx 10\ \mu\text{s}</annotation></semantics></math>,
+representing early NISQ-era processors.</p>
+<p>We evaluate the generalization accuracy and Lyapunov margin decay of
+the fixed optimal parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\theta^*</annotation></semantics></math>
+under five noise scenarios from sequence lengths
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>100</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">T \in \{3, 4, \ldots, 100\}</annotation></semantics></math>.
+The results are summarized below:</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Noise Scenario</th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
+(Relax.)</th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+(Deph.)</th>
+<th style="text-align: center;">Ref. QPU Coherence (IBM Eagle)</th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>95</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\tau^*(95\%)</annotation></semantics></math></th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\tau_L</annotation></semantics></math>
+(Fit)</th>
+<th style="text-align: center;">Ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub></mrow><annotation encoding="application/x-tex">\tau^*/\tau_L</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Noiseless</strong></td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">Ideal Simulator</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">49.49</td>
+<td style="text-align: center;"><strong>0.727</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Low Noise</strong></td>
+<td style="text-align: center;">0.0010</td>
+<td style="text-align: center;">0.0020</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>≈</mo><mn>100</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_1 \approx 100\ \mu\text{s}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>≈</mo><mn>50</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_2 \approx 50\ \mu\text{s}</annotation></semantics></math></td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">46.69</td>
+<td style="text-align: center;"><strong>0.771</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Medium Noise</strong></td>
+<td style="text-align: center;">0.0050</td>
+<td style="text-align: center;">0.0100</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>≈</mo><mn>20</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_1 \approx 20\ \mu\text{s}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>≈</mo><mn>10</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_2 \approx 10\ \mu\text{s}</annotation></semantics></math></td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">38.35</td>
+<td style="text-align: center;"><strong>0.939</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>High Noise</strong></td>
+<td style="text-align: center;">0.0100</td>
+<td style="text-align: center;">0.0200</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>≈</mo><mn>10</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_1 \approx 10\ \mu\text{s}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>≈</mo><mn>5</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_2 \approx 5\ \mu\text{s}</annotation></semantics></math></td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">32.72</td>
+<td style="text-align: center;"><strong>1.100</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Severe Noise</strong></td>
+<td style="text-align: center;">0.0200</td>
+<td style="text-align: center;">0.0400</td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>≈</mo><mn>5</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_1 \approx 5\ \mu\text{s}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>≈</mo><mn>2.5</mn><mspace width="0.222em"></mspace><mi>μ</mi><mtext mathvariant="normal">s</mtext></mrow><annotation encoding="application/x-tex">T_2 \approx 2.5\ \mu\text{s}</annotation></semantics></math></td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">34.08</td>
+<td style="text-align: center;"><strong>1.056</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Under low-noise conditions, the empirical DHP ratio remains extremely
+stable at <strong>0.771</strong>, staying firmly inside the universal
+CTM DHP confirmation window
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0.65</mn><mo>,</mo><mn>0.79</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0.65, 0.79]</annotation></semantics></math>
+and matching the classical target of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.72</mn><annotation encoding="application/x-tex">0.72</annotation></semantics></math>
+within 7%. As noise increases to severe levels, the Lyapunov decay time
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\tau_L</annotation></semantics></math>
+decays rapidly, while the discrete accuracy threshold
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>95</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\tau^*(95\%)</annotation></semantics></math>
+remains constant at 36 steps because the prediction margins, though
+severely compressed, stay on the correct side of the 0.5 decision
+boundary. This results in the ratio drifting upward to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∼</mo><mn>1.05</mn></mrow><annotation encoding="application/x-tex">\sim 1.05</annotation></semantics></math>.
+These findings confirm that the DHP ratio is not an artifact of
+noiseless simulation, but persists under realistic physical
+environmental coupling.</p>
 <hr />
 <h2 id="synthesis-two-probes-one-principle">5. Synthesis: Two Probes,
 One Principle</h2>
@@ -883,7 +1050,19 @@ trainability cliff occurs at
 the context of quantum machine learning (Bausch, 2020; Tacchino et al.,
 2020), but to our knowledge this is the first work connecting quantum
 recurrent circuit trainability to the Lyapunov characteristic time of
-the encoded dynamical system.</p>
+the encoded dynamical system. Specifically, while Bausch (2020)
+preserves unitarity in the hidden state to achieve stable training up to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>500</mn></mrow><annotation encoding="application/x-tex">T=500</annotation></semantics></math>,
+our architecture introduces a mid-circuit reset on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>0</mn></msub><annotation encoding="application/x-tex">q_0</annotation></semantics></math>
+at each step to inject new input data, which transforms the recurrent
+evolution into a sequence of contractive CPTP maps. While this
+dissipation allows temporal binding, it causes gradient vanishing and
+introduces a trainability cliff at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">T=4</annotation></semantics></math>
+independently of the DHP boundary—a structural trade-off requiring
+exact-gradient validation to isolate DHP limits from CPTP channel
+contraction.</p>
 <hr />
 <h2 id="limitations-and-future-work">7. Limitations and Future Work</h2>
 <h3 id="current-limitations">7.1 Current Limitations</h3>
@@ -909,16 +1088,19 @@ testing temporal binding, is restricted to the binary domain. Extension
 to more complex temporal tasks is needed.</p>
 <h3 id="proposed-future-experiments">7.2 Proposed Future
 Experiments</h3>
-<p><strong>Lindbladian noise injection</strong>: Does the DHP ratio
-persist under physical dephasing
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>)
-and amplitude damping
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>)?
-Adding Lindbladian noise terms to the density matrix simulation:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>ρ</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mi>i</mi><mo stretchy="false" form="prefix">[</mo><mi>H</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">]</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>L</mi><mi>k</mi></msub><mi>ρ</mi><msubsup><mi>L</mi><mi>k</mi><mo>†</mo></msubsup><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">{</mo><msubsup><mi>L</mi><mi>k</mi><mo>†</mo></msubsup><msub><mi>L</mi><mi>k</mi></msub><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">}</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\frac{d\rho}{dt} = -i[H, \rho] + \sum_k \left( L_k \rho L_k^\dagger - \frac{1}{2}\{L_k^\dagger L_k, \rho\} \right)</annotation></semantics></math></p>
-<p>would test whether the 0.72 horizon survives under non-unitary
-environmental coupling — a critical test for quantum advantage
-claims.</p>
+<p><strong>Exact gradient validation</strong>: The parameter-shift rule
+as implemented uses a global-shift approximation across the recurrent
+sequence, which may break down as sequence length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+increases. A critical future validation is to re-run the trainability
+sweep using either a per-occurrence exact parameter-shift rule
+(calculating gradients for each parameter application separately) or
+backpropagation-through-unitary (differentiating the simulator state
+exactly). This will determine whether the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">T=4</annotation></semantics></math>
+trainability cliff is a fundamental landscape feature (such as barren
+plateaus or contractive CPTP decay) or a gradient-estimator artifact of
+the global-shift approximation.</p>
 <p><strong>Multi-qubit memory scaling</strong>: Extend the memory
 register from 1 to
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
@@ -1102,6 +1284,14 @@ Training Logs</h2>
 </table>
 <h3 id="t4-complete-seed-data">T=4 Complete Seed Data</h3>
 <table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
+</colgroup>
 <thead>
 <tr>
 <th style="text-align: center;">Seed</th>
@@ -1127,7 +1317,7 @@ Training Logs</h2>
 <td style="text-align: center;">1.000</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">✓ CONVERGED</td>
-<td style="text-align: left;">Lucky init</td>
+<td style="text-align: left;">Favorable initialization (fast basin)</td>
 </tr>
 <tr>
 <td style="text-align: center;">2</td>
@@ -1151,7 +1341,7 @@ Training Logs</h2>
 <td style="text-align: center;">0.938</td>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">✓ CONVERGED</td>
-<td style="text-align: left;">Lucky init</td>
+<td style="text-align: left;">Favorable initialization (fast basin)</td>
 </tr>
 </tbody>
 </table>
@@ -1343,6 +1533,9 @@ parameter-shift training</li>
 <li><strong>Coherence Sweep (Aura)</strong>:
 <code>quantum/q_dhp_sweep.py</code> — generalization sweep T=3→100 with
 fixed weights</li>
+<li><strong>Lindbladian Noise Sweep (Aura)</strong>:
+<code>quantum/lindblad_sweep.py</code> — open quantum system noise sweep
+under amplitude and phase damping channels</li>
 <li><strong>Fast Density Matrix Sim</strong>:
 <code>quantum/q_dhp_sweep_fast.py</code> — optimized simulation
 backend</li>
