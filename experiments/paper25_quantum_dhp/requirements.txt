@@ -1,0 +1,17 @@
+qiskit>=1.0.0
+qiskit-ibm-runtime
+qiskit-aer
+pennylane
+qiskit-alice-bob-provider
+dwave-ocean-sdk
+bloqade
+pulser
+perceval-quandela
+perceval-interop[all]
+qutip
+qutip-jax
+jax
+jaxlib
+numpy
+matplotlib
+scipy
