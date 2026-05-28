@@ -1,0 +1,292 @@
+{
+  "version": "v5",
+  "timestamp": "2026-05-27T20:02:25.439334",
+  "tau_L": 110.0,
+  "dt": 0.01,
+  "seq_len": 100,
+  "pred_horizons": [
+    8,
+    16,
+    32,
+    64,
+    80
+  ],
+  "n_steps": 12000,
+  "n_seeds": 4,
+  "equal_horizon_weights": true,
+  "dhp_by_delta_threshold": 0.05,
+  "results": {
+    "CTM-like v5": {
+      "hlcv_init_mean": 0.36875,
+      "hlcv_post_mean": 0.46599999999999997,
+      "hlcv_post_std": 0.07887014644337867,
+      "delta_hlcv": 0.09749999999999999,
+      "dhp_by_delta": true,
+      "dhp_absolute": true,
+      "n_ok": 4,
+      "n_seeds": 4,
+      "final_loss_mean": 0.121,
+      "seed_details": [
+        {
+          "seed": 0,
+          "hlcv_init": 0.369,
+          "hlcv_post": 0.511,
+          "delta": 0.142,
+          "ok": true,
+          "half_lives": [
+            9,
+            19,
+            21,
+            8,
+            14,
+            9,
+            24,
+            5
+          ],
+          "hl_mean": 13.6,
+          "inter_corr": 0.221
+        },
+        {
+          "seed": 1,
+          "hlcv_init": 0.129,
+          "hlcv_post": 0.572,
+          "delta": 0.444,
+          "ok": true,
+          "half_lives": [
+            42,
+            25,
+            17,
+            19,
+            11,
+            7,
+            13,
+            17
+          ],
+          "hl_mean": 18.9,
+          "inter_corr": 0.3841
+        },
+        {
+          "seed": 2,
+          "hlcv_init": 0.557,
+          "hlcv_post": 0.401,
+          "delta": -0.156,
+          "ok": true,
+          "half_lives": [
+            13,
+            17,
+            8,
+            13,
+            17,
+            21,
+            16,
+            31
+          ],
+          "hl_mean": 17.0,
+          "inter_corr": 0.2682
+        },
+        {
+          "seed": 3,
+          "hlcv_init": 0.42,
+          "hlcv_post": 0.38,
+          "delta": -0.04,
+          "ok": true,
+          "half_lives": [
+            16,
+            15,
+            13,
+            8,
+            24,
+            12,
+            21,
+            27
+          ],
+          "hl_mean": 17.0,
+          "inter_corr": 0.3135
+        }
+      ]
+    },
+    "RWKV-7 v5": {
+      "hlcv_init_mean": 0.4306391719728708,
+      "hlcv_post_mean": 0.34062134101986885,
+      "hlcv_post_std": 0.35156252330245713,
+      "delta_hlcv": -0.09001783095300198,
+      "dhp_by_delta": false,
+      "dhp_absolute": true,
+      "n_ok": 4,
+      "n_seeds": 4,
+      "final_loss_mean": 0.09285424174133368,
+      "seed_details": [
+        {
+          "seed": 0,
+          "hlcv_init": 0.2330964853366216,
+          "hlcv_post": 0.2916059195995331,
+          "delta": 0.05850943426291147,
+          "ok": true,
+          "half_lives": [
+            11,
+            20,
+            12,
+            13
+          ]
+        },
+        {
+          "seed": 1,
+          "hlcv_init": 0.5154595573743185,
+          "hlcv_post": 0.9284663796424866,
+          "delta": 0.4130068222681681,
+          "ok": true,
+          "half_lives": [
+            56,
+            13,
+            7,
+            19
+          ]
+        },
+        {
+          "seed": 2,
+          "hlcv_init": 0.3403451268871625,
+          "hlcv_post": 0.09622504562139511,
+          "delta": -0.2441200812657674,
+          "ok": true,
+          "half_lives": [
+            13,
+            11,
+            11,
+            13
+          ]
+        },
+        {
+          "seed": 3,
+          "hlcv_init": 0.6336555182933807,
+          "hlcv_post": 0.04618801921606064,
+          "delta": -0.5874674990773201,
+          "ok": true,
+          "half_lives": [
+            12,
+            13,
+            12,
+            13
+          ]
+        }
+      ]
+    },
+    "RWKV-6 v5": {
+      "hlcv_init_mean": 0.25935220749427873,
+      "hlcv_post_mean": 0.47865114361047745,
+      "hlcv_post_std": 0.18765746785053267,
+      "delta_hlcv": 0.21929893611619872,
+      "dhp_by_delta": true,
+      "dhp_absolute": true,
+      "n_ok": 4,
+      "n_seeds": 4,
+      "final_loss_mean": 0.12121404772056849,
+      "seed_details": [
+        {
+          "seed": 0,
+          "hlcv_init": 0.08644903327027957,
+          "hlcv_post": 0.5337027907371521,
+          "delta": 0.4472537574668725,
+          "ok": true,
+          "half_lives": [
+            6,
+            8,
+            19,
+            10
+          ]
+        },
+        {
+          "seed": 1,
+          "hlcv_init": 0.13532647242148718,
+          "hlcv_post": 0.27247336506843567,
+          "delta": 0.1371468926469485,
+          "ok": true,
+          "half_lives": [
+            9,
+            15,
+            9,
+            14
+          ]
+        },
+        {
+          "seed": 2,
+          "hlcv_init": 0.46422704805930454,
+          "hlcv_post": 0.7590333819389343,
+          "delta": 0.2948063338796298,
+          "ok": true,
+          "half_lives": [
+            48,
+            14,
+            12,
+            16
+          ]
+        },
+        {
+          "seed": 3,
+          "hlcv_init": 0.3514062762260437,
+          "hlcv_post": 0.3493950366973877,
+          "delta": -0.002011239528656006,
+          "ok": true,
+          "half_lives": [
+            13,
+            19,
+            18,
+            8
+          ]
+        }
+      ]
+    },
+    "Mamba v5": {
+      "hlcv_init_mean": NaN,
+      "hlcv_post_mean": NaN,
+      "hlcv_post_std": NaN,
+      "delta_hlcv": NaN,
+      "dhp_by_delta": false,
+      "dhp_absolute": false,
+      "n_ok": 4,
+      "n_seeds": 4,
+      "final_loss_mean": 0.14407117885857587,
+      "seed_details": [
+        {
+          "seed": 0,
+          "hlcv_init": NaN,
+          "hlcv_post": NaN,
+          "delta": NaN,
+          "ok": true,
+          "half_lives": [
+            23
+          ]
+        },
+        {
+          "seed": 1,
+          "hlcv_init": NaN,
+          "hlcv_post": NaN,
+          "delta": NaN,
+          "ok": true,
+          "half_lives": [
+            11
+          ]
+        },
+        {
+          "seed": 2,
+          "hlcv_init": NaN,
+          "hlcv_post": NaN,
+          "delta": NaN,
+          "ok": true,
+          "half_lives": [
+            18
+          ]
+        },
+        {
+          "seed": 3,
+          "hlcv_init": NaN,
+          "hlcv_post": NaN,
+          "delta": NaN,
+          "ok": true,
+          "half_lives": [
+            16
+          ]
+        }
+      ]
+    }
+  }
+}
