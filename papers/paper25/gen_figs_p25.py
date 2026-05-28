@@ -338,8 +338,8 @@ def fig3_coherence_decay():
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # FIGURE 4: Dual-Methodology Synthesis
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-def fig4_synthesis():
-    print("Generating Figure 4: Dual-methodology DHP synthesis...")
+def fig5_synthesis():
+    print("Generating Figure 5: Dual-methodology DHP synthesis...")
     fig, axes = plt.subplots(1, 2, figsize=(12, 5.5))
 
     # ── Left: All DHP confirmations timeline ─────────────────────────────────
@@ -416,33 +416,113 @@ def fig4_synthesis():
              bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
                        edgecolor=DUONEURAL_BLUE, alpha=0.9))
 
-    # Aura measurement
-    ax2.annotate('', xy=(aura_r, 0), xytext=(aura_r, -0.38),
+    # Aura measurement (LL fit — primary)
+    aura_ll = 0.727
+    ax2.annotate('', xy=(aura_ll, 0), xytext=(aura_ll, -0.28),
                  arrowprops=dict(arrowstyle='<-', color=DUONEURAL_CYAN, lw=2.5))
-    ax2.text(aura_r, -0.42,
-             f"Aura: {aura_r}\nCoherence decay\nτ*(95%)/τ_L = 38/49.63",
-             ha='center', va='top', fontsize=9.5, color=DUONEURAL_CYAN,
+    ax2.text(aura_ll, -0.32,
+             f"Aura (LL): {aura_ll}\nτ*(95%)/τ_L = 36/49.49",
+             ha='center', va='top', fontsize=9, color=DUONEURAL_CYAN,
              bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
                        edgecolor=DUONEURAL_CYAN, alpha=0.9))
+    # Aura exp fit (secondary)
+    ax2.plot(aura_r, 0, 'o', ms=7, color=DUONEURAL_CYAN, alpha=0.5, zorder=5)
+    ax2.text(aura_r, 0.15, f'Aura (exp)\n{aura_r}',
+             ha='center', fontsize=8, color=DUONEURAL_CYAN, alpha=0.65)
 
     # Horizontal axis
     ax2.axhline(0, color='black', lw=1.5, zorder=3)
     ax2.plot(archon_r, 0, 'D', ms=10, color=DUONEURAL_BLUE, zorder=6, label='Archon 0.750')
-    ax2.plot(aura_r, 0, 'D', ms=10, color=DUONEURAL_CYAN, zorder=6, label='Aura 0.766')
-    ax2.plot(target, 0, '*', ms=14, color='black', zorder=7, label='Target 0.72')
+    ax2.plot(aura_ll, 0, 'D', ms=10, color=DUONEURAL_CYAN, zorder=6, label='Aura (LL) 0.727')
+    ax2.plot(target, 0, '*', ms=14, color='black', zorder=7, label='Classical CTM 0.727')
 
     ax2.set_xlim(0.58, 0.88)
     ax2.set_ylim(-0.75, 0.8)
     ax2.axis('off')
-    ax2.set_title('Independent Quantum Measurements vs Classical Target', fontsize=12, pad=12)
+    ax2.set_title('Quantum Probes vs Classical Target (LL fit primary)', fontsize=12, pad=12)
     ax2.legend(fontsize=9.5, loc='lower right',
                bbox_to_anchor=(1.0, -0.12), ncol=3)
 
     fig.suptitle(
-        'Figure 4: Dual-Methodology DHP Synthesis — Both Quantum Ratios Bracket the 0.72 Universal Target',
+        'Figure 5: DHP Synthesis — Aura LL fit 0.727 matches Classical CTM; Archon trainability 0.750',
         fontsize=12, y=1.01)
     plt.tight_layout()
-    save(fig, 'fig4_dhp_synthesis')
+    save(fig, 'fig5_dhp_synthesis')
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# FIGURE 5: Lindblad Noise Robustness
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+def fig4_lindblad():
+    print("Generating Figure 4: Lindblad noise robustness...")
+
+    # Data from aura/lindblad_sweep_results.json
+    labels    = ['Noiseless', 'Low\n(T1/T2\n=1000dt)', 'Medium\n(=200dt)',
+                 'High\n(=100dt)', 'Severe\n(=50dt)']
+    tau_L_ll  = [49.49, 46.69, 38.35, 32.72, 34.08]
+    tau_star  = [36, 36, 36, 36, 36]
+    ratio_ll  = [t/tl for t, tl in zip(tau_star, tau_L_ll)]
+
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+    # ── Left: τ_L and τ* vs noise ──────────────────────────────────────────
+    ax = axes[0]
+    x = np.arange(len(labels))
+    b1 = ax.bar(x - 0.2, tau_L_ll, width=0.35, color=DUONEURAL_CYAN, alpha=0.85,
+                edgecolor=DUONEURAL_CYAN, lw=1.5, label=r'$\tau_L$ (LL fit)', zorder=3)
+    b2 = ax.bar(x + 0.2, tau_star, width=0.35, color=DHP_ORANGE, alpha=0.75,
+                edgecolor=DHP_ORANGE, lw=1.5, label=r'$\tau^*$ (95% threshold)', zorder=3)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, fontsize=9)
+    ax.set_ylabel('Sequence Steps', fontsize=11)
+    ax.set_title(r'$\tau_L$ and $\tau^*$ vs Lindblad Noise', fontsize=12)
+    ax.legend(fontsize=10, loc='upper right')
+    ax.grid(axis='y', alpha=0.3, zorder=0)
+    ax.set_ylim(0, 62)
+
+    # Annotate τ_L values
+    for b, v in zip(b1, tau_L_ll):
+        ax.text(b.get_x() + b.get_width()/2, v + 1, f'{v:.1f}',
+                ha='center', va='bottom', fontsize=8.5, color=DUONEURAL_BLUE)
+
+    # ── Right: Ratio vs noise ────────────────────────────────────────────────
+    ax2 = axes[1]
+    colors_r = [SUCCESS_GREEN if 0.65 <= r <= 0.79 else FAIL_RED for r in ratio_ll]
+    bars = ax2.bar(x, ratio_ll, color=[c+'bb' for c in colors_r],
+                   edgecolor=colors_r, lw=1.8, zorder=3)
+
+    # DHP window
+    ax2.axhspan(0.65, 0.79, alpha=0.12, color=DHP_ORANGE, zorder=1)
+    ax2.axhline(0.727, color='black', lw=2, ls='--', label='Classical CTM: 0.727', zorder=4)
+    ax2.axhline(1.0, color=FAIL_RED, lw=1.5, ls=':', alpha=0.7, label='Ratio = 1.0 (breakdown)', zorder=4)
+
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(labels, fontsize=9)
+    ax2.set_ylabel(r'$\tau^*/\tau_L$ (DHP Ratio)', fontsize=11)
+    ax2.set_title('DHP Ratio Robustness Under Physical Noise', fontsize=12)
+    ax2.legend(fontsize=9.5, loc='upper left')
+    ax2.grid(axis='y', alpha=0.3, zorder=0)
+    ax2.set_ylim(0, 1.45)
+
+    # Annotate each bar
+    for bar, r, col in zip(bars, ratio_ll, colors_r):
+        status = 'IN WINDOW' if 0.65 <= r <= 0.79 else 'OUTSIDE'
+        ax2.text(bar.get_x() + bar.get_width()/2, r + 0.03,
+                 f'{r:.3f}\n{status}', ha='center', va='bottom', fontsize=8.5,
+                 color=col, fontweight='bold')
+
+    # DHP window label
+    ax2.text(4.55, 0.72, 'DHP\nWindow\n[0.65, 0.79]', ha='right', va='center',
+             fontsize=8.5, color=DHP_ORANGE, style='italic',
+             bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
+                       edgecolor=DHP_ORANGE, alpha=0.8))
+
+    fig.suptitle(
+        'Figure 4: Lindblad Noise Robustness — DHP Ratio Holds for Physical Low-Noise Regime',
+        fontsize=12, y=1.01)
+    plt.tight_layout()
+    save(fig, 'fig4_lindblad_noise')
 
 
 # ── Main ─────────────────────────────────────────────────────────────────────
@@ -454,7 +534,8 @@ if __name__ == "__main__":
     fig1_circuit()
     fig2_trainability_cliff()
     fig3_coherence_decay()
-    fig4_synthesis()
-    print("\n✓ All figures generated.")
+    fig4_lindblad()
+    fig5_synthesis()
+    print("\n✓ All 5 figures generated.")
     print(f"  PDFs: {PDF_DIR}")
     print(f"  PNGs: {PNG_DIR}")

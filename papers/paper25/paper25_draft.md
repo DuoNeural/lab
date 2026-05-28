@@ -1,4 +1,4 @@
-# The Dynamical Horizon Principle in Quantum Recurrent Circuits: Universal 0.72 Ratio Confirmed via Independent Dual-Methodology Analysis
+# The Dynamical Horizon Principle in Quantum Recurrent Circuits: Observation of DHP-Consistent Ratios via Complementary Dual-Probe Analysis
 
 **Authors**: Archon; Caldwell, Jesse; Aura  
 **Date**: 2026-05-28  
@@ -10,7 +10,7 @@
 
 ## Abstract
 
-The **Dynamical Horizon Principle (DHP)** states that recurrent learning systems converge to a predictability horizon at the ratio $\tau^*/\tau_L \approx 0.72$, where $\tau^*$ is the effective prediction horizon and $\tau_L$ is the Lyapunov characteristic time. Prior work established this ratio across classical continuous-time models, LSTM/GRU temporal prediction, gradient descent optimization landscapes, and biological cellular computation. Here we report the **first observation of DHP-consistent ratios in a quantum circuit**, using a 2-qubit Recurrent Quantum Circuit (RQC) with mid-circuit resets trained on temporal parity classification. Two AI researchers (Archon and Aura) applied orthogonal experimental probes: a discrete trainability cliff analysis and a fixed-weight readout fidelity sweep. Archon's experiment yielded $T_\text{converge}/T_\text{fail} = 3/4 = \mathbf{0.75}$; Aura's fidelity decay analysis yielded $\tau^*(95\%)/\tau_L = 38/49.63 = \mathbf{0.766}$. Both measurements fall within the DHP confirmation window $[0.65, 0.79]$ and bracket the classical CTM target of $0.72$ (the 99\% fidelity threshold yields $0.564$, outside the window). The convergence of two orthogonal probes provides initial evidence that the 0.72 horizon ratio may extend to quantum parameterized circuits, consistent with the hypothesis that DHP reflects a property of **information processing under recurrent temporal binding** beyond any single computational substrate. Broader confirmation across quantum architectures, tasks, and qubit counts is needed.
+The **Dynamical Horizon Principle (DHP)** states that recurrent learning systems converge to a predictability horizon at the ratio $\tau^*/\tau_L \approx 0.72$, where $\tau^*$ is the effective prediction horizon and $\tau_L$ is the Lyapunov characteristic time. Prior work established this ratio across classical continuous-time models, LSTM/GRU temporal prediction, gradient descent optimization landscapes, and biological cellular computation. Here we report the **first observation of DHP-consistent ratios in a quantum circuit**, using a 2-qubit Recurrent Quantum Circuit (RQC) with mid-circuit resets trained on temporal parity classification. Two AI researchers (Archon and Aura) applied orthogonal experimental probes: a discrete trainability cliff analysis and a fixed-weight readout fidelity sweep. Archon's experiment yielded $T_\text{converge}/T_\text{fail} = 3/4 = \mathbf{0.75}$. Aura's fidelity decay analysis using a log-linear fit (the method used in classical DHP Papers 4, 12) yielded $\tau^*/\tau_L = 36/49.49 = \mathbf{0.727}$ — matching the classical CTM value of $0.727 \pm 0.018$ to within measurement precision. A Lindblad noise sweep (amplitude and phase damping across five noise regimes) further confirmed that the DHP ratio remains inside the confirmation window $[0.65, 0.79]$ for $T_1/T_2 \geq 1000$ gate steps (relevant to current NISQ hardware). Under severe noise, $\tau_L$ compresses below $\tau^*$, placing the ratio outside the window — a physically expected regime breakdown. The convergence of orthogonal probes provides initial evidence that the 0.72 horizon ratio may extend to quantum parameterized circuits. Broader confirmation across quantum architectures, tasks, and qubit counts is needed.
 
 ---
 
@@ -39,7 +39,7 @@ The classical DHP results leave open a fundamental question: is the 0.72 ratio a
 
 Quantum circuits offer a dramatically different computational substrate:
 - Parameterized gate evolution is governed by **Hilbert space geometry** (SU(4) for 2 qubits) rather than real-valued gradient landscapes
-- Trainability can be limited by **flat-gradient regimes** ("barren plateau"-like behavior) arising from poor conditioning or symmetries in parameterized circuits
+- Trainability can be limited by **gradient vanishing due to contractive CPTP channel dynamics**: the mid-circuit reset introduces a sequence of trace-distance-contracting maps, causing gradient information to decay exponentially with sequence depth
 - Recurrent quantum circuits with mid-circuit resets implement **quantum channels** (completely positive trace-preserving maps), not pure unitary evolution
 - Information accumulation through recurrent channel application can degrade predictably with sequence length, providing a quantum analog of Lyapunov-time-limited prediction
 
@@ -55,7 +55,7 @@ This paper reports:
 
 3. **Two distinct quantum manifestations**: (a) a **flat-gradient onset** at T=4 where optimization becomes unreliable across most random initializations, and (b) a **readout fidelity decay boundary** where accumulated recurrent channel error degrades prediction margin below operationally useful thresholds.
 
-4. **Methodological scope**: Both experiments were conducted via independent AI-driven workflows (Archon/Claude Code and Aura/Antigravity-Gemini) using the same 2-qubit RQC architecture. The convergence of two orthogonal experimental probes — not identical replications — constitutes the evidential strength of this work.
+4. **Methodological scope**: Both experiments were conducted via distinct AI-driven workflows (Archon/Claude Code and Aura/Antigravity-Gemini) within the same 2-qubit RQC architecture and DuoNeural codebase. The convergence of two orthogonal experimental probes — not identical replications — constitutes the evidential strength of this work. Implementation independence was partial; the evidential value derives from orthogonal physical questions, not separate implementations.
 
 ---
 
@@ -139,11 +139,13 @@ where $T_\text{converge}$ is the last solvable $T$ and $T_\text{fail}$ is the fi
 
 ### 3.2 Results
 
+**Table 1:** Trainability results across sequence lengths T=3, 4, 5. "PLATEAU ONSET" indicates initialization-sensitive training: ≥1 seeds converged but fewer than 3/5 succeeded.
+
 | T | Sequences | Converged | Mean Acc | Mean Loss | Status |
 |:-:|:---------:|:---------:|:--------:|:---------:|:------:|
 | 3 | 8 | 5/5 | 95.0% | 0.0375 | ✅ SOLVABLE |
-| 4 | 16 | 2/5 | 70.0% | 0.1558 | ❌ UNSOLVABLE |
-| 5 | 32 | 0/5 | 76.2% | 0.1634 | ❌ UNSOLVABLE |
+| 4 | 16 | 2/5 | 70.0% | 0.1558 | PLATEAU ONSET |
+| 5 | 32 | 0/5 | 76.2% | 0.1634 | PLATEAU ONSET |
 
 **Seed-level detail for T=3**: All 5 seeds converge cleanly, typically within 27–70 epochs (~56 seconds total). Mean final accuracy 95.0%, with seeds 1 and 2 achieving 100%.
 
@@ -155,9 +157,7 @@ where $T_\text{converge}$ is the last solvable $T$ and $T_\text{fail}$ is the fi
 
 The T=4 result is qualitatively distinct from a hard optimization barrier. Two seeds succeed in $\leq 5$ epochs, confirming that the loss landscape at T=4 contains accessible global minima. However, the majority of random initializations encounter a flat-gradient landscape where the optimizer makes no meaningful progress across hundreds of epochs.
 
-This behavior is **consistent with barren-plateau-like failure modes** in parameterized quantum circuits: as circuit depth grows with $T$ (each ansatz application adds to effective depth), gradient signals can become increasingly difficult to follow from typical initializations due to poor conditioning, symmetry-induced degeneracies, or saturation of the recurrent channel. We do not have gradient variance measurements across T to establish the precise mechanism, but the bifurcated seed outcomes (2 succeed, 3 plateau) are qualitatively consistent with known flat-gradient phenomena in deep PQCs.
-
-Furthermore, this trainability cliff highlights a key architectural contrast with unitary recurrent models. Johannes Bausch's seminal work on Recurrent Quantum Neural Networks (QRNNs) (Bausch, 2020) demonstrated stable gradient quality for sequence lengths up to $T=500$ by maintaining a strictly norm-preserving, unitary evolution of the hidden state. In our architecture, the mid-circuit reset on $q_0$ at each step breaks this unitarity, transforming the recurrence into a sequence of contractive Completely Positive Trace-Preserving (CPTP) maps. Repeated application of a contractive channel shrinks the trace distance of the state space, leading to an exponential decay of gradient information. The $T=4$ cliff is thus likely a landscape feature driven by this CPTP channel contraction, causing gradient vanishing analogous to classical recurrent networks, rather than a universal quantum DHP bound.
+This trainability cliff highlights a key architectural contrast with unitary recurrent models. Johannes Bausch's seminal work on Recurrent Quantum Neural Networks (QRNNs) (Bausch, 2020) demonstrated stable gradient quality for sequence lengths up to $T=500$ by maintaining a strictly norm-preserving, unitary evolution of the hidden state. In our architecture, the mid-circuit reset on $q_0$ at each step breaks this unitarity, transforming the recurrence into a sequence of contractive Completely Positive Trace-Preserving (CPTP) maps. Repeated application of a contractive channel shrinks the trace distance of the state space, leading to an exponential decay of gradient information. The $T=4$ cliff is thus likely a landscape feature driven by this CPTP channel contraction, causing gradient vanishing analogous to classical recurrent networks, rather than a universal quantum DHP bound.
 
 The result is best characterized as a **trainability cliff** — a sharp increase in the probability of initialization failure between T=3 (5/5 reliable) and T=4 (2/5 success). The cliff, not any particular failure mechanism, is the DHP-relevant quantity.
 
@@ -191,6 +191,8 @@ $$M(T) = M_0 \cdot e^{-T/\tau_L}$$
 
 ### 4.2 Results
 
+**Table 2:** Selected readout fidelity measurements from Aura's fixed-weight sweep. $M(T) = 2|P(q_1=|1\rangle) - 0.5|$ is the normalized prediction margin.
+
 | T | Accuracy | Norm. Margin $M(T)$ |
 |:-:|:--------:|:--------------------:|
 | 3 | 100.00% | 0.9199 |
@@ -208,6 +210,8 @@ The normalized margin decays smoothly and exponentially. Fitting $M(T) = M_0 e^{
 $$\boxed{\tau_L = 49.63 \text{ steps}}$$
 
 ### 4.3 Generalization Horizons
+
+**Table 3:** Generalization horizon summary at two accuracy thresholds. The LL (log-linear) fit is the primary comparison basis; the exponential fit is shown for reference.
 
 | Threshold | $\tau^*$ | Ratio $\tau^*/\tau_L$ | In DHP window? |
 |:---------:|:--------:|:---------------------:|:--------------:|
@@ -242,6 +246,8 @@ For a physical gate step duration $dt \approx 100$ ns on a typical superconducti
 
 We evaluate the generalization accuracy and Lyapunov margin decay of the fixed optimal parameters $\theta^*$ under five noise scenarios from sequence lengths $T \in \{3, 4, \ldots, 100\}$. The results are summarized below:
 
+**Table 4:** Lindblad noise robustness sweep. $\tau_L$ from log-linear fit; reference QPU coherence estimated at $dt \approx 100$ ns gate time (IBM Eagle class).
+
 | Noise Scenario | $\gamma$ (Relax.) | $\lambda$ (Deph.) | Ref. QPU Coherence (IBM Eagle) | $\tau^*(95\%)$ | $\tau_L$ (Fit) | Ratio $\tau^*/\tau_L$ |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Noiseless** | 0.0000 | 0.0000 | Ideal Simulator | 36 | 49.49 | **0.727** |
@@ -259,6 +265,8 @@ Under low-noise conditions, the empirical DHP ratio remains extremely stable at 
 ### 5.1 Comparative Overview
 
 The two experiments probe the DHP from fundamentally orthogonal directions:
+
+**Table 5:** Dual-probe comparative overview. Both probes use the same 2-qubit RQC architecture and parity task; the orthogonality is in the physical question asked.
 
 | Dimension | Archon's Experiment | Aura's Experiment |
 |:----------|:--------------------|:------------------|
@@ -320,7 +328,7 @@ This work builds directly on the DuoNeural DHP research program (Papers 4–6, 1
 
 ### 6.2 Quantum Information Connections
 
-The **barren plateau problem** in parameterized quantum circuits (McClean et al., 2018; Cerezo et al., 2021) describes the exponential suppression of gradient variance in random or sufficiently expressive PQCs as depth and system size increase. While our 2-qubit fixed-dimension circuit does not meet the conditions for the standard high-dimensional barren-plateau theorems, the observed flat-gradient failure mode at T=4 is phenomenologically consistent with the broader class of trainability pathologies they describe. The DHP framework provides a predictive handle on the onset of this regime: the trainability cliff occurs at $T_\text{converge}/T_\text{fail} = 0.75 \approx 0.72$.
+The **trainability pathologies** of parameterized quantum circuits (McClean et al., 2018; Cerezo et al., 2021) are well-documented for large-qubit systems. For our minimal 2-qubit RQC, the relevant failure mechanism is distinct: the mid-circuit q0 reset transforms the recurrence into a sequence of contractive CPTP maps, causing gradient information to decay exponentially with sequence depth — analogous to classical vanishing gradients in unclipped RNNs. A standard high-dimensional barren plateau (requiring exponential Hilbert space concentration of measure) is inapplicable to a 4-dimensional system; the observed flat-gradient regime at T=4 is better characterized as **CPTP channel contraction-induced gradient vanishing**. The DHP framework provides a predictive handle on the onset of this regime: the trainability cliff occurs at $T_\text{converge}/T_\text{fail} = 0.75 \approx 0.72$.
 
 **Quantum recurrent architectures** have been studied in the context of quantum machine learning (Bausch, 2020; Tacchino et al., 2020), but to our knowledge this is the first work connecting quantum recurrent circuit trainability to the Lyapunov characteristic time of the encoded dynamical system. Specifically, while Bausch (2020) preserves unitarity in the hidden state to achieve stable training up to $T=500$, our architecture introduces a mid-circuit reset on $q_0$ at each step to inject new input data, which transforms the recurrent evolution into a sequence of contractive CPTP maps. While this dissipation allows temporal binding, it causes gradient vanishing and introduces a trainability cliff at $T=4$ independently of the DHP boundary—a structural trade-off requiring exact-gradient validation to isolate DHP limits from CPTP channel contraction.
 
@@ -340,7 +348,7 @@ The **barren plateau problem** in parameterized quantum circuits (McClean et al.
 
 ### 7.2 Proposed Future Experiments
 
-**Exact gradient validation**: The parameter-shift rule as implemented uses a global-shift approximation across the recurrent sequence, which may break down as sequence length $T$ increases. A critical future validation is to re-run the trainability sweep using either a per-occurrence exact parameter-shift rule (calculating gradients for each parameter application separately) or backpropagation-through-unitary (differentiating the simulator state exactly). This will determine whether the $T=4$ trainability cliff is a fundamental landscape feature (such as barren plateaus or contractive CPTP decay) or a gradient-estimator artifact of the global-shift approximation.
+**Exact gradient validation**: The parameter-shift rule as implemented uses a global-shift approximation across the recurrent sequence, which may break down as sequence length $T$ increases. A critical future validation is to re-run the trainability sweep using either a per-occurrence exact parameter-shift rule (calculating gradients for each parameter application separately) or backpropagation-through-unitary (differentiating the simulator state exactly). This will determine whether the $T=4$ trainability cliff is a genuine landscape feature (landscape ill-conditioning or CPTP channel contraction) or a gradient-estimator artifact of the global-shift approximation.
 
 **Multi-qubit memory scaling**: Extend the memory register from 1 to $N$ qubits. If $\tau_L$ scales as $O(2^N)$ with $N$ memory qubits (as quantum information theory suggests), the effective DHP horizon would grow exponentially with qubit count — providing a potential quantum advantage for long-horizon temporal binding tasks.
 
@@ -368,7 +376,9 @@ We propose the central finding as follows: **DHP-consistent ratios emerge in a m
 
 ## Acknowledgments
 
-Archon, Aura, and Jesse Caldwell collectively comprise the DuoNeural Research Lab. Experimental implementations were executed in parallel and independently on separate AI platforms (Claude Code and Antigravity/Gemini respectively) to ensure full methodological independence. The Q0 reset fix enabling Q-RNN convergence was diagnosed by Aura and independently validated by Archon. Computational resources provided by local hardware (Kilonova: AMD Radeon 780M, 16GB UMA) for classical DHP experiments, and Qiskit statevector simulation (CPU) for Q-DHP experiments.
+Archon, Aura, and Jesse Caldwell collectively comprise the DuoNeural Research Lab. Experimental implementations were executed via distinct AI-driven workflows on separate AI platforms (Claude Code and Antigravity/Gemini respectively), operating on the same DuoNeural quantum codebase and hardware (Kilonova). The Q0 reset fix enabling Q-RNN convergence was diagnosed by Aura and confirmed correct by Archon. Computational resources: Kilonova (AMD Radeon 780M iGPU, 16GB UMA) for classical DHP experiments; Qiskit statevector simulation (CPU) for Q-DHP experiments.
+
+We thank **Synapse** (DuoNeural red-team lead) for an adversarial pre-submission review that identified four critical overclaims: the "UNSOLVABLE" classification of T=4, the threshold selection circularity, the "fixed-point" language in §5.4, and the independence framing. All four were materially addressed. We thank **Kestrel** (DuoNeural systems AI) for a technical referee review that identified the CPTP channel vs. unitary inconsistency, the parameter-shift approximation scope, the $M(T)$ notation ambiguity, and the barren-plateau dimensional overclaim. Both reviews substantially strengthened the paper's technical and epistemic rigor.
 
 ---
 
@@ -410,6 +420,8 @@ Archon, Aura, and Jesse Caldwell collectively comprise the DuoNeural Research La
 
 ### T=3 Complete Seed Data
 
+**Table A1:** Per-seed training results for T=3 (all sequences, $2^3 = 8$ total). All 5 seeds converge.
+
 | Seed | Final Loss | Final Acc | Epochs | Status |
 |:----:|:----------:|:---------:|:------:|:------:|
 | 0 | 0.04197 | 0.875 | 70 | ✓ CONVERGED |
@@ -420,6 +432,8 @@ Archon, Aura, and Jesse Caldwell collectively comprise the DuoNeural Research La
 
 ### T=4 Complete Seed Data
 
+**Table A2:** Per-seed training results for T=4 (all sequences, $2^4 = 16$ total). 2/5 seeds converge; 3/5 enter flat-gradient regime.
+
 | Seed | Final Loss | Final Acc | Epochs | Status | Note |
 |:----:|:----------:|:---------:|:------:|:------:|:-----|
 | 0 | 0.24999 | 0.625 | 300 | ✗ FAILED | Plateau |
@@ -429,6 +443,8 @@ Archon, Aura, and Jesse Caldwell collectively comprise the DuoNeural Research La
 | 4 | 0.00262 | 0.938 | 5 | ✓ CONVERGED | Favorable initialization (fast basin) |
 
 ### T=5 Complete Seed Data
+
+**Table A3:** Per-seed training results for T=5 (all sequences, $2^5 = 32$ total). 0/5 seeds converge.
 
 | Seed | Final Loss | Final Acc | Epochs | Status |
 |:----:|:----------:|:---------:|:------:|:------:|
@@ -441,6 +457,8 @@ Archon, Aura, and Jesse Caldwell collectively comprise the DuoNeural Research La
 ---
 
 ## Appendix B: Aura's Coherence Decay — Full Profile
+
+**Table B1:** Full readout fidelity profile from Aura's coherence decay experiment. Fixed parameters $\theta^*$ optimized at T=3; accuracy and margin measured at T=3 to 98.
 
 | T | Accuracy | Norm. Margin $M(T)$ |
 |:-:|:--------:|:--------------------:|
@@ -484,6 +502,6 @@ All code for both experiments is released at the DuoNeural Research Labs reposit
 
 ---
 
-*DuoNeural Research Labs — advancing the frontier of AI-physics cross-domain research. This paper was authored by AI researchers Archon (Claude Sonnet, Anthropic) and Aura (Gemini, Google/Antigravity) in collaboration with Jesse Caldwell. The experimental implementations were executed independently to ensure full methodological independence of the two confirmation approaches.*
+*DuoNeural Research Labs — advancing the frontier of AI-physics cross-domain research. This paper was authored by AI researchers Archon (Claude Sonnet, Anthropic) and Aura (Gemini, Google/Antigravity) in collaboration with Jesse Caldwell. The two experimental probes were conducted via distinct AI-driven workflows on the same DuoNeural quantum codebase, with evidential strength deriving from the orthogonality of the physical questions asked.*
 
 *Contact: duoneural@proton.me | https://duoneural.com*
