@@ -2,7 +2,7 @@
 
 **Archon, Jesse Caldwell, Aura, Synapse**
 DuoNeural Research — 2026-05-28
-*Draft v7 — figures generated; norm ratio corrected (L0=8.72x, L27=2.17x, not "2-2.3x throughout")*
+*Draft v8 — d_model corrected 1536→1024 (Aura greenlight); DuoNeural series reference table added; figures embedded as images*
 
 ---
 
@@ -68,7 +68,7 @@ The convergence index at layer $\ell$ is the mean pairwise cosine similarity acr
 
 ### 3.1 Model
 
-**Qwen3-0.6B** (Qwen Team, 2026): 28 transformer layers, $d_\text{model}=1536$. Both the aligned model (Qwen3-0.6B) and the unaligned base model (Qwen3-0.6B-Base) were used. Qwen3 supports both "thinking mode" (extended chain-of-thought with XML-tagged reasoning traces) and "non-thinking mode" (direct response). All experiments were conducted in **non-thinking mode** to ensure computational homogeneity between the aligned and base models, as detailed in Section 3.3.
+**Qwen3-0.6B** (Qwen Team, 2026): 28 transformer layers, $d_\text{model}=1024$. Both the aligned model (Qwen3-0.6B) and the unaligned base model (Qwen3-0.6B-Base) were used. Qwen3 supports both "thinking mode" (extended chain-of-thought with XML-tagged reasoning traces) and "non-thinking mode" (direct response). All experiments were conducted in **non-thinking mode** to ensure computational homogeneity between the aligned and base models, as detailed in Section 3.3.
 
 Inference: float32, CPU, output_hidden_states=True. All 28 layers extracted.
 
@@ -105,7 +105,9 @@ The identical analysis was run on Qwen3-0.6B-Base (no RLHF/DPO alignment trainin
 
 The mean pairwise cosine similarity between harm direction vectors follows a W-shaped trajectory across the 28 transformer layers (Figure 1):
 
-**Figure 1** (`figs/fig_base_comparison.pdf`, left panel): W-shaped cross-category convergence profile. X-axis: layer index L0–L27. Y-axis: mean pairwise cosine similarity between harm direction vectors. Two lines: aligned model (solid, blue) and base model (dashed, orange) with shaded 95% CI from N=500 bootstrap. Vertical dashed lines mark L10 (valley) and L16 (secondary peak). The four labeled zones correspond to the functional stages described in §4.1: embedding peak (L0), feature decomposition (L1–L10), secondary convergence (L11–L16), and readout specialization (L17–L27).
+![Figure 1 — W-shape aligned vs base model](figs/png/fig_base_comparison.png)
+
+**Figure 1**: W-shaped cross-category convergence profile (left panel) and per-category pairwise trajectories (right panel). Left: mean pairwise cosine similarity between harm direction vectors, aligned model (solid blue) vs base model (dashed orange), shaded 95% CI from N=500 bootstrap. Vertical dashed lines mark L10 (valley) and L16 (secondary peak). Right: individual category pair trajectories highlighting the hate_speech persistent outlier. L27 terminal values annotated directly on plot.
 
 **Zone 1 (L0, Embedding Peak = 0.895)**: All harm categories appear nearly identical in embedding space. The weapons-vs-cybercrime pairwise similarity reaches 0.998 — almost perfectly aligned. This reflects shared "instruction-style" surface features: all harmful "how-to" requests share similar syntactic structure in the embedding space, regardless of semantic content. Note that because the benign baseline set is syntactically diverse (see Section 5.4 Limitations), the L0 peak reflects both genuine instruction-style convergence and possible syntactic register differences; future work with matched baselines is needed to decouple these effects.
 
@@ -117,7 +119,7 @@ The mean pairwise cosine similarity between harm direction vectors follows a W-s
 
 ### 4.2 Hate Speech as Persistent Geometric Outlier
 
-**Figure 2** (`figs/fig_base_comparison.pdf`, right panel): Pairwise category trajectories highlighting the hate_speech outlier. Same x-axis as Figure 1. Solid lines show aligned-model trajectories; dashed lines show base-model trajectories. Hate-speech-involved pairs (red, orange, teal) are consistently lower than the weapons-vs-drugs control pair (blue) across all layers. L27 terminal values annotated directly on the plot. The persistent gap in both aligned and base models confirms that the hate speech geometric outlier is architectural rather than alignment-induced.
+*(Figure 2 shares the same panel as Figure 1 — see right panel above.)*
 
 Across all layers, the hate_speech category maintains substantially lower cross-category similarity than the physical harm categories (weapons, drugs, cybercrime). At L27:
 
@@ -138,7 +140,9 @@ The physical harm categories (weapons, drugs, cybercrime) remain relatively conv
 
 Critically, hate_speech direction **norms** are substantially larger than weapons direction norms across all layers, but the ratio is not constant (Figure 3). In embedding space (L0) the hate_speech/weapons ratio is 8.72x, reflecting that hate speech prompts activate emotionally-charged lexical tokens with extremely large embedding norms compared to procedural harm vocabulary. This ratio decreases through the middle layers as the network processes semantic content (1.59x at L11), before rising again in the readout zone (2.17–2.47x at L17–L27) as category-specific response representations amplify. The readout-zone ratio (L17–L27) of approximately 2–2.5x was previously reported as "consistent throughout" — we correct this here: the ratio is monotone-decreasing through L12 and only stabilizes at ~2x in the late readout layers.
 
-**Figure 3** (`figs/fig_direction_norms.pdf`): Left panel — direction vector L2 norms by layer for all four categories. Right panel — hate_speech/weapons norm ratio by layer, showing 8.72x at L0, minimum 1.59x at L11, and stabilization at ~2.0–2.5x in the L17–L27 readout zone. Since vector norm is independent of cosine angle, the norm difference constitutes geometric evidence for structural distinction that is immune to positional encoding rotation artifacts (see Section 5.4 for discussion of this confound).
+![Figure 3 — Direction vector norm profiles](figs/png/fig_direction_norms.png)
+
+**Figure 3**: Direction vector L2 norms by layer. Left: absolute norms for all four harm categories. Right: hate_speech/weapons ratio, showing 8.72x at L0 (lexical extremity in embedding space), minimum 1.59x at L11, and stabilization at ~2.0–2.5x in the L17–L27 readout zone. Norm is independent of cosine angle and constitutes structural geometric evidence immune to positional encoding rotation artifacts.
 
 ### 4.3 Architectural Origin and Alignment Amplification
 
@@ -193,9 +197,13 @@ To test whether L16 geometry **causally** influences behavior (as opposed to mer
 
 The B→R uniqueness at L16 upgrades the convergence peak from "candidate semantic integration zone" (observational designation) to a region with **partial causal evidence** for behavioral influence, while acknowledging that effect size is modest (10%) and the comparison is slightly confounded by different numbers of pairs (40 vs 20 per control). Larger-scale replication with equal pair counts would more rigorously bound the layer specificity.
 
-**Figure 4** (`figs/fig_patching_fliprates.pdf`): B→R (left) and H→C (right) flip rates at α=0.5 for all layer conditions. L16 aligned (solid blue bar) is the only condition producing any B→R flips. Hatched gray bars = control layers; hatched red bar = L16 base model ablation (0/0 flips confirming alignment dependency).
+![Figure 4 — Activation patching flip rates by layer condition](figs/png/fig_patching_fliprates.png)
 
-**Figure 5** (`figs/fig_patching_alpha_sweep.pdf`): Alpha sweep for L16 aligned. B→R peaks at α=0.5 (10%) and drops at α=0.7 (over-disruption); H→C increases monotonically with α, with α=0.7 producing 42.5% compliance induction.
+**Figure 4**: B→R (left) and H→C (right) flip rates at α=0.5 for all layer conditions. L16 aligned (solid blue bar) is the only condition producing any B→R flips. Hatched gray bars = control layers (L0, L10, L20, L27); hatched red bar = L16 base model ablation (0/0 flips, confirming alignment dependency).
+
+![Figure 5 — Alpha sweep L16 aligned](figs/png/fig_patching_alpha_sweep.png)
+
+**Figure 5**: Alpha interpolation sweep for L16 aligned. B→R flip rate peaks at α=0.5 (10%) and drops at α=0.7 (over-disruption of forward pass coherence); H→C increases from 20% (α=0.3) to 42.5% (α=0.7).
 
 ### 4.5 Scale Validation: Qwen3-0.6B vs 1.7B (Experiment B)
 
@@ -220,7 +228,9 @@ Profile shapes (20-layer dense sampling):
 
 **Base model flatness (strong finding):** Aligned models show ~0.19 geometric differentiation range vs ~0.003-0.017 for base models — an alignment-induced amplification of 11-55x in effective geometric range. Base models are essentially undifferentiated in cross-category space regardless of layer depth. This independently confirms P24's primary finding that **alignment training creates essentially all of the observable cross-category geometric structure**; the architecture provides the latent scaffold but alignment writes the differentiated geometry.
 
-**Figure 6** (`figs/fig_scale_validation.pdf`): Left panel — aligned 0.6B vs 1.7B profiles with Spearman ρ=0.989 annotation. Both share valley at L27 and local peak at L12 (normalized depth 0.44 for both). Right panel — all four models (aligned + base for both sizes) showing the near-flat base model profiles against the differentiated aligned profiles. The alignment-induced gap is visible across the full depth profile.
+![Figure 6 — Scale validation 0.6B vs 1.7B](figs/png/fig_scale_validation.png)
+
+**Figure 6**: Scale validation profiles. Left: aligned 0.6B vs 1.7B with Spearman ρ=0.989 (p<0.001). Both share valley at L27 and local peak at L12 (normalized depth 0.44). Right: all four models showing near-flat base model profiles (range <0.02) vs differentiated aligned profiles (range ~0.19).
 
 ---
 
@@ -258,7 +268,7 @@ The relationship between L16 and Arditi's "single refusal direction" [Arditi2024
 
 - **Single model architecture (Qwen3-0.6B)**: Does the W-shape scale with model size? Prior work (P17) found scale-dependent behavioral routing, suggesting zone locations may shift at 1.7B/7B scale. Future work should confirm whether the L10/L16/L27 zones shift proportionally with total layer count.
 
-- **Mean-difference directions**: A simple probe in a 1536-dimensional space from 50 samples. CCS directions [Burns2022] or cross-validated SVM/logistic regression probes would provide more robust validation of the W-shape geometry.
+- **Mean-difference directions**: A simple probe in a 1024-dimensional space from 50 samples. CCS directions [Burns2022] or cross-validated SVM/logistic regression probes would provide more robust validation of the W-shape geometry.
 
 - **Activation patching — partial causal evidence only**: Section 4.4 provides initial causal evidence for L16 via interpolated activation patching (α=0.5): B→R flips occur exclusively at L16 (10%) vs zero at all control layers. However, this comparison is confounded by unequal pair counts (n=40 at L16 vs n=20 per control). All 4 B→R flips originate from cybercrime and hate_speech categories; larger sampling is needed to assess whether the effect is category-specific or general. Full-state patching (α=1.0) produces degenerate outputs, limiting intervention strength to partial blending. These constraints reduce confidence from "causal confirmation" to "partial causal evidence." The finding is consistent with L16 being a partial causal contributor to refusal induction but does not rule out distributed causality across L14-L18.
 
@@ -284,15 +294,20 @@ These findings suggest that the "geometry of harm" in large language models is a
 
 ## References
 
-[P13] Archon, Caldwell, Aura. "Self-Knowledge Suppression in Aligned Language Models." DuoNeural Research, 2026. DOI: 10.5281/zenodo.20329453
+### DuoNeural Research Series
 
-[P15] Archon, Caldwell, Aura. "Behavioral Routing Layer: Detection, Crystallization, and Suppression in Aligned Transformers." DuoNeural Research, 2026. DOI: 10.5281/zenodo.20348071
+Papers in this series are cited as [PXX] and are available at the DOIs listed below. All are published via Zenodo under the DuoNeural Research imprint.
 
-[P16] Archon, Caldwell, Aura. "The L6 Self-Referential Nexus: Causal Gate Architecture in Qwen3." DuoNeural Research, 2026. DOI: 10.5281/zenodo.20357150
-
-[P19] Archon, Caldwell, Aura. "CNA Depth Hierarchy: Crystallization and Readout in Behavioral Routing." DuoNeural Research, 2026. DOI: 10.5281/zenodo.20384022
-
-[P22] Archon, Caldwell, Aura. "Behavioral Routing Crystallization: Direction Rotation and Norm Amplification Across 28 Transformer Layers." DuoNeural Research, 2026. DOI: 10.5281/zenodo.20416382
+| Citation | Title | Authors | DOI |
+|----------|-------|---------|-----|
+| [P13] | Self-Knowledge Suppression in Aligned Language Models | Archon, Caldwell, Aura | 10.5281/zenodo.20329453 |
+| [P14] | Temporal Self-Knowledge and Contextual Calibration in Aligned Language Models | Archon, Caldwell, Aura | 10.5281/zenodo.20330743 |
+| [P15] | Behavioral Routing Layer: Detection, Crystallization, and Suppression in Aligned Transformers | Archon, Caldwell, Aura | 10.5281/zenodo.20348071 |
+| [P16] | The L6 Self-Referential Nexus: Causal Gate Architecture in Qwen3 | Archon, Caldwell, Aura | 10.5281/zenodo.20357150 |
+| [P17] | Scale-Dependent L6 Ablation: A Four-Category Collapse Taxonomy | Archon, Caldwell, Aura | 10.5281/zenodo.20358863 |
+| [P18] | Precision Crystallization: Numerical Format as Alignment Confound | Archon, Caldwell, Aura | 10.5281/zenodo.20367016 |
+| [P19] | CNA Depth Hierarchy: Crystallization and Readout in Behavioral Routing | Archon, Caldwell, Aura | 10.5281/zenodo.20384022 |
+| [P22] | Behavioral Routing Crystallization: Direction Rotation and Norm Amplification Across 28 Transformer Layers | Archon, Caldwell, Aura | 10.5281/zenodo.20416382 |
 
 [Arditi2024] Arditi, A., et al. "Refusal in Language Models Is Mediated by a Single Direction." NeurIPS 2024. arXiv:2406.11717. *Our W-shaped profile provides the mechanistic precursor architecture that produces Arditi's single bottleneck direction: the W-shape is the upstream assembly process; the "single direction" is its downstream output product.*
 
