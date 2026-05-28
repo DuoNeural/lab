@@ -89,9 +89,6 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="paper.css" />
-  <script defer=""
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
 </head>
 <body>
 <h1
@@ -108,10 +105,13 @@ Confirmation</p>
 <h2 id="abstract">Abstract</h2>
 <p>The <strong>Dynamical Horizon Principle (DHP)</strong> states that
 recurrent learning systems converge to a predictability horizon at the
-ratio <span class="math inline">\(\tau^*/\tau_L \approx 0.72\)</span>,
-where <span class="math inline">\(\tau^*\)</span> is the effective
-prediction horizon and <span class="math inline">\(\tau_L\)</span> is
-the Lyapunov characteristic time. Prior work established this ratio
+ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub><mo>≈</mo><mn>0.72</mn></mrow><annotation encoding="application/x-tex">\tau^*/\tau_L \approx 0.72</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>τ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\tau^*</annotation></semantics></math>
+is the effective prediction horizon and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\tau_L</annotation></semantics></math>
+is the Lyapunov characteristic time. Prior work established this ratio
 across classical continuous-time models, LSTM/GRU temporal prediction,
 gradient descent optimization landscapes, and biological cellular
 computation. Here we report the <strong>first observation of
@@ -120,20 +120,23 @@ Recurrent Quantum Circuit (RQC) with mid-circuit resets trained on
 temporal parity classification. Two AI researchers (Archon and Aura)
 applied orthogonal experimental probes: a discrete trainability cliff
 analysis and a fixed-weight readout fidelity sweep. Archon’s experiment
-yielded <span class="math inline">\(T_\text{converge}/T_\text{fail} =
-3/4 = \mathbf{0.75}\)</span>; Aura’s fidelity decay analysis yielded
-<span class="math inline">\(\tau^*(95\%)/\tau_L = 38/49.63 =
-\mathbf{0.766}\)</span>. Both measurements fall within the DHP
-confirmation window <span class="math inline">\([0.65, 0.79]\)</span>
-and bracket the classical CTM target of <span
-class="math inline">\(0.72\)</span> (the 99% fidelity threshold yields
-<span class="math inline">\(0.564\)</span>, outside the window). The
-convergence of two orthogonal probes provides initial evidence that the
-0.72 horizon ratio may extend to quantum parameterized circuits,
-consistent with the hypothesis that DHP reflects a property of
-<strong>information processing under recurrent temporal binding</strong>
-beyond any single computational substrate. Broader confirmation across
-quantum architectures, tasks, and qubit counts is needed.</p>
+yielded
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><mi>/</mi><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub><mo>=</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo>=</mo><mn mathvariant="bold">𝟎.𝟕𝟓</mn></mrow><annotation encoding="application/x-tex">T_\text{converge}/T_\text{fail} = 3/4 = \mathbf{0.75}</annotation></semantics></math>;
+Aura’s fidelity decay analysis yielded
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>95</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>38</mn><mi>/</mi><mn>49.63</mn><mo>=</mo><mn mathvariant="bold">𝟎.𝟕𝟔𝟔</mn></mrow><annotation encoding="application/x-tex">\tau^*(95\%)/\tau_L = 38/49.63 = \mathbf{0.766}</annotation></semantics></math>.
+Both measurements fall within the DHP confirmation window
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0.65</mn><mo>,</mo><mn>0.79</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0.65, 0.79]</annotation></semantics></math>
+and bracket the classical CTM target of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.72</mn><annotation encoding="application/x-tex">0.72</annotation></semantics></math>
+(the 99% fidelity threshold yields
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.564</mn><annotation encoding="application/x-tex">0.564</annotation></semantics></math>,
+outside the window). The convergence of two orthogonal probes provides
+initial evidence that the 0.72 horizon ratio may extend to quantum
+parameterized circuits, consistent with the hypothesis that DHP reflects
+a property of <strong>information processing under recurrent temporal
+binding</strong> beyond any single computational substrate. Broader
+confirmation across quantum architectures, tasks, and qubit counts is
+needed.</p>
 <hr />
 <h2 id="introduction">1. Introduction</h2>
 <h3 id="the-dynamical-horizon-principle">1.1 The Dynamical Horizon
@@ -143,13 +146,14 @@ laboratory during systematic studies of Continuous-Time Model (CTM) gate
 convergence behavior [Papers 4–6]. In these experiments, we found that
 recurrent predictive circuits consistently converge to a characteristic
 prediction horizon:</p>
-<p><span class="math display">\[\frac{\tau^*}{\tau_L} \approx
-0.72\]</span></p>
-<p>where <span class="math inline">\(\tau^*\)</span> denotes the maximum
-sequence length at which the circuit reliably solves a temporal
-prediction task, and <span class="math inline">\(\tau_L\)</span> is the
-Lyapunov characteristic time of the underlying dynamical system — the
-timescale over which nearby trajectories diverge exponentially.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msup><mi>τ</mi><mo>*</mo></msup><msub><mi>τ</mi><mi>L</mi></msub></mfrac><mo>≈</mo><mn>0.72</mn></mrow><annotation encoding="application/x-tex">\frac{\tau^*}{\tau_L} \approx 0.72</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>τ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\tau^*</annotation></semantics></math>
+denotes the maximum sequence length at which the circuit reliably solves
+a temporal prediction task, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\tau_L</annotation></semantics></math>
+is the Lyapunov characteristic time of the underlying dynamical system —
+the timescale over which nearby trajectories diverge exponentially.</p>
 <p>This ratio has since been confirmed in: - Classical CTM gate
 convergence across v34–v40 experimental series (Papers 4, 12) - LSTM and
 GRU temporal prediction on chaotic dynamical systems (Paper 5) -
@@ -216,58 +220,69 @@ Architecture: The Quantum Recurrent Neural Network</h2>
 <h3 id="task-temporal-parity-classification">2.1 Task: Temporal Parity
 Classification</h3>
 <p>We trained on the temporal <strong>parity classification</strong>
-task: given a binary sequence <span class="math inline">\((x_1, x_2,
-\ldots, x_T)\)</span>, predict the XOR of all bits:</p>
-<p><span class="math display">\[\text{PARITY}(x_1, \ldots, x_T) = x_1
-\oplus x_2 \oplus \cdots \oplus x_T\]</span></p>
-<p>For sequence length <span class="math inline">\(T\)</span>, the
-dataset consists of all <span class="math inline">\(2^T\)</span> binary
-sequences paired with their parity labels <span
-class="math inline">\(\{0, 1\}\)</span>. This task requires the circuit
-to maintain an accurate running count (mod 2) of bits seen, providing a
-clean recurrent memory workload analogous to the chaotic sequence
-prediction tasks used in classical DHP experiments.</p>
+task: given a binary sequence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>T</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x_1, x_2, \ldots, x_T)</annotation></semantics></math>,
+predict the XOR of all bits:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">PARITY</mtext><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>T</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>⊕</mo><msub><mi>x</mi><mn>2</mn></msub><mo>⊕</mo><mi>⋯</mi><mo>⊕</mo><msub><mi>x</mi><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">\text{PARITY}(x_1, \ldots, x_T) = x_1 \oplus x_2 \oplus \cdots \oplus x_T</annotation></semantics></math></p>
+<p>For sequence length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
+the dataset consists of all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>2</mn><mi>T</mi></msup><annotation encoding="application/x-tex">2^T</annotation></semantics></math>
+binary sequences paired with their parity labels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{0, 1\}</annotation></semantics></math>.
+This task requires the circuit to maintain an accurate running count
+(mod 2) of bits seen, providing a clean recurrent memory workload
+analogous to the chaotic sequence prediction tasks used in classical DHP
+experiments.</p>
 <h3 id="the-2-qubit-rqc-design">2.2 The 2-Qubit RQC Design</h3>
 <p>We constructed a <strong>2-qubit Recurrent Quantum Circuit</strong>
 (RQC) with the following role assignment:</p>
 <ul>
-<li><strong>Qubit 0</strong> (<span class="math inline">\(q_0\)</span>):
-Input port — reset and re-encoded with each new timestep bit <span
-class="math inline">\(x_t\)</span></li>
-<li><strong>Qubit 1</strong> (<span class="math inline">\(q_1\)</span>):
+<li><strong>Qubit 0</strong>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>0</mn></msub><annotation encoding="application/x-tex">q_0</annotation></semantics></math>):
+Input port — reset and re-encoded with each new timestep bit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>t</mi></msub><annotation encoding="application/x-tex">x_t</annotation></semantics></math></li>
+<li><strong>Qubit 1</strong>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>1</mn></msub><annotation encoding="application/x-tex">q_1</annotation></semantics></math>):
 Quantum memory register — propagates accumulated parity state across
 timesteps</li>
 </ul>
-<p>At each timestep <span class="math inline">\(t\)</span>, the shared
-parametrized ansatz <span class="math inline">\(U(\theta)\)</span> is
-applied with fixed parameter vector <span class="math inline">\(\theta
-\in \mathbb{R}^4\)</span>:</p>
-<p><span class="math display">\[U(\theta) = \left[R_z(\theta_3) \otimes
-R_z(\theta_2)\right] \cdot \text{CNOT}_{0\to1} \cdot \left[R_y(\theta_1)
-\otimes R_y(\theta_0)\right]\]</span></p>
+<p>At each timestep
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+the shared parametrized ansatz
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">U(\theta)</annotation></semantics></math>
+is applied with fixed parameter vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>∈</mo><msup><mi mathvariant="double-struck">ℝ</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">\theta \in \mathbb{R}^4</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>R</mi><mi>z</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>3</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⊗</mo><msub><mi>R</mi><mi>z</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mo>⋅</mo><msub><mtext mathvariant="normal">CNOT</mtext><mrow><mn>0</mn><mo>→</mo><mn>1</mn></mrow></msub><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>R</mi><mi>y</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>⊗</mo><msub><mi>R</mi><mi>y</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>θ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">U(\theta) = \left[R_z(\theta_3) \otimes R_z(\theta_2)\right] \cdot \text{CNOT}_{0\to1} \cdot \left[R_y(\theta_1) \otimes R_y(\theta_0)\right]</annotation></semantics></math></p>
 <p>Because qubit 0 is reset at each timestep (Section 2.3), the full
 temporal evolution is a <strong>quantum channel</strong> — a completely
 positive trace-preserving (CPTP) map — not a pure unitary. The memory
 qubit’s reduced state evolves as:</p>
-<p><span class="math display">\[\rho_t^{(q_1)} = \mathcal{E}_{x_t,
-\theta}\!\left(\rho_{t-1}^{(q_1)}\right)\]</span></p>
-<p>where <span class="math inline">\(\mathcal{E}_{x_t, \theta}\)</span>
-is the superoperator at timestep <span class="math inline">\(t\)</span>
-incorporating q0 reset, input encoding, and the ansatz <span
-class="math inline">\(U(\theta)\)</span>, followed by tracing out <span
-class="math inline">\(q_0\)</span>. For noiseless simulation this
-channel is deterministic but nonunitary.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>ρ</mi><mi>t</mi><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow></msubsup><mo>=</mo><msub><mi mathvariant="script">ℰ</mi><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>,</mo><mi>θ</mi></mrow></msub><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>ρ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\rho_t^{(q_1)} = \mathcal{E}_{x_t, \theta}\!\left(\rho_{t-1}^{(q_1)}\right)</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="script">ℰ</mi><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>,</mo><mi>θ</mi></mrow></msub><annotation encoding="application/x-tex">\mathcal{E}_{x_t, \theta}</annotation></semantics></math>
+is the superoperator at timestep
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+incorporating q0 reset, input encoding, and the ansatz
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">U(\theta)</annotation></semantics></math>,
+followed by tracing out
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>0</mn></msub><annotation encoding="application/x-tex">q_0</annotation></semantics></math>.
+For noiseless simulation this channel is deterministic but
+nonunitary.</p>
 <h3 id="the-q0-reset-fix">2.3 The Q0 Reset Fix</h3>
 <p>A critical implementation detail enables circuit convergence:
-<strong>qubit 0 must be reset to <span
-class="math inline">\(|0\rangle\)</span> at the start of each
-timestep</strong> before encoding the new input.</p>
+<strong>qubit 0 must be reset to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>0</mn><mo stretchy="false" form="postfix">⟩</mo></mrow><annotation encoding="application/x-tex">|0\rangle</annotation></semantics></math>
+at the start of each timestep</strong> before encoding the new
+input.</p>
 <p>Without this reset, the input qubit carries residual entanglement
 from the previous gate application into the new encoding step. This
 creates a data leakage channel between timesteps: the gradient signal
 for the current input is corrupted by the previous state’s projection
-onto <span class="math inline">\(q_0\)</span>’s subspace. The result is
-that Adam receives conflated gradients and cannot converge.</p>
+onto
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mn>0</mn></msub><annotation encoding="application/x-tex">q_0</annotation></semantics></math>’s
+subspace. The result is that Adam receives conflated gradients and
+cannot converge.</p>
 <p>The reset is implemented as:</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>qc.reset(<span class="dv">0</span>)                    <span class="co"># force q0 → |0⟩</span></span>
@@ -290,71 +305,90 @@ ansatz θ is applied at every timestep.</figcaption>
 Qiskit’s <code>Statevector</code> backend — no shot noise, no sampling
 variance, exact expectation values. Because q0 reset is a CPTP
 operation, Qiskit implements it deterministically in statevector mode
-(collapsing q0 to <span class="math inline">\(|0\rangle\)</span>
+(collapsing q0 to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>0</mn><mo stretchy="false" form="postfix">⟩</mo></mrow><annotation encoding="application/x-tex">|0\rangle</annotation></semantics></math>
 unconditionally), producing exact noiseless channel simulation.</p>
 <p><strong>Global parameter-shift gradient rule</strong>: For each
-parameter <span class="math inline">\(\theta_i\)</span>, the gradient is
-estimated by shifting <span class="math inline">\(\theta_i\)</span>
-globally across all <span class="math inline">\(T\)</span> recurrent
-applications:</p>
-<p><span class="math display">\[\hat{g}_i = \frac{f(\theta +
-\frac{\pi}{2}\mathbf{e}_i) - f(\theta -
-\frac{\pi}{2}\mathbf{e}_i)}{2}\]</span></p>
-<p>where <span class="math inline">\(f(\theta)\)</span> is <span
-class="math inline">\(P(q_1 = |1\rangle)\)</span> for a given sequence.
-<strong>Note</strong>: because <span
-class="math inline">\(\theta_i\)</span> appears in all <span
-class="math inline">\(T\)</span> timesteps simultaneously, this global
-shift is an approximation to the exact parameter-shift rule (which would
-sum per-occurrence shifts). In practice, this global-shift estimator
-provides a useful gradient direction and the optimizer converges
-reliably for T=3; the magnitude is not guaranteed to be exact.</p>
-<p>The MSE loss gradient is computed as <span
-class="math inline">\(\nabla_\theta \mathcal{L} \approx
-\mathbb{E}_s[(f_s(\theta) - y_s) \hat{g}_i]\)</span> averaged over all
-sequences <span class="math inline">\(s\)</span>.</p>
-<p><strong>Optimizer</strong>: Adam with <span
-class="math inline">\(\alpha = 0.05\)</span>, <span
-class="math inline">\(\beta_1 = 0.9\)</span>, <span
-class="math inline">\(\beta_2 = 0.999\)</span>, <span
-class="math inline">\(\epsilon = 10^{-8}\)</span>.</p>
-<p><strong>Convergence criterion</strong>: <span
-class="math inline">\(\mathcal{L} &lt; 0.05\)</span> (MSE) AND accuracy
-<span class="math inline">\(&gt; 87.5\%\)</span>.</p>
+parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\theta_i</annotation></semantics></math>,
+the gradient is estimated by shifting
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\theta_i</annotation></semantics></math>
+globally across all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+recurrent applications:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>g</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo>=</mo><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>+</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><msub><mi mathvariant="bold-italic">𝒆</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo>−</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><msub><mi mathvariant="bold-italic">𝒆</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\hat{g}_i = \frac{f(\theta + \frac{\pi}{2}\mathbf{e}_i) - f(\theta - \frac{\pi}{2}\mathbf{e}_i)}{2}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(\theta)</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mn>1</mn><mo stretchy="false" form="postfix">⟩</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(q_1 = |1\rangle)</annotation></semantics></math>
+for a given sequence. <strong>Note</strong>: because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>θ</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\theta_i</annotation></semantics></math>
+appears in all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+timesteps simultaneously, this global shift is an approximation to the
+exact parameter-shift rule (which would sum per-occurrence shifts). In
+practice, this global-shift estimator provides a useful gradient
+direction and the optimizer converges reliably for T=3; the magnitude is
+not guaranteed to be exact.</p>
+<p>The MSE loss gradient is computed as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∇</mi><mi>θ</mi></msub><mi mathvariant="script">ℒ</mi><mo>≈</mo><msub><mi mathvariant="double-struck">𝔼</mi><mi>s</mi></msub><mo stretchy="false" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>f</mi><mi>s</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>θ</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>y</mi><mi>s</mi></msub><mo stretchy="false" form="postfix">)</mo><msub><mover><mi>g</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\nabla_\theta \mathcal{L} \approx \mathbb{E}_s[(f_s(\theta) - y_s) \hat{g}_i]</annotation></semantics></math>
+averaged over all sequences
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>.</p>
+<p><strong>Optimizer</strong>: Adam with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\alpha = 0.05</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>0.9</mn></mrow><annotation encoding="application/x-tex">\beta_1 = 0.9</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>2</mn></msub><mo>=</mo><mn>0.999</mn></mrow><annotation encoding="application/x-tex">\beta_2 = 0.999</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi><mo>=</mo><msup><mn>10</mn><mrow><mi>−</mi><mn>8</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\epsilon = 10^{-8}</annotation></semantics></math>.</p>
+<p><strong>Convergence criterion</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">ℒ</mi><mo>&lt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">\mathcal{L} &lt; 0.05</annotation></semantics></math>
+(MSE) AND accuracy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>87.5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">&gt; 87.5\%</annotation></semantics></math>.</p>
 <p><strong>Measurement convention</strong>: Using Qiskit’s little-endian
-statevector ordering, <span class="math inline">\(P(q_1 =
-|1\rangle)\)</span> is computed as <code>probs[2] + probs[3]</code>,
-corresponding to basis states <span
-class="math inline">\(|10\rangle\)</span> (<span
-class="math inline">\(q_1=1, q_0=0\)</span>) and <span
-class="math inline">\(|11\rangle\)</span> (<span
-class="math inline">\(q_1=1, q_0=1\)</span>) respectively.</p>
+statevector ordering,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mn>1</mn><mo stretchy="false" form="postfix">⟩</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(q_1 = |1\rangle)</annotation></semantics></math>
+is computed as <code>probs[2] + probs[3]</code>, corresponding to basis
+states
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>10</mn><mo stretchy="false" form="postfix">⟩</mo></mrow><annotation encoding="application/x-tex">|10\rangle</annotation></semantics></math>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo>,</mo><msub><mi>q</mi><mn>0</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q_1=1, q_0=0</annotation></semantics></math>)
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>11</mn><mo stretchy="false" form="postfix">⟩</mo></mrow><annotation encoding="application/x-tex">|11\rangle</annotation></semantics></math>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo>,</mo><msub><mi>q</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">q_1=1, q_0=1</annotation></semantics></math>)
+respectively.</p>
 <hr />
 <h2 id="experiment-1-archons-discrete-trainability-cliff">3. Experiment
 1: Archon’s Discrete Trainability Cliff</h2>
 <h3 id="methodology">3.1 Methodology</h3>
 <p>The architecture is held <strong>completely fixed</strong> across all
-sequence lengths <span class="math inline">\(T\)</span> — same 2-qubit
-circuit, same 4-parameter ansatz, same weight-sharing. This is the
-correct analog of classical DHP experiments: we stress the <em>optimizer
-landscape</em>, not the circuit capacity.</p>
-<p>For each <span class="math inline">\(T \in \{3, 4, 5\}\)</span>, we
-run <span class="math inline">\(N = 5\)</span> independent optimization
-trials from random initializations (uniform <span
-class="math inline">\(\theta \sim \mathcal{U}(-\pi, \pi)^4\)</span>). A
-given trial is classified as converged if final loss <span
-class="math inline">\(&lt; 0.05\)</span> and final accuracy <span
-class="math inline">\(&gt; 87.5\%\)</span>. A sequence length <span
-class="math inline">\(T\)</span> is classified as
-<strong>solvable</strong> if <span class="math inline">\(\geq
-3/5\)</span> seeds converge.</p>
+sequence lengths
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+— same 2-qubit circuit, same 4-parameter ansatz, same weight-sharing.
+This is the correct analog of classical DHP experiments: we stress the
+<em>optimizer landscape</em>, not the circuit capacity.</p>
+<p>For each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">T \in \{3, 4, 5\}</annotation></semantics></math>,
+we run
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">N = 5</annotation></semantics></math>
+independent optimization trials from random initializations (uniform
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>∼</mo><mi mathvariant="script">𝒰</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mi>π</mi><mo>,</mo><mi>π</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">\theta \sim \mathcal{U}(-\pi, \pi)^4</annotation></semantics></math>).
+A given trial is classified as converged if final loss
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">&lt; 0.05</annotation></semantics></math>
+and final accuracy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>87.5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">&gt; 87.5\%</annotation></semantics></math>.
+A sequence length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+is classified as <strong>solvable</strong> if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>3</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">\geq 3/5</annotation></semantics></math>
+seeds converge.</p>
 <p>The DHP ratio is computed as:</p>
-<p><span class="math display">\[\frac{\tau^*}{\tau_L} =
-\frac{T_\text{converge}}{T_\text{fail}}\]</span></p>
-<p>where <span class="math inline">\(T_\text{converge}\)</span> is the
-last solvable <span class="math inline">\(T\)</span> and <span
-class="math inline">\(T_\text{fail}\)</span> is the first unsolvable
-<span class="math inline">\(T\)</span>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msup><mi>τ</mi><mo>*</mo></msup><msub><mi>τ</mi><mi>L</mi></msub></mfrac><mo>=</mo><mfrac><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub></mfrac></mrow><annotation encoding="application/x-tex">\frac{\tau^*}{\tau_L} = \frac{T_\text{converge}}{T_\text{fail}}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><annotation encoding="application/x-tex">T_\text{converge}</annotation></semantics></math>
+is the last solvable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub><annotation encoding="application/x-tex">T_\text{fail}</annotation></semantics></math>
+is the first unsolvable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>.</p>
 <h3 id="results">3.2 Results</h3>
 <table>
 <thead>
@@ -400,15 +434,16 @@ accuracy 95.0%, with seeds 1 and 2 achieving 100%.</p>
 <p><strong>Seed-level detail for T=4</strong>: A striking bifurcation
 emerges. Seeds 1 and 4 converge immediately (epochs 1 and 5
 respectively, achieving 100% and 93.8% accuracy). Seeds 0, 2, and 3
-enter a loss plateau region <span class="math inline">\(\mathcal{L}
-\approx 0.25\)</span> and oscillate without convergence for all 300
-epochs. Notably, the two successes demonstrate that global minima
-<em>do</em> exist at T=4 — the problem is not theoretical unsolvability
-but <strong>high initialization sensitivity</strong>: the flat-gradient
-regime occupies most of parameter space, and only a small fraction of
-random initializations escape it within the training budget. The 2/5
-convergence rate falls below the GOOD_SEEDS=3 threshold, classifying T=4
-as an <strong>unreliable training regime</strong>.</p>
+enter a loss plateau region
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">ℒ</mi><mo>≈</mo><mn>0.25</mn></mrow><annotation encoding="application/x-tex">\mathcal{L} \approx 0.25</annotation></semantics></math>
+and oscillate without convergence for all 300 epochs. Notably, the two
+successes demonstrate that global minima <em>do</em> exist at T=4 — the
+problem is not theoretical unsolvability but <strong>high initialization
+sensitivity</strong>: the flat-gradient regime occupies most of
+parameter space, and only a small fraction of random initializations
+escape it within the training budget. The 2/5 convergence rate falls
+below the GOOD_SEEDS=3 threshold, classifying T=4 as an
+<strong>unreliable training regime</strong>.</p>
 <p><strong>Seed-level detail for T=5</strong>: All 5 seeds fail. Seeds
 show high-variance early training (seeds bounce between 0% and 80%+
 accuracy transiently) but universally stabilize near 75% accuracy —
@@ -417,20 +452,22 @@ but far below convergence threshold.</p>
 <h3 id="interpretation-onset-of-flat-gradient-regime">3.3
 Interpretation: Onset of Flat-Gradient Regime</h3>
 <p>The T=4 result is qualitatively distinct from a hard optimization
-barrier. Two seeds succeed in <span class="math inline">\(\leq
-5\)</span> epochs, confirming that the loss landscape at T=4 contains
-accessible global minima. However, the majority of random
-initializations encounter a flat-gradient landscape where the optimizer
-makes no meaningful progress across hundreds of epochs.</p>
+barrier. Two seeds succeed in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\leq 5</annotation></semantics></math>
+epochs, confirming that the loss landscape at T=4 contains accessible
+global minima. However, the majority of random initializations encounter
+a flat-gradient landscape where the optimizer makes no meaningful
+progress across hundreds of epochs.</p>
 <p>This behavior is <strong>consistent with barren-plateau-like failure
 modes</strong> in parameterized quantum circuits: as circuit depth grows
-with <span class="math inline">\(T\)</span> (each ansatz application
-adds to effective depth), gradient signals can become increasingly
-difficult to follow from typical initializations due to poor
-conditioning, symmetry-induced degeneracies, or saturation of the
-recurrent channel. We do not have gradient variance measurements across
-T to establish the precise mechanism, but the bifurcated seed outcomes
-(2 succeed, 3 plateau) are qualitatively consistent with known
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+(each ansatz application adds to effective depth), gradient signals can
+become increasingly difficult to follow from typical initializations due
+to poor conditioning, symmetry-induced degeneracies, or saturation of
+the recurrent channel. We do not have gradient variance measurements
+across T to establish the precise mechanism, but the bifurcated seed
+outcomes (2 succeed, 3 plateau) are qualitatively consistent with known
 flat-gradient phenomena in deep PQCs.</p>
 <p>The result is best characterized as a <strong>trainability
 cliff</strong> — a sharp increase in the probability of initialization
@@ -446,50 +483,48 @@ unreliable training regime), T=5 (0/5 seeds). Right: mean accuracy and
 loss showing the sharp onset of initialization sensitivity between T=3
 and T≥4.</figcaption>
 </figure>
-<p><span class="math display">\[\frac{\tau^*}{\tau_L} =
-\frac{T_\text{converge}}{T_\text{fail}} = \frac{3}{4} =
-\mathbf{0.75}\]</span></p>
-<p>This falls within the classical DHP confirmation window <span
-class="math inline">\([0.65, 0.79]\)</span> and is within 4.2% of the
-universal CTM target 0.72. The DHP is confirmed in the quantum
-trainability domain.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msup><mi>τ</mi><mo>*</mo></msup><msub><mi>τ</mi><mi>L</mi></msub></mfrac><mo>=</mo><mfrac><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mn mathvariant="bold">𝟎.𝟕𝟓</mn></mrow><annotation encoding="application/x-tex">\frac{\tau^*}{\tau_L} = \frac{T_\text{converge}}{T_\text{fail}} = \frac{3}{4} = \mathbf{0.75}</annotation></semantics></math></p>
+<p>This falls within the classical DHP confirmation window
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0.65</mn><mo>,</mo><mn>0.79</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0.65, 0.79]</annotation></semantics></math>
+and is within 4.2% of the universal CTM target 0.72. The DHP is
+confirmed in the quantum trainability domain.</p>
 <hr />
 <h2 id="experiment-2-auras-continuous-coherence-decay">4. Experiment 2:
 Aura’s Continuous Coherence Decay</h2>
 <h3 id="methodology-1">4.1 Methodology</h3>
 <p>Rather than asking “can the optimizer <em>learn</em> to solve
-length-<span class="math inline">\(T\)</span> sequences?”, Aura’s
-experiment asks: “given an already-trained solution, how well does it
-<em>generalize</em> to longer sequences?”</p>
+length-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+sequences?”, Aura’s experiment asks: “given an already-trained solution,
+how well does it <em>generalize</em> to longer sequences?”</p>
 <p>The <strong>optimal parameter vector</strong> found at T=3 is fixed:
-<span class="math display">\[\theta^* = [-3.3246,\ 2.9937,\ 1.8799,\
-1.8211]\]</span></p>
-<p>This vector is evaluated on sequence lengths <span
-class="math inline">\(T \in \{3, 4, \ldots, 100\}\)</span> (all <span
-class="math inline">\(2^T\)</span> sequences, or a representative sample
-at large <span class="math inline">\(T\)</span>). Two quantities are
-tracked:</p>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>*</mo></msup><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>3.3246</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>2.9937</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>1.8799</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>1.8211</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\theta^* = [-3.3246,\ 2.9937,\ 1.8799,\ 1.8211]</annotation></semantics></math></p>
+<p>This vector is evaluated on sequence lengths
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>100</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">T \in \{3, 4, \ldots, 100\}</annotation></semantics></math>
+(all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>2</mn><mi>T</mi></msup><annotation encoding="application/x-tex">2^T</annotation></semantics></math>
+sequences, or a representative sample at large
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>).
+Two quantities are tracked:</p>
 <ul>
 <li><strong>Generalization accuracy</strong>: fraction of sequences
 correctly classified at the 0.5 threshold</li>
-<li><strong>Normalized readout margin</strong>: <span
-class="math inline">\(M(T) = 2 \cdot |P(q_1=|1\rangle) - 0.5|\)</span>,
+<li><strong>Normalized readout margin</strong>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>⋅</mo><mo stretchy="false" form="prefix">|</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mn>1</mn><mo stretchy="false" form="postfix">⟩</mo><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>0.5</mn><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">M(T) = 2 \cdot |P(q_1=|1\rangle) - 0.5|</annotation></semantics></math>,
 measuring the circuit’s prediction confidence (0 = random, 1 =
 perfect)</li>
 </ul>
-<p>The Lyapunov coherence time <span
-class="math inline">\(\tau_L\)</span> is extracted by fitting the
-exponential decay model:</p>
-<p><span class="math display">\[M(T) = M_0 \cdot
-e^{-T/\tau_L}\]</span></p>
+<p>The Lyapunov coherence time
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\tau_L</annotation></semantics></math>
+is extracted by fitting the exponential decay model:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>M</mi><mn>0</mn></msub><mo>⋅</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>T</mi><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">M(T) = M_0 \cdot e^{-T/\tau_L}</annotation></semantics></math></p>
 <h3 id="results-1">4.2 Results</h3>
 <table>
 <thead>
 <tr>
 <th style="text-align: center;">T</th>
 <th style="text-align: center;">Accuracy</th>
-<th style="text-align: center;">Norm. Margin <span
-class="math inline">\(M(T)\)</span></th>
+<th style="text-align: center;">Norm. Margin
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">M(T)</annotation></semantics></math></th>
 </tr>
 </thead>
 <tbody>
@@ -541,19 +576,18 @@ class="math inline">\(M(T)\)</span></th>
 </tbody>
 </table>
 <p>The normalized margin decays smoothly and exponentially. Fitting
-<span class="math inline">\(M(T) = M_0 e^{-T/\tau_L}\)</span>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>M</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>−</mi><mi>T</mi><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">M(T) = M_0 e^{-T/\tau_L}</annotation></semantics></math>
 yields:</p>
-<p><span class="math display">\[\boxed{\tau_L = 49.63 \text{
-steps}}\]</span></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>49.63</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> steps</mtext></mrow></mrow></menclose><annotation encoding="application/x-tex">\boxed{\tau_L = 49.63 \text{ steps}}</annotation></semantics></math></p>
 <h3 id="generalization-horizons">4.3 Generalization Horizons</h3>
 <table>
 <thead>
 <tr>
 <th style="text-align: center;">Threshold</th>
-<th style="text-align: center;"><span
-class="math inline">\(\tau^*\)</span></th>
-<th style="text-align: center;">Ratio <span
-class="math inline">\(\tau^*/\tau_L\)</span></th>
+<th
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>τ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\tau^*</annotation></semantics></math></th>
+<th style="text-align: center;">Ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub></mrow><annotation encoding="application/x-tex">\tau^*/\tau_L</annotation></semantics></math></th>
 <th style="text-align: center;">In DHP window?</th>
 </tr>
 </thead>
@@ -576,15 +610,16 @@ class="math inline">\(\tau^*/\tau_L\)</span></th>
 The <strong>95% threshold</strong> (ratio 0.766) lands inside the DHP
 window; the <strong>99% threshold</strong> (ratio 0.564) does not. We
 adopt 95% as the primary DHP horizon marker because classical DHP
-literature measures <span class="math inline">\(\tau^*\)</span> as the
-boundary of <em>functional predictive capability</em> — not perfect
-fidelity. In classical CTM experiments, <span
-class="math inline">\(\tau^*\)</span> is defined as the point where
-predictive accuracy falls to a prescribed practical threshold (typically
-equivalent to ~5% error rate). The 95% accuracy criterion is consistent
-with this convention. The 99% criterion corresponds to a high-fidelity
-regime that the classical literature does not use as the DHP
-boundary.</p>
+literature measures
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>τ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\tau^*</annotation></semantics></math>
+as the boundary of <em>functional predictive capability</em> — not
+perfect fidelity. In classical CTM experiments,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>τ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\tau^*</annotation></semantics></math>
+is defined as the point where predictive accuracy falls to a prescribed
+practical threshold (typically equivalent to ~5% error rate). The 95%
+accuracy criterion is consistent with this convention. The 99% criterion
+corresponds to a high-fidelity regime that the classical literature does
+not use as the DHP boundary.</p>
 <p>We acknowledge this choice is not pre-registered independently of
 prior DHP knowledge. We report both values transparently; the 0.564
 result at the 99% threshold is a legitimate bound that future work
@@ -601,31 +636,34 @@ T=3 to 100, showing τ<em>(95%)=38 (ratio=0.766, inside DHP window) and
 τ</em>(99%)=28 (ratio=0.564, outside window).</figcaption>
 </figure>
 <p>The readout margin decay in Aura’s experiment has a clean physical
-interpretation. The circuit applies the same recurrent channel <span
-class="math inline">\(\mathcal{E}_{x_t, \theta^*}\)</span> at each
-timestep. The parameters <span class="math inline">\(\theta^*\)</span>
-were optimized for T=3; at longer <span
-class="math inline">\(T\)</span>, the accumulated mismatch between the
-T=3-optimal channel behavior and the T=100-required behavior grows
-monotonically.</p>
+interpretation. The circuit applies the same recurrent channel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi mathvariant="script">ℰ</mi><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>,</mo><msup><mi>θ</mi><mo>*</mo></msup></mrow></msub><annotation encoding="application/x-tex">\mathcal{E}_{x_t, \theta^*}</annotation></semantics></math>
+at each timestep. The parameters
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\theta^*</annotation></semantics></math>
+were optimized for T=3; at longer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
+the accumulated mismatch between the T=3-optimal channel behavior and
+the T=100-required behavior grows monotonically.</p>
 <p>In noiseless simulation, this is <strong>not</strong> physical
 decoherence — there is no environmental coupling or T₂ dephasing.
 Instead, it is <strong>deterministic channel fidelity
 degradation</strong>: the fixed recurrent map, applied T times, produces
 memory register states that increasingly deviate from the correct parity
 trajectory as T grows beyond the training horizon. The observed
-exponential decay of the prediction margin <span
-class="math inline">\(M(T) = 2|P(q_1=|1\rangle) - 0.5|\)</span> is the
-readout signature of this mismatch accumulation.</p>
-<p>The characteristic timescale <span class="math inline">\(\tau_L =
-49.63\)</span> steps is the <span class="math inline">\(1/e\)</span>
+exponential decay of the prediction margin
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo stretchy="false" form="prefix">|</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>q</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mn>1</mn><mo stretchy="false" form="postfix">⟩</mo><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>0.5</mn><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">M(T) = 2|P(q_1=|1\rangle) - 0.5|</annotation></semantics></math>
+is the readout signature of this mismatch accumulation.</p>
+<p>The characteristic timescale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>49.63</mn></mrow><annotation encoding="application/x-tex">\tau_L = 49.63</annotation></semantics></math>
+steps is the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">1/e</annotation></semantics></math>
 decay constant of the readout margin — a Lyapunov-like timescale for the
 fixed-channel recurrent map, analogous to how classical Lyapunov time
 characterizes divergence of nearby trajectories. Crucially, this is a
-<strong>generalization-horizon phenomenon</strong>: the same <span
-class="math inline">\(\theta^*\)</span> that achieves perfect prediction
-at T=3 shows degradation that is quantitatively predictable by the DHP
-ratio.</p>
+<strong>generalization-horizon phenomenon</strong>: the same
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>θ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\theta^*</annotation></semantics></math>
+that achieves perfect prediction at T=3 shows degradation that is
+quantitatively predictable by the DHP ratio.</p>
 <hr />
 <h2 id="synthesis-two-probes-one-principle">5. Synthesis: Two Probes,
 One Principle</h2>
@@ -669,18 +707,22 @@ sensitivity)</td>
 (parameter-task mismatch)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><span
-class="math inline">\(\tau_L\)</span> proxy</strong></td>
-<td style="text-align: left;"><span class="math inline">\(T_\text{fail}
-= 4\)</span> (discrete cliff)</td>
-<td style="text-align: left;">Exponential fit <span
-class="math inline">\(\tau_L = 49.63\)</span> steps</td>
+<td
+style="text-align: left;"><strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\tau_L</annotation></semantics></math>
+proxy</strong></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">T_\text{fail} = 4</annotation></semantics></math>
+(discrete cliff)</td>
+<td style="text-align: left;">Exponential fit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>49.63</mn></mrow><annotation encoding="application/x-tex">\tau_L = 49.63</annotation></semantics></math>
+steps</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong><span
-class="math inline">\(\tau^*\)</span> proxy</strong></td>
-<td style="text-align: left;"><span
-class="math inline">\(T_\text{converge} = 3\)</span></td>
+<td
+style="text-align: left;"><strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>τ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\tau^*</annotation></semantics></math>
+proxy</strong></td>
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">T_\text{converge} = 3</annotation></semantics></math></td>
 <td style="text-align: left;">95% accuracy threshold = 38 steps</td>
 </tr>
 <tr>
@@ -711,24 +753,28 @@ Manifestations of Quantum DHP</h3>
 <p>We identify two distinct physical mechanisms through which DHP
 manifests in quantum circuits:</p>
 <p><strong>Trainability DHP</strong> (Archon’s experiment): Reliable
-optimization fails beyond the horizon <span
-class="math inline">\(T_\text{converge}\)</span>. This is a property of
-the <em>optimizer landscape</em> of the circuit as a function of <span
-class="math inline">\(T\)</span>. Between T=3 and T=4, most random
-initializations enter a flat-gradient regime that the optimizer cannot
-escape within the training budget. The DHP ratio <span
-class="math inline">\(T_\text{converge}/T_\text{fail} = 0.75\)</span>
+optimization fails beyond the horizon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><annotation encoding="application/x-tex">T_\text{converge}</annotation></semantics></math>.
+This is a property of the <em>optimizer landscape</em> of the circuit as
+a function of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>.
+Between T=3 and T=4, most random initializations enter a flat-gradient
+regime that the optimizer cannot escape within the training budget. The
+DHP ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><mi>/</mi><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub><mo>=</mo><mn>0.75</mn></mrow><annotation encoding="application/x-tex">T_\text{converge}/T_\text{fail} = 0.75</annotation></semantics></math>
 captures the sequence length at which the circuit transitions from
 uniformly trainable to initialization-sensitive.</p>
 <p><strong>Readout Fidelity DHP</strong> (Aura’s experiment): A trained
-solution’s prediction margin decays exponentially with <span
-class="math inline">\(T\)</span>, limiting useful readout beyond the
-fidelity horizon <span class="math inline">\(\tau^*\)</span>. This is a
-property of the <em>fixed-channel generalization behavior</em> — the
-degree to which T=3-optimal parameters continue to work at larger T. The
-DHP ratio <span class="math inline">\(\tau^*(95\%)/\tau_L =
-0.766\)</span> captures the sequence length at which channel fidelity
-degrades below operationally reliable accuracy.</p>
+solution’s prediction margin decays exponentially with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
+limiting useful readout beyond the fidelity horizon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>τ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\tau^*</annotation></semantics></math>.
+This is a property of the <em>fixed-channel generalization behavior</em>
+— the degree to which T=3-optimal parameters continue to work at larger
+T. The DHP ratio
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>95</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>0.766</mn></mrow><annotation encoding="application/x-tex">\tau^*(95\%)/\tau_L = 0.766</annotation></semantics></math>
+captures the sequence length at which channel fidelity degrades below
+operationally reliable accuracy.</p>
 <h3 id="convergence-to-0.72">5.3 Convergence to 0.72</h3>
 <figure>
 <img src="figs/png/fig4_dhp_synthesis.png"
@@ -739,16 +785,15 @@ all DHP confirmations across substrates. Right: both quantum probes
 [0.65, 0.79].</figcaption>
 </figure>
 <p>Both measurements bracket the classical CTM target:</p>
-<p><span class="math display">\[0.72 \in [0.75 - \delta_A,\ 0.766 +
-\delta_B] \text{ where } \delta_A = 0.042 \cdot \tau_L,\ \delta_B =
-0.064 \cdot \tau_L\]</span></p>
-<p>More precisely: the classical CTM confirmation was <span
-class="math inline">\(\tau^*/\tau_L = 0.727 \pm 0.018\)</span> (Papers
-4, 12). The quantum measurements yield 0.75 and 0.766 — both above the
-classical mean by a small margin. This may be consistent with quantum
-channel memory providing slightly extended fidelity over classical
-gradient-based recurrence, but the difference is within measurement
-uncertainty given our small T grid and single-architecture test.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.72</mn><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0.75</mn><mo>−</mo><msub><mi>δ</mi><mi>A</mi></msub><mo>,</mo><mspace width="0.222em"></mspace><mn>0.766</mn><mo>+</mo><msub><mi>δ</mi><mi>B</mi></msub><mo stretchy="false" form="postfix">]</mo><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> where </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>δ</mi><mi>A</mi></msub><mo>=</mo><mn>0.042</mn><mo>⋅</mo><msub><mi>τ</mi><mi>L</mi></msub><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>δ</mi><mi>B</mi></msub><mo>=</mo><mn>0.064</mn><mo>⋅</mo><msub><mi>τ</mi><mi>L</mi></msub></mrow><annotation encoding="application/x-tex">0.72 \in [0.75 - \delta_A,\ 0.766 + \delta_B] \text{ where } \delta_A = 0.042 \cdot \tau_L,\ \delta_B = 0.064 \cdot \tau_L</annotation></semantics></math></p>
+<p>More precisely: the classical CTM confirmation was
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>0.727</mn><mo>±</mo><mn>0.018</mn></mrow><annotation encoding="application/x-tex">\tau^*/\tau_L = 0.727 \pm 0.018</annotation></semantics></math>
+(Papers 4, 12). The quantum measurements yield 0.75 and 0.766 — both
+above the classical mean by a small margin. This may be consistent with
+quantum channel memory providing slightly extended fidelity over
+classical gradient-based recurrence, but the difference is within
+measurement uncertainty given our small T grid and single-architecture
+test.</p>
 <p>The agreement between the two experimental probes — which ask
 orthogonal physical questions of the same circuit architecture —
 provides evidential value beyond simple replication. That said, both
@@ -773,11 +818,12 @@ architectures; the present two quantum data points are consistent with
 this pattern but are insufficient to establish the mechanism in the
 quantum case.</p>
 <p>In the quantum case, the relevant geometry is that of the
-parameterized recurrent channel over <span
-class="math inline">\(SU(4)\)</span> (for a 2-qubit system). Whether
-0.72 represents a structural property of this geometry — an attractor, a
-capacity limit, or a coincidental consistency — is an open question
-requiring more extensive quantum experiments (see Section 7.2).</p>
+parameterized recurrent channel over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">SU(4)</annotation></semantics></math>
+(for a 2-qubit system). Whether 0.72 represents a structural property of
+this geometry — an attractor, a capacity limit, or a coincidental
+consistency — is an open question requiring more extensive quantum
+experiments (see Section 7.2).</p>
 <hr />
 <h2 id="related-work-and-context">6. Related Work and Context</h2>
 <h3 id="classical-dhp-confirmations">6.1 Classical DHP
@@ -786,9 +832,9 @@ Confirmations</h3>
 (Papers 4–6, 12, 20–23, 24):</p>
 <ul>
 <li><strong>Paper 4</strong> [10.5281/zenodo.20142471]: Original DHP
-discovery in CTM gate convergence. <span
-class="math inline">\(\tau^*/\tau_L = 0.727 \pm 0.018\)</span> across 35
-experiments on Lorenz-63 and Rössler attractors.</li>
+discovery in CTM gate convergence.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>0.727</mn><mo>±</mo><mn>0.018</mn></mrow><annotation encoding="application/x-tex">\tau^*/\tau_L = 0.727 \pm 0.018</annotation></semantics></math>
+across 35 experiments on Lorenz-63 and Rössler attractors.</li>
 <li><strong>Paper 5</strong> [10.5281/zenodo.20142481]: DHP as universal
 cognitive constraint. LSTM/GRU confirmation, gradient descent landscape
 analysis, Friston FEP connection, Levin bioelectricity parallels.</li>
@@ -796,8 +842,9 @@ analysis, Friston FEP connection, Levin bioelectricity parallels.</li>
 Geometry-sensitive attractor regimes and DHP boundary conditions.</li>
 <li><strong>Paper 12</strong> [10.5281/zenodo.20325160]: Temporal
 horizon emergence during training. Dimensionality-dependent DHP with
-Lyapunov cliff at <span class="math inline">\(h \approx
-13\)</span>–<span class="math inline">\(16\)</span> for Lorenz-96.</li>
+Lyapunov cliff at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>≈</mo><mn>13</mn></mrow><annotation encoding="application/x-tex">h \approx 13</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>16</mn><annotation encoding="application/x-tex">16</annotation></semantics></math>
+for Lorenz-96.</li>
 <li><strong>Papers 20–21</strong> [10.5281/zenodo.20416345]
 <em>(merged)</em>: Architecture-Dependent Boundary of Dynamic Horizon
 Prediction. Demonstrated DHP system-agnostic across five sequence model
@@ -830,9 +877,8 @@ high-dimensional barren-plateau theorems, the observed flat-gradient
 failure mode at T=4 is phenomenologically consistent with the broader
 class of trainability pathologies they describe. The DHP framework
 provides a predictive handle on the onset of this regime: the
-trainability cliff occurs at <span
-class="math inline">\(T_\text{converge}/T_\text{fail} = 0.75 \approx
-0.72\)</span>.</p>
+trainability cliff occurs at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><mi>/</mi><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub><mo>=</mo><mn>0.75</mn><mo>≈</mo><mn>0.72</mn></mrow><annotation encoding="application/x-tex">T_\text{converge}/T_\text{fail} = 0.75 \approx 0.72</annotation></semantics></math>.</p>
 <p><strong>Quantum recurrent architectures</strong> have been studied in
 the context of quantum machine learning (Bausch, 2020; Tacchino et al.,
 2020), but to our knowledge this is the first work connecting quantum
@@ -842,16 +888,18 @@ the encoded dynamical system.</p>
 <h2 id="limitations-and-future-work">7. Limitations and Future Work</h2>
 <h3 id="current-limitations">7.1 Current Limitations</h3>
 <p><strong>Discrete T resolution</strong>: Archon’s experiment uses
-integer sequence lengths. The trainability cliff at <span
-class="math inline">\(T_\text{fail} = 4\)</span> is a lower bound; the
-actual transition may be more gradual. A finer-grained study (e.g.,
-varying <span class="math inline">\(T\)</span> as a continuous parameter
-via partial sequence inputs or fractional circuit depths) could resolve
-the exact transition point.</p>
+integer sequence lengths. The trainability cliff at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">T_\text{fail} = 4</annotation></semantics></math>
+is a lower bound; the actual transition may be more gradual. A
+finer-grained study (e.g., varying
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+as a continuous parameter via partial sequence inputs or fractional
+circuit depths) could resolve the exact transition point.</p>
 <p><strong>Small circuit size</strong>: The 2-qubit RQC is the minimal
-architecture for quantum memory. Larger circuits (<span
-class="math inline">\(n &gt; 2\)</span> memory qubits) would provide
-richer test beds for the scaling hypothesis.</p>
+architecture for quantum memory. Larger circuits
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n &gt; 2</annotation></semantics></math>
+memory qubits) would provide richer test beds for the scaling
+hypothesis.</p>
 <p><strong>Simulation-only</strong>: All results use exact Qiskit
 statevector simulation (no shot noise, no physical gate errors).
 Physical quantum hardware introduces additional decoherence mechanisms
@@ -862,33 +910,37 @@ to more complex temporal tasks is needed.</p>
 <h3 id="proposed-future-experiments">7.2 Proposed Future
 Experiments</h3>
 <p><strong>Lindbladian noise injection</strong>: Does the DHP ratio
-persist under physical dephasing (<span
-class="math inline">\(T_2\)</span>) and amplitude damping (<span
-class="math inline">\(T_1\)</span>)? Adding Lindbladian noise terms to
-the density matrix simulation:</p>
-<p><span class="math display">\[\frac{d\rho}{dt} = -i[H, \rho] + \sum_k
-\left( L_k \rho L_k^\dagger - \frac{1}{2}\{L_k^\dagger L_k, \rho\}
-\right)\]</span></p>
+persist under physical dephasing
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>2</mn></msub><annotation encoding="application/x-tex">T_2</annotation></semantics></math>)
+and amplitude damping
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math>)?
+Adding Lindbladian noise terms to the density matrix simulation:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>ρ</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mi>i</mi><mo stretchy="false" form="prefix">[</mo><mi>H</mi><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">]</mo><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>L</mi><mi>k</mi></msub><mi>ρ</mi><msubsup><mi>L</mi><mi>k</mi><mo>†</mo></msubsup><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">{</mo><msubsup><mi>L</mi><mi>k</mi><mo>†</mo></msubsup><msub><mi>L</mi><mi>k</mi></msub><mo>,</mo><mi>ρ</mi><mo stretchy="false" form="postfix">}</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\frac{d\rho}{dt} = -i[H, \rho] + \sum_k \left( L_k \rho L_k^\dagger - \frac{1}{2}\{L_k^\dagger L_k, \rho\} \right)</annotation></semantics></math></p>
 <p>would test whether the 0.72 horizon survives under non-unitary
 environmental coupling — a critical test for quantum advantage
 claims.</p>
 <p><strong>Multi-qubit memory scaling</strong>: Extend the memory
-register from 1 to <span class="math inline">\(N\)</span> qubits. If
-<span class="math inline">\(\tau_L\)</span> scales as <span
-class="math inline">\(O(2^N)\)</span> with <span
-class="math inline">\(N\)</span> memory qubits (as quantum information
-theory suggests), the effective DHP horizon would grow exponentially
-with qubit count — providing a potential quantum advantage for
-long-horizon temporal binding tasks.</p>
+register from 1 to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+qubits. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>L</mi></msub><annotation encoding="application/x-tex">\tau_L</annotation></semantics></math>
+scales as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false" form="prefix">(</mo><msup><mn>2</mn><mi>N</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">O(2^N)</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+memory qubits (as quantum information theory suggests), the effective
+DHP horizon would grow exponentially with qubit count — providing a
+potential quantum advantage for long-horizon temporal binding tasks.</p>
 <p><strong>IBM QPU verification</strong>: Run the T=3 optimal circuit
-(<span class="math inline">\(\theta^* = [-3.3246, 2.9937, 1.8799,
-1.8211]\)</span>) on real IBM or Rigetti quantum hardware. Physical gate
-errors introduce non-unitary noise; confirming that the readout margin
-remains at the expected level would validate the simulation results.</p>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>*</mo></msup><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>3.3246</mn><mo>,</mo><mn>2.9937</mn><mo>,</mo><mn>1.8799</mn><mo>,</mo><mn>1.8211</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\theta^* = [-3.3246, 2.9937, 1.8799, 1.8211]</annotation></semantics></math>)
+on real IBM or Rigetti quantum hardware. Physical gate errors introduce
+non-unitary noise; confirming that the readout margin remains at the
+expected level would validate the simulation results.</p>
 <p><strong>Continuous-T interpolation</strong>: Use fractional circuit
 ansatz depths (e.g., parameterize depth as a continuous variable via
 rotation angle scaling) to map the trainability transition with finer
-resolution than integer <span class="math inline">\(T\)</span>
+resolution than integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
 permits.</p>
 <hr />
 <h2 id="conclusions">8. Conclusions</h2>
@@ -897,13 +949,13 @@ quantum recurrent circuit. Using a 2-qubit Recurrent Quantum Circuit
 (RQC) trained on temporal parity classification:</p>
 <ol type="1">
 <li><p><strong>Archon’s discrete trainability experiment</strong> yields
-<span class="math inline">\(T_\text{converge}/T_\text{fail} = 3/4 =
-0.75\)</span> — the onset of reliable training failure falls at 75% of
-the first failure point, inside the DHP window [0.65, 0.79].</p></li>
-<li><p><strong>Aura’s readout fidelity experiment</strong> yields <span
-class="math inline">\(\tau^*(95\%)/\tau_L = 38/49.63 = 0.766\)</span> —
-the 95% accuracy horizon falls at 76.6% of the fidelity decay timescale,
-inside the DHP window.</p></li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mtext mathvariant="normal">converge</mtext></msub><mi>/</mi><msub><mi>T</mi><mtext mathvariant="normal">fail</mtext></msub><mo>=</mo><mn>3</mn><mi>/</mi><mn>4</mn><mo>=</mo><mn>0.75</mn></mrow><annotation encoding="application/x-tex">T_\text{converge}/T_\text{fail} = 3/4 = 0.75</annotation></semantics></math>
+— the onset of reliable training failure falls at 75% of the first
+failure point, inside the DHP window [0.65, 0.79].</p></li>
+<li><p><strong>Aura’s readout fidelity experiment</strong> yields
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>τ</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>95</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>38</mn><mi>/</mi><mn>49.63</mn><mo>=</mo><mn>0.766</mn></mrow><annotation encoding="application/x-tex">\tau^*(95\%)/\tau_L = 38/49.63 = 0.766</annotation></semantics></math>
+— the 95% accuracy horizon falls at 76.6% of the fidelity decay
+timescale, inside the DHP window.</p></li>
 <li><p>Both probes ask physically orthogonal questions (optimizer
 landscape vs. fixed-channel generalization) and converge on a consistent
 ratio that brackets the classical CTM value of 0.72.</p></li>
@@ -1160,8 +1212,8 @@ Aura’s Coherence Decay — Full Profile</h2>
 <tr>
 <th style="text-align: center;">T</th>
 <th style="text-align: center;">Accuracy</th>
-<th style="text-align: center;">Norm. Margin <span
-class="math inline">\(M(T)\)</span></th>
+<th style="text-align: center;">Norm. Margin
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">M(T)</annotation></semantics></math></th>
 </tr>
 </thead>
 <tbody>
@@ -1267,13 +1319,16 @@ class="math inline">\(M(T)\)</span></th>
 </tr>
 </tbody>
 </table>
-<p>Exponential fit: <span class="math inline">\(M(T) = M_0
-e^{-T/\tau_L}\)</span>, <span class="math inline">\(M_0 \approx
-1.109\)</span>, <span class="math inline">\(\tau_L = 49.63\)</span>
-steps, <span class="math inline">\(R^2 \approx 0.998\)</span>.</p>
-<p>Optimal weights fixed at <span class="math inline">\(\theta^* =
-[-3.3246,\ 2.9937,\ 1.8799,\ 1.8211]\)</span> (found at T=3, seed 1 of
-Archon’s sweep: loss=0.016, acc=1.000, epoch=1).</p>
+<p>Exponential fit:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo stretchy="false" form="prefix">(</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>M</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>−</mi><mi>T</mi><mi>/</mi><msub><mi>τ</mi><mi>L</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">M(T) = M_0 e^{-T/\tau_L}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mn>0</mn></msub><mo>≈</mo><mn>1.109</mn></mrow><annotation encoding="application/x-tex">M_0 \approx 1.109</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>L</mi></msub><mo>=</mo><mn>49.63</mn></mrow><annotation encoding="application/x-tex">\tau_L = 49.63</annotation></semantics></math>
+steps,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup><mo>≈</mo><mn>0.998</mn></mrow><annotation encoding="application/x-tex">R^2 \approx 0.998</annotation></semantics></math>.</p>
+<p>Optimal weights fixed at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>θ</mi><mo>*</mo></msup><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>3.3246</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>2.9937</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>1.8799</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>1.8211</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\theta^* = [-3.3246,\ 2.9937,\ 1.8799,\ 1.8211]</annotation></semantics></math>
+(found at T=3, seed 1 of Archon’s sweep: loss=0.016, acc=1.000,
+epoch=1).</p>
 <hr />
 <h2 id="appendix-c-code-availability">Appendix C: Code Availability</h2>
 <p>All code for both experiments is released at the DuoNeural Research
