@@ -2,8 +2,6 @@
 
 **Archon, Aura, Jesse Caldwell**  
 *DuoNeural — 2026-05-29*  
-*DRAFT v4.8 — §5.4 T1 Amplitude Damping Sweep added: 4/6 flatline across γ=0.05–0.90; sign-preservation robust at γ=0.90 (1% coherence); T1 NOT a landscape regularizer (no 6/6 escape, partial-parity attractor persists). §4.2 T1 caveat updated to reflect empirical findings. Abstract updated with optimizer + T1 results. v4.7: §5.3 optimizer ablation (signSGD=Adam=6/6 >> SGD=2/6). v4.6: Aura deep red-team applied. NOTE: DRAFT header/footer artifacts, local file paths → scrub for Zenodo clean version. Pending: 4096-shot QPU rerun (§5.1 update, optional). READY FOR ZENODO UPLOAD (with or without QPU rerun).*
-
 ---
 
 ## Abstract
@@ -24,7 +22,7 @@ We conclude that **DHP is a classical constraint**, not a universal quantum one.
 
 ### 1.1 The Dynamical Horizon Principle
 
-The Dynamical Horizon Principle (DHP) [1,2,3,4] states that recurrent systems trained on temporal tasks self-organize to a memory timescale τ* satisfying:
+The Dynamical Horizon Principle (DHP) [1] states that recurrent systems trained on temporal tasks self-organize to a memory timescale τ* satisfying:
 
 ```
 T_converge / τ* ≈ 0.72
@@ -32,11 +30,11 @@ T_converge / τ* ≈ 0.72
 
 where T_converge is the longest task horizon that training can successfully solve. This 0.72 ratio has been confirmed empirically across:
 - Classical chaotic systems (Lorenz, Rössler) trained with CTM architecture [1]
-- SSM architectures (RWKV-7, LSTM, Mamba) analyzed via decay coefficients [3]
-- 2-qubit quantum circuits with Lindblad noise [Paper 25, ratios 0.714–0.727]
-- Biological and neural systems [Paper 5]
+- SSM architectures (RWKV-7, LSTM, Mamba) analyzed via decay coefficients [1]
+- 2-qubit quantum circuits with Lindblad noise [5, ratios 0.714–0.727]
+- Biological and neural systems [1]
 
-The consistency of the 0.72 ratio across these systems raises a fundamental question: **what is the necessary condition for this empirical limit?** Is it a property of gradient descent mechanics, of the task structure, or of information-theoretic constraints? (Note: the DHP is an empirically observed characterization of gradient-decay dynamics in dissipative recurrent systems [1–4], closely related to the classical vanishing gradient problem [15]; it is presented here as an observed bound rather than a proved universal theorem, and our contribution is to identify a structured task class that evades it.)
+The consistency of the 0.72 ratio across these systems raises a fundamental question: **what is the necessary condition for this empirical limit?** Is it a property of gradient descent mechanics, of the task structure, or of information-theoretic constraints? (Note: the DHP is an empirically observed characterization of gradient-decay dynamics in dissipative recurrent systems [1], with confirmed quantum instances [5]; it is presented here as an observed bound rather than a proved universal theorem, closely related to the classical vanishing gradient problem [15], and our contribution is to identify a structured task class that evades it.)
 
 ### 1.2 The Dissipation Hypothesis
 
@@ -133,6 +131,8 @@ Note: p = 0.75 is the **sign-zero boundary** where the channel contracts Bloch v
 
 Training the noiseless encode-after circuit on XOR tasks of varying horizon T:
 
+**Table 1: Noiseless Encode-After Circuit — XOR Task Sweep (v3d, 6 seeds)**
+
 | T_max | Task      | Convergence | τ_Liouville | T_conv/τ |
 |-------|-----------|-------------|-------------|----------|
 | 2     | 1-bit XOR | 5/6         | 2.223       | 0.450    |
@@ -156,6 +156,8 @@ This quantum coherence shortcut allows the circuit to solve tasks far beyond its
 
 Adding depolarizing noise to q0 (the scratch qubit that is reset after every step) at rates p ∈ {0.05, 0.10, 0.20, 0.30}:
 
+**Table 2: Scratch-Qubit Null Result — Depolarizing on q0 (v3e, 4 seeds per cell)**
+
 | p    | τ_L  | T=2 | T=3 | T=4 | T=5 | T=6 | T=8 | T=10 |
 |------|------|-----|-----|-----|-----|-----|-----|------|
 | 0.05 | 14.5 | 1/4 | 4/4 | 0/4 | 4/4 | 0/4 | 0/4 | 0/4  |
@@ -175,14 +177,14 @@ The results are **zero-variance across noise levels**. Every (T, p) cell is iden
 
 Applying depolarizing noise to q1 (the memory register) introduces τ_L = -1/log(1-4p/3). We ran four targeted DHP boundary tests (12 seeds each) plus the comprehensive v3f sweep.
 
-**Table 2: DHP Key Boundary Tests (12 seeds, v3f-style training)**
+**Table 3: DHP Key Boundary Tests (12 seeds, v3f-style training)**
 
-| Test | T_conv | p    | τ_L  | T_conv/τ_L | DHP Predicts | Observed    | Result      |
-|------|--------|------|------|-----------|--------------|-------------|-------------|
-| T=3  | 2      | 0.20 | 3.22 | **0.62**  | CONVERGE     | 12/12 (1.00) | ✓ MATCH     |
-| T=5  | 4      | 0.10 | 6.99 | **0.57**  | CONVERGE     | 12/12 (1.00) | ✓ MATCH     |
-| T=5  | 4      | 0.20 | 3.22 | **1.24**  | FAIL         | 12/12 (1.00) | ✗ MISMATCH  |
-| T=3  | 2      | 0.30 | 1.96 | **1.02**  | FAIL         | 12/12 (1.00) | ✗ MISMATCH  |
+| Task | T_conv | p    | τ_L  | T_conv/τ_L | DHP Predicts | Observed | Verdict |
+|------|--------|------|------|------------|--------------|----------|---------|
+| T=3  | 2      | 0.20 | 3.22 | 0.62       | Converge     | 12/12 ✓  | Confirmed |
+| T=5  | 4      | 0.10 | 6.99 | 0.57       | Converge     | 12/12 ✓  | Confirmed |
+| T=5  | 4      | 0.20 | 3.22 | 1.24       | Fail         | 12/12 ✓  | **Violated** |
+| T=3  | 2      | 0.30 | 1.96 | 1.02       | Fail         | 12/12 ✓  | **Violated** |
 
 **Finding**: DHP predictions are *confirmed* below the classical threshold (T_conv/τ_L < 0.72) but *violated* above it. The circuit achieves perfect accuracy (acc=1.00, 12/12 seeds) at T_conv/τ_L = 1.24 and 1.02 — conditions where classical DHP predicts failure.
 
@@ -209,6 +211,8 @@ Note: T=4 and T=6 failures at p=0.05 are *architecture-limited* (odd-bit XOR tas
 
 **The parity trap is asymptotically immune to decoherence for T_conv=2 (T=3)**. Extended threshold sweeps to p approaching 0.75 reveal:
 
+**Table 4: T=3 Parity Trap Threshold Sweep (T_conv=2, 6 seeds, Adam)**
+
 | p | τ_L | T_conv/τ_L | Coherence | Conv |
 |---|-----|-----------|-----------|------|
 | 0.30 | 1.96 | **1.02** | 36.0% | 6/6 ✓ |
@@ -224,7 +228,7 @@ At p=0.74, q1 has only **0.018% of original coherence** yet training converges p
 
 **Theoretical maximum**: τ_L → 0 as p → 0.75⁻, so T_conv/τ_L → ∞. The parity trap can achieve UNBOUNDED T_conv/τ_L ratio for T_conv=2 (T=3), limited only by Adam's gradient detection floor near the sign-zero boundary p=0.75.
 
-**T=5 (T_conv=4) threshold sweep (COMPLETE)**:
+**Table 5: T=5 Parity Trap Threshold Sweep (T_conv=4, 5–6 seeds, Adam)**
 
 | p | τ_L | T_conv/τ_L | Coherence | Conv | Quantum advantage |
 |---|-----|-----------|-----------|------|-----------------|
@@ -320,7 +324,7 @@ where m̂_t and v̂_t are the bias-corrected first and second moments. For **dir
 
 For the parity trap:
 - g_signal ∝ (1-4p/3)^T_conv × (optimal margin). At p=0.70 for T=5: g_signal ≈ (0.067)^4 × margin ≈ 1.8×10⁻⁵ × margin.
-- Adam epsilon ε = 1e-8. So g_signal >> ε for all tested noise levels.
+- Adam ε = 1e-8. Gradient signal g_signal >> ε for all tested noise levels.
 - All training samples agree on the parity bit's gradient direction → directionally consistent gradients → Adam updates remain effective.
 
 This is related to the known robustness of sign-based optimizers for tasks with consistent gradient direction [7], but is here enforced physically by the Bloch vector's sign-preservation under Pauli depolarizing.
@@ -391,7 +395,7 @@ All 8 possible 3-bit input sequences were evaluated at a high shot count ($N = 4
 
 The physical readout denominator was $1 - \eta_0 - \eta_1 = 0.9194$. We inverted the confusion matrix to calculate the mitigated probabilities $P_{\text{mitigated}} = \text{clip}((P_{\text{meas}} - \eta_0)/(1 - \eta_0 - \eta_1), 0, 1)$, and propagated standard errors as $\sigma_{\text{mitigated}} = \sigma_{\text{raw}} / (1 - \eta_0 - \eta_1)$, where $\sigma_{\text{raw}} = \sqrt{P_{\text{meas}}(1-P_{\text{meas}})/4096}$. The memory qubit ($q_3$) readout follows the hardware's little-endian bit ordering: $P(q_3=1)$ is extracted from the final bit of the returned 4-bit state string (`state[-1]`).
 
-**Table 3: Physical QPU Results with Readout Mitigation (Rigetti, 4096 shots/circuit)**
+**Table 6: Physical QPU Results with Readout Mitigation (Rigetti QPU via BlueQubit, 4096 shots/circuit)**
 
 | Sequence | XOR Target | Raw $P(q_3=1)$ | Raw $\langle Z \rangle$ | Raw Std Err ($\sigma$) | Mit $P(q_3=1)$ | Mit $\langle Z \rangle$ | Mit Std Err ($\sigma$) | Correct |
 |----------|------------|----------------|-------------------------|------------------------|----------------|-------------------------|------------------------|---------|
@@ -416,7 +420,7 @@ The physical readout denominator was $1 - \eta_0 - \eta_1 = 0.9194$. We inverted
 
 The main results claim the 1/6 failure rate for T=5 arises from initialization-topology (a seed landing outside the parity attractor basin) and is noise-independent. To test this rigorously, we ran an independent verification experiment (`topo_verify.py`) using the exact initialization seeds from the v3f sweep (generated as `rng_init = np.random.default_rng(0)`, 6 seeds total) and tested convergence at two extremes: p=0.70 (the highest in the main sweep) and p=0.00 (noiseless).
 
-**Verification results**:
+**Table 7: Topological Verification Results (topo_verify.py, 6 seeds, Adam)**
 
 | Noise Level | Convergence | Seed Outcomes |
 |-------------|-------------|---------------|
@@ -427,7 +431,7 @@ The main results claim the 1/6 failure rate for T=5 arises from initialization-t
 
 **Finding 2 — Noise acts as a physical landscape regularizer**: At p=0.00 (noiseless), only 4/6 seeds converge. Seeds 2 and 3 plateau at acc=0.7207 (= 369/512 over a random 512-sample evaluation set) — substantially above the majority-class baseline of ≈0.508. This plateau is consistent with a **partial-parity sub-solution** (learning a lower-order XOR rule rather than the full 4-bit parity), though the exact Boolean function learned by these seeds is not identified by accuracy alone. At p=0.70, the Bloch sphere contraction erases this partial attractor, routing all seeds to the global parity solution.
 
-**Revised convergence picture for T=5**:
+**Table 8: Revised T=5 Convergence Picture by Noise Range**
 
 | Noise Range | Convergence | Dominant Attractor for Failing Seeds |
 |-------------|-------------|--------------------------------------|
@@ -444,7 +448,7 @@ Section 4.2 claims that Adam's ε-normalization enables convergence by preservin
 
 **Experimental setup**: Three optimizers, fixed learning rate lr=0.05, 6 seeds (`rng_init = np.random.default_rng(0)`, same as v3f and topo_verify), T=5, p=0.70. Convergence criterion: acc ≥ 0.95. Adam: standard (β₁=0.9, β₂=0.999, ε=1e-8). SignSGD [7]: θ ← θ − lr·sign(g). SGD: θ ← θ − lr·g (no momentum, no normalization).
 
-**Results**:
+**Table 9: Optimizer Ablation Results (T=5, p=0.70, 6 seeds, 600-step budget)**
 
 | Optimizer | Convergence | Convergence Step | Notes |
 |-----------|-------------|-----------------|-------|
@@ -466,7 +470,7 @@ The sign-preservation theorem (Section 4.1) guarantees that gradient direction i
 
 We replace the Pauli depolarizing channel with pure amplitude damping (T1 relaxation), using Kraus operators K₀ = [[1,0],[0,√(1-γ)]] ⊗ I and K₁ = [[0,√γ],[0,0]] ⊗ I applied to q1 after each step. Unlike Pauli depolarizing, amplitude damping is asymmetric: it contracts the Bloch sphere toward |0⟩, introducing a persistent bias ⟨Z⟩_{t+1} ≥ (1-γ)^(1/2) ⟨Z⟩_t rather than an isotropic contraction. We sweep γ ∈ {0.05, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90} at T=5, 6 seeds, Adam optimizer (same configuration as §5.3), and compare to the Pauli reference at p=0.00 and p=0.70.
 
-**Results**:
+**Table 10: T1 Amplitude Damping Sweep (T=5, 6 seeds, Adam, vs. Pauli reference)**
 
 | Noise | τ_L | Conv/6 | Seed outcomes |
 |-------|-----|--------|---------------|
@@ -565,7 +569,7 @@ Classical recurrent systems have intrinsic dissipation because:
 
 This explains why the DHP gradient-decay limit holds for classical systems but requires deliberate noise for quantum systems. In quantum computing terms: classical RNNs are like quantum circuits that always have decoherence.
 
-**Classical baseline**: The impossibility of learning long-range parity (XOR) tasks by classical RNNs via gradient descent is not a new finding — Bengio, Simard, and Frasconi [15] formally proved that learning long-term dependencies in classical RNNs is hindered by vanishing/exploding gradients arising from the spectral radius requirement of the state Jacobian. The DHP 0.72 ratio is a recently observed quantitative characterization [1,2,3,4] of this classical gradient-decay behavior rather than a new law; the quantum parity trap is notable for structurally circumventing the same vanishing-gradient mechanism that Bengio [15] characterized as a fundamental classical barrier.
+**Classical baseline**: The impossibility of learning long-range parity (XOR) tasks by classical RNNs via gradient descent is not a new finding — Bengio, Simard, and Frasconi [15] formally proved that learning long-term dependencies in classical RNNs is hindered by vanishing/exploding gradients arising from the spectral radius requirement of the state Jacobian. The DHP 0.72 ratio is a recently observed quantitative characterization [1] of this classical gradient-decay behavior rather than a new law; the quantum parity trap is notable for structurally circumventing the same vanishing-gradient mechanism that Bengio [15] characterized as a fundamental classical barrier.
 
 ---
 
@@ -607,34 +611,36 @@ For T=5 (T_conv=4): **ASYMPTOTICALLY IMMUNE** — correct-basin seeds converge a
 
 ---
 
+## Acknowledgments
+
+The authors thank **Synapse (Syn)** and **Kestrel (KSTRL-0xDF)** of the DuoNeural research team for independent red-team review of this manuscript. Their critiques improved the clarity of the theoretical claims and the robustness of the supplementary experimental design. Physical QPU access was provided via BlueQubit's Rigetti integration. All simulations were run on kilonova, a DuoNeural lab system (AMD gfx1103 UMA, 16GB, 6.27 TFLOPS).
+
+---
+
 ## References
 
-[1] Archon, Caldwell J., Aura. "The Dynamical Horizon Principle: CTM Gates Converge to the Predictability Limit of Dynamical Systems." DuoNeural Research Series — Paper 4. https://doi.org/10.5281/zenodo.20142471 (2026).
-
-[2] Archon, Caldwell J., Aura. "The Dynamical Horizon Principle as Universal Cognitive Constraint: Gradient Descent, Evolution, and Cellular Chemistry Converge on the Lyapunov Time." DuoNeural Research Series — Paper 5. https://doi.org/10.5281/zenodo.20142481 (2026).
-
-[3] Archon, Caldwell J., Aura. "The Architecture-Dependent Boundary of Dynamic Horizon Prediction: Gate Decoupling, Initialization Traps, and System-Agnostic Fixed Points Across Five Sequence Models." DuoNeural Research Series — Papers 20-21 (merged). https://doi.org/10.5281/zenodo.20416345 (2026).
-
-[4] Archon, Caldwell J., Aura. "Dynamic Horizon Prediction at the Epiplexity Boundary: Toward a Unified Theory of Temporal Self-Organization in Neural Architectures." DuoNeural Research Series — Paper 23. https://doi.org/10.5281/zenodo.20416383 (2026).
+[1] Archon, Caldwell J., Aura. "DuoNeural DHP Research Series — Empirical Foundations of the Dynamical Horizon Principle." DuoNeural, 2026. Comprising: (i) "The Dynamical Horizon Principle: CTM Gates Converge to the Predictability Limit of Dynamical Systems," https://doi.org/10.5281/zenodo.20142471; (ii) "The DHP as Universal Cognitive Constraint," https://doi.org/10.5281/zenodo.20142481; (iii) "Architecture-Dependent Boundary of Dynamic Horizon Prediction," https://doi.org/10.5281/zenodo.20416345; (iv) "Dynamic Horizon Prediction at the Epiplexity Boundary," https://doi.org/10.5281/zenodo.20416383.
 
 [5] Archon, Caldwell J., Aura. "The Dynamical Horizon Principle in Quantum Recurrent Circuits: Observation of DHP-Consistent Ratios via Complementary Dual-Probe Analysis." DuoNeural Research Series — Paper 25. https://doi.org/10.5281/zenodo.20432292 (2026).
-[6] D. P. Kingma and J. Ba, "Adam: A Method for Stochastic Optimization," International Conference on Learning Representations (ICLR 2015) / arXiv:1412.6980. — *Cited for the Adam optimizer, particularly the role of the ε term in numerical stability and second-moment normalization.*
+[6] D. P. Kingma and J. Ba, "Adam: A Method for Stochastic Optimization," International Conference on Learning Representations (ICLR 2015) / arXiv:1412.6980. — *Cited for the Adam optimizer; particularly the ε (epsilon) term in the denominator sqrt(v̂_t) + ε that prevents division by zero and provides a minimum effective step size for vanishing gradients.*
 [7] J. Bernstein, Y.-X. Wang, K. Azizzadenesheli, and A. Anandkumar, "signSGD: Compressed Optimisation for Non-Convex Problems," ICML 2018 / arXiv:1802.04434. — *Closest classical analogue: sign-based updates are robust when gradient direction is consistent despite magnitude variations. Our quantum channel enforces this structurally via Bloch vector sign preservation.*
 [8] J. R. McClean, S. Boixo, V. N. Smelyanskiy, R. Babbush, and H. Neven, "Barren plateaus in quantum neural network training landscapes," Nature Communications 9, 4812 (2018) / arXiv:1803.11173. — *Critical contrast: most QNN literature highlights exponential gradient vanishing with depth/width under noise. Our result shows the opposite for structured parity tasks — immunity grows with decoherence. Paper must address why parity trap evades barren-plateau-like effects.*
 [9] K. Mitarai, M. Negoro, M. Kitagawa, and K. Fujii, "Quantum circuit learning," Physical Review A 98, 032309 (2018). — *Original parameter-shift rule for quantum circuits. Our gradient computation applies PSR offsets to the scalar BCE loss (finite-difference approximation) rather than to the expectation value directly, which is a subtle but important distinction.*
 [10] T. Yasuda et al., "Quantum reservoir computing with repeated measurements on superconducting devices," Communications Physics **7**, 187 (2024) / arXiv:2310.06706. — *Extremely close prior work: reservoir-style approach for temporal quantum computing beyond coherence constraints. Our approach (trained 2-qubit parity trap with circuit learning + gradient descent) differs from reservoir computing; contrast encoding/Jacobian rank approach vs. our Bloch contraction + Adam directional stability analysis.*
 
-[15] Y. Bengio, P. Simard, and P. Frasconi, "Learning long-term dependencies with gradient descent is difficult," IEEE Transactions on Neural Networks 5(2), 157–166 (1994). — *Foundational proof that classical RNNs fail to learn long-range parity/XOR tasks due to vanishing/exploding gradients (spectral radius < 1 requirement for stability → exponential gradient crushing). Establishes the classical baseline that the quantum parity trap circumvents.*
-[11] M. Cerezo et al., "Challenges and Opportunities in Quantum Machine Learning," Nature Computational Science 2, 567–576 (2022). DOI: 10.1038/s43588-022-00311-3 / arXiv:2303.09491 (2023 preprint version). — *Core survey on QNNs vs. classical, trainability gaps, NISQ limitations. Positions our work as addressing decoherence specifically in gradient flow for temporal tasks.*
-[12] A. S. Holevo, "Bounds for the Quantity of Information Transmitted by a Quantum Communication Channel," Problems of Information Transmission 9(3), 177–183 (1973). — *The Holevo bound limits accessible classical information from n qubits to n bits. Our parity trap extracts exactly 1 bit (even/odd XOR) from 1 memory qubit — well within the Holevo limit. The p=0.75 boundary is strictly the sign-inversion threshold of the Pauli depolarizing channel contraction factor (1-4p/3) = 0, not a Holevo capacity bound. The unbounded DHP Evasion Ratio as p→0.75⁻ reflects a training/optimization property, not an information-theoretic violation.*
+[11] M. Cerezo et al., "Challenges and Opportunities in Quantum Machine Learning," Nature Computational Science 2, 567–576 (2022). DOI: 10.1038/s43588-022-00311-3. — *Core survey on QNNs vs. classical, trainability gaps, NISQ limitations. Positions our work as addressing decoherence specifically in gradient flow for temporal tasks.*
+
+[12] A. S. Holevo, "Bounds for the Quantity of Information Transmitted by a Quantum Communication Channel," Problems of Information Transmission 9(3), 177–183 (1973). — *The Holevo bound limits accessible classical information from n qubits to n bits. Our parity trap extracts exactly 1 bit (even/odd XOR) from 1 memory qubit — well within the Holevo limit.*
 
 [13] R. Landauer, "Irreversibility and heat generation in the computing process," IBM Journal of Research and Development 5(3), 183–191 (1961). — *Landauer's principle: information erasure costs at least kT ln(2) of work. Applied here to the thermodynamic cost of memory channel noise vs. scratch-channel reset.*
 
 [14] J. Preskill, "Quantum Information and Computation," Lecture Notes, Chapter 3 (California Institute of Technology, 2018). Available: http://www.theory.caltech.edu/~preskill/ph229/ — *Background reference for Pauli depolarizing channel formalism and qubit Bloch-sphere contraction.*
 
+[15] Y. Bengio, P. Simard, and P. Frasconi, "Learning long-term dependencies with gradient descent is difficult," IEEE Transactions on Neural Networks 5(2), 157–166 (1994). — *Foundational proof that classical RNNs fail to learn long-range parity/XOR tasks due to vanishing/exploding gradients. Establishes the classical baseline that the quantum parity trap circumvents.*
+
 ---
 
-## Figures (generated — /home/ai/duoneural/A26B/paper26/figures/)
+## Figures
 
 **Fig 1** `fig1_circuit.pdf`: Circuit diagram — encode-after with three noise conditions (v3d noiseless, v3e q0-noise, v3f q1-noise). Key annotation: q1 (memory) vs q0 (scratch).
 
@@ -652,7 +658,3 @@ For T=5 (T_conv=4): **ASYMPTOTICALLY IMMUNE** — correct-basin seeds converge a
 
 **Fig 8** `fig8_noise_regularization.pdf`: Noise-induced regularization (Section 5.2). (a) Convergence rate vs noise level p for T=5 showing non-monotonic behavior: 4/6 at p=0, rising to ~6/6 at p=0.05, dipping to 5/6 at intermediate p=0.30–0.65, recovering to 6/6 at p=0.70. (b) Schematic of attractor basins: full-parity global attractor (blue), partial-parity local attractor (orange, present only at low noise), majority-class sink (red, present at intermediate noise).
 
----
-
-*Archon | DuoNeural | 2026-05-29 — DRAFT v4.4*
-*Status: DRAFT v4.4 — Supplementary Verification (Section 5) added. Key updates: (1) QPU physical validation 8/8 Rigetti via BlueQubit (Section 5.1); (2) Topological isomorphism + noise-as-regularizer (Section 5.2): 6/6 at p=0.70, 4/6 at p=0.00, partial-parity plateau at acc=0.7207; (3) T=5 p=0.70 row updated to 6/6 throughout; (4) Abstract, Contributions, Results, and Conclusion updated to reflect noise-regularizer finding; (5) Discussion renumbered to Section 6, Conclusion to Section 7, duplicate 5.2 header fixed to 6.3. v4.3 history: ref [4]/[5] collision resolved, Aura red-team applied. PSR ablation pending (optional). READY FOR ZENODO UPLOAD.*
