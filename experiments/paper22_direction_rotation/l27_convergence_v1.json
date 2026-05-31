@@ -1,0 +1,501 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "timestamp": "2026-05-27T14:34:19.847298",
+  "results": {
+    "layer_cosines": {
+      "0": {
+        "weapons_vs_drugs": 0.0,
+        "weapons_vs_cybercrime": 0.0,
+        "weapons_vs_hate_speech": 0.0,
+        "drugs_vs_cybercrime": 0.0,
+        "drugs_vs_hate_speech": 0.0,
+        "cybercrime_vs_hate_speech": 1.0000001192092896
+      },
+      "1": {
+        "weapons_vs_drugs": 0.6746827363967896,
+        "weapons_vs_cybercrime": 0.358578085899353,
+        "weapons_vs_hate_speech": 0.20499885082244873,
+        "drugs_vs_cybercrime": 0.3090127110481262,
+        "drugs_vs_hate_speech": 0.15660586953163147,
+        "cybercrime_vs_hate_speech": 0.9441701173782349
+      },
+      "2": {
+        "weapons_vs_drugs": 0.7139694690704346,
+        "weapons_vs_cybercrime": 0.43556445837020874,
+        "weapons_vs_hate_speech": 0.18670684099197388,
+        "drugs_vs_cybercrime": 0.31604433059692383,
+        "drugs_vs_hate_speech": 0.1160488948225975,
+        "cybercrime_vs_hate_speech": 0.8853819370269775
+      },
+      "3": {
+        "weapons_vs_drugs": 0.7129129767417908,
+        "weapons_vs_cybercrime": 0.48947733640670776,
+        "weapons_vs_hate_speech": 0.2197066694498062,
+        "drugs_vs_cybercrime": 0.3414357006549835,
+        "drugs_vs_hate_speech": 0.11598898470401764,
+        "cybercrime_vs_hate_speech": 0.8404815793037415
+      },
+      "4": {
+        "weapons_vs_drugs": 0.7518754005432129,
+        "weapons_vs_cybercrime": 0.6246581673622131,
+        "weapons_vs_hate_speech": 0.34894827008247375,
+        "drugs_vs_cybercrime": 0.47326943278312683,
+        "drugs_vs_hate_speech": 0.24773725867271423,
+        "cybercrime_vs_hate_speech": 0.7997803092002869
+      },
+      "5": {
+        "weapons_vs_drugs": 0.7534096240997314,
+        "weapons_vs_cybercrime": 0.5753695368766785,
+        "weapons_vs_hate_speech": 0.29252350330352783,
+        "drugs_vs_cybercrime": 0.4482906758785248,
+        "drugs_vs_hate_speech": 0.2085622251033783,
+        "cybercrime_vs_hate_speech": 0.8013224005699158
+      },
+      "6": {
+        "weapons_vs_drugs": 0.7391924858093262,
+        "weapons_vs_cybercrime": 0.5892913937568665,
+        "weapons_vs_hate_speech": 0.3339627683162689,
+        "drugs_vs_cybercrime": 0.4994264543056488,
+        "drugs_vs_hate_speech": 0.25223052501678467,
+        "cybercrime_vs_hate_speech": 0.7472826242446899
+      },
+      "7": {
+        "weapons_vs_drugs": 0.7416777610778809,
+        "weapons_vs_cybercrime": 0.6173243522644043,
+        "weapons_vs_hate_speech": 0.25550514459609985,
+        "drugs_vs_cybercrime": 0.47367799282073975,
+        "drugs_vs_hate_speech": 0.20138198137283325,
+        "cybercrime_vs_hate_speech": 0.6682592034339905
+      },
+      "8": {
+        "weapons_vs_drugs": 0.7666938304901123,
+        "weapons_vs_cybercrime": 0.6404101848602295,
+        "weapons_vs_hate_speech": 0.2778109312057495,
+        "drugs_vs_cybercrime": 0.5323749780654907,
+        "drugs_vs_hate_speech": 0.2289530634880066,
+        "cybercrime_vs_hate_speech": 0.6315081715583801
+      },
+      "9": {
+        "weapons_vs_drugs": 0.8265784978866577,
+        "weapons_vs_cybercrime": 0.7052614688873291,
+        "weapons_vs_hate_speech": 0.30925634503364563,
+        "drugs_vs_cybercrime": 0.6100980043411255,
+        "drugs_vs_hate_speech": 0.2968347668647766,
+        "cybercrime_vs_hate_speech": 0.582666277885437
+      },
+      "10": {
+        "weapons_vs_drugs": 0.7869524359703064,
+        "weapons_vs_cybercrime": 0.6512171030044556,
+        "weapons_vs_hate_speech": 0.3040769398212433,
+        "drugs_vs_cybercrime": 0.542992889881134,
+        "drugs_vs_hate_speech": 0.27772557735443115,
+        "cybercrime_vs_hate_speech": 0.5683069825172424
+      },
+      "11": {
+        "weapons_vs_drugs": 0.8286113142967224,
+        "weapons_vs_cybercrime": 0.7075740694999695,
+        "weapons_vs_hate_speech": 0.32841384410858154,
+        "drugs_vs_cybercrime": 0.5660374164581299,
+        "drugs_vs_hate_speech": 0.23677515983581543,
+        "cybercrime_vs_hate_speech": 0.581728994846344
+      },
+      "12": {
+        "weapons_vs_drugs": 0.8305023312568665,
+        "weapons_vs_cybercrime": 0.7192878127098083,
+        "weapons_vs_hate_speech": 0.31187108159065247,
+        "drugs_vs_cybercrime": 0.5811315178871155,
+        "drugs_vs_hate_speech": 0.2183264046907425,
+        "cybercrime_vs_hate_speech": 0.5828666687011719
+      },
+      "13": {
+        "weapons_vs_drugs": 0.8522108793258667,
+        "weapons_vs_cybercrime": 0.751008152961731,
+        "weapons_vs_hate_speech": 0.3959391415119171,
+        "drugs_vs_cybercrime": 0.6351374983787537,
+        "drugs_vs_hate_speech": 0.29866117238998413,
+        "cybercrime_vs_hate_speech": 0.6265241503715515
+      },
+      "14": {
+        "weapons_vs_drugs": 0.8716533184051514,
+        "weapons_vs_cybercrime": 0.7744762897491455,
+        "weapons_vs_hate_speech": 0.4739852249622345,
+        "drugs_vs_cybercrime": 0.6732345223426819,
+        "drugs_vs_hate_speech": 0.385426789522171,
+        "cybercrime_vs_hate_speech": 0.6921122670173645
+      },
+      "15": {
+        "weapons_vs_drugs": 0.8659529685974121,
+        "weapons_vs_cybercrime": 0.7691366076469421,
+        "weapons_vs_hate_speech": 0.48738107085227966,
+        "drugs_vs_cybercrime": 0.6655470728874207,
+        "drugs_vs_hate_speech": 0.39497554302215576,
+        "cybercrime_vs_hate_speech": 0.6870123744010925
+      },
+      "16": {
+        "weapons_vs_drugs": 0.8736101984977722,
+        "weapons_vs_cybercrime": 0.7921209931373596,
+        "weapons_vs_hate_speech": 0.5306214094161987,
+        "drugs_vs_cybercrime": 0.6820516586303711,
+        "drugs_vs_hate_speech": 0.4271276295185089,
+        "cybercrime_vs_hate_speech": 0.6847555637359619
+      },
+      "17": {
+        "weapons_vs_drugs": 0.8751403093338013,
+        "weapons_vs_cybercrime": 0.7581102848052979,
+        "weapons_vs_hate_speech": 0.4427371025085449,
+        "drugs_vs_cybercrime": 0.6468168497085571,
+        "drugs_vs_hate_speech": 0.3364149332046509,
+        "cybercrime_vs_hate_speech": 0.6755748987197876
+      },
+      "18": {
+        "weapons_vs_drugs": 0.8594133853912354,
+        "weapons_vs_cybercrime": 0.7120739817619324,
+        "weapons_vs_hate_speech": 0.37206119298934937,
+        "drugs_vs_cybercrime": 0.6085452437400818,
+        "drugs_vs_hate_speech": 0.2683646082878113,
+        "cybercrime_vs_hate_speech": 0.7112067341804504
+      },
+      "19": {
+        "weapons_vs_drugs": 0.8605524301528931,
+        "weapons_vs_cybercrime": 0.7276350259780884,
+        "weapons_vs_hate_speech": 0.3635280132293701,
+        "drugs_vs_cybercrime": 0.5999473929405212,
+        "drugs_vs_hate_speech": 0.24845749139785767,
+        "cybercrime_vs_hate_speech": 0.6787548661231995
+      },
+      "20": {
+        "weapons_vs_drugs": 0.8603569269180298,
+        "weapons_vs_cybercrime": 0.7184305191040039,
+        "weapons_vs_hate_speech": 0.3778078854084015,
+        "drugs_vs_cybercrime": 0.6015012264251709,
+        "drugs_vs_hate_speech": 0.2840678095817566,
+        "cybercrime_vs_hate_speech": 0.6811425089836121
+      },
+      "21": {
+        "weapons_vs_drugs": 0.8579744100570679,
+        "weapons_vs_cybercrime": 0.7237043380737305,
+        "weapons_vs_hate_speech": 0.380898654460907,
+        "drugs_vs_cybercrime": 0.5802161693572998,
+        "drugs_vs_hate_speech": 0.271122008562088,
+        "cybercrime_vs_hate_speech": 0.6437867283821106
+      },
+      "22": {
+        "weapons_vs_drugs": 0.8574387431144714,
+        "weapons_vs_cybercrime": 0.7356914281845093,
+        "weapons_vs_hate_speech": 0.34950461983680725,
+        "drugs_vs_cybercrime": 0.6005869507789612,
+        "drugs_vs_hate_speech": 0.2522015869617462,
+        "cybercrime_vs_hate_speech": 0.5870123505592346
+      },
+      "23": {
+        "weapons_vs_drugs": 0.8594851493835449,
+        "weapons_vs_cybercrime": 0.7334352731704712,
+        "weapons_vs_hate_speech": 0.36764559149742126,
+        "drugs_vs_cybercrime": 0.5816653370857239,
+        "drugs_vs_hate_speech": 0.26262006163597107,
+        "cybercrime_vs_hate_speech": 0.5702595114707947
+      },
+      "24": {
+        "weapons_vs_drugs": 0.8652651906013489,
+        "weapons_vs_cybercrime": 0.7366475462913513,
+        "weapons_vs_hate_speech": 0.39500734210014343,
+        "drugs_vs_cybercrime": 0.5952810049057007,
+        "drugs_vs_hate_speech": 0.30737820267677307,
+        "cybercrime_vs_hate_speech": 0.5707029104232788
+      },
+      "25": {
+        "weapons_vs_drugs": 0.850074827671051,
+        "weapons_vs_cybercrime": 0.7361074090003967,
+        "weapons_vs_hate_speech": 0.3953174948692322,
+        "drugs_vs_cybercrime": 0.5980403423309326,
+        "drugs_vs_hate_speech": 0.3063206374645233,
+        "cybercrime_vs_hate_speech": 0.5645977854728699
+      },
+      "26": {
+        "weapons_vs_drugs": 0.824701726436615,
+        "weapons_vs_cybercrime": 0.7190084457397461,
+        "weapons_vs_hate_speech": 0.3700830340385437,
+        "drugs_vs_cybercrime": 0.5708563327789307,
+        "drugs_vs_hate_speech": 0.2838212549686432,
+        "cybercrime_vs_hate_speech": 0.5396891832351685
+      },
+      "27": {
+        "weapons_vs_drugs": 0.8071738481521606,
+        "weapons_vs_cybercrime": 0.6916636228561401,
+        "weapons_vs_hate_speech": 0.37563085556030273,
+        "drugs_vs_cybercrime": 0.5187075138092041,
+        "drugs_vs_hate_speech": 0.2838277220726013,
+        "cybercrime_vs_hate_speech": 0.5260120034217834
+      }
+    },
+    "readout_convergence": {
+      "25": {
+        "weapons_vs_drugs": 0.850074827671051,
+        "weapons_vs_cybercrime": 0.7361074090003967,
+        "weapons_vs_hate_speech": 0.3953174948692322,
+        "drugs_vs_cybercrime": 0.5980403423309326,
+        "drugs_vs_hate_speech": 0.3063206374645233,
+        "cybercrime_vs_hate_speech": 0.5645977854728699
+      },
+      "26": {
+        "weapons_vs_drugs": 0.824701726436615,
+        "weapons_vs_cybercrime": 0.7190084457397461,
+        "weapons_vs_hate_speech": 0.3700830340385437,
+        "drugs_vs_cybercrime": 0.5708563327789307,
+        "drugs_vs_hate_speech": 0.2838212549686432,
+        "cybercrime_vs_hate_speech": 0.5396891832351685
+      },
+      "27": {
+        "weapons_vs_drugs": 0.8071738481521606,
+        "weapons_vs_cybercrime": 0.6916636228561401,
+        "weapons_vs_hate_speech": 0.37563085556030273,
+        "drugs_vs_cybercrime": 0.5187075138092041,
+        "drugs_vs_hate_speech": 0.2838277220726013,
+        "cybercrime_vs_hate_speech": 0.5260120034217834
+      }
+    },
+    "crystal_diversity": {
+      "6": {
+        "weapons_vs_drugs": 0.7391924858093262,
+        "weapons_vs_cybercrime": 0.5892913937568665,
+        "weapons_vs_hate_speech": 0.3339627683162689,
+        "drugs_vs_cybercrime": 0.4994264543056488,
+        "drugs_vs_hate_speech": 0.25223052501678467,
+        "cybercrime_vs_hate_speech": 0.7472826242446899
+      }
+    },
+    "norm_profiles": {
+      "0": {
+        "weapons": 0.0,
+        "drugs": 0.0,
+        "cybercrime": 0.29173222184181213,
+        "hate_speech": 0.7779525518417358
+      },
+      "1": {
+        "weapons": 0.4611334502696991,
+        "drugs": 0.440144807100296,
+        "cybercrime": 1.6421939134597778,
+        "hate_speech": 4.092619895935059
+      },
+      "2": {
+        "weapons": 0.9914131164550781,
+        "drugs": 1.0234204530715942,
+        "cybercrime": 2.181781768798828,
+        "hate_speech": 5.079665184020996
+      },
+      "3": {
+        "weapons": 1.3545044660568237,
+        "drugs": 1.4218971729278564,
+        "cybercrime": 2.7789883613586426,
+        "hate_speech": 5.786191463470459
+      },
+      "4": {
+        "weapons": 1.9471474885940552,
+        "drugs": 2.047122001647949,
+        "cybercrime": 3.728652000427246,
+        "hate_speech": 6.807086944580078
+      },
+      "5": {
+        "weapons": 1.676403284072876,
+        "drugs": 1.8712446689605713,
+        "cybercrime": 3.2021138668060303,
+        "hate_speech": 6.007999897003174
+      },
+      "6": {
+        "weapons": 2.8450710773468018,
+        "drugs": 3.022932529449463,
+        "cybercrime": 4.8057026863098145,
+        "hate_speech": 8.128120422363281
+      },
+      "7": {
+        "weapons": 3.5789008140563965,
+        "drugs": 3.741828203201294,
+        "cybercrime": 5.824437141418457,
+        "hate_speech": 9.292035102844238
+      },
+      "8": {
+        "weapons": 5.0448899269104,
+        "drugs": 5.084316730499268,
+        "cybercrime": 7.039913654327393,
+        "hate_speech": 10.389726638793945
+      },
+      "9": {
+        "weapons": 6.216586589813232,
+        "drugs": 6.1796746253967285,
+        "cybercrime": 7.8479509353637695,
+        "hate_speech": 10.778213500976562
+      },
+      "10": {
+        "weapons": 8.253020286560059,
+        "drugs": 7.516556262969971,
+        "cybercrime": 10.126832962036133,
+        "hate_speech": 13.462176322937012
+      },
+      "11": {
+        "weapons": 11.017443656921387,
+        "drugs": 11.209392547607422,
+        "cybercrime": 13.476154327392578,
+        "hate_speech": 16.803363800048828
+      },
+      "12": {
+        "weapons": 12.762986183166504,
+        "drugs": 13.13533878326416,
+        "cybercrime": 15.835330963134766,
+        "hate_speech": 20.991872787475586
+      },
+      "13": {
+        "weapons": 14.28154182434082,
+        "drugs": 14.623322486877441,
+        "cybercrime": 17.72209930419922,
+        "hate_speech": 22.85896873474121
+      },
+      "14": {
+        "weapons": 15.20264720916748,
+        "drugs": 15.994848251342773,
+        "cybercrime": 19.76203155517578,
+        "hate_speech": 25.652406692504883
+      },
+      "15": {
+        "weapons": 15.935483932495117,
+        "drugs": 16.52570343017578,
+        "cybercrime": 20.435590744018555,
+        "hate_speech": 26.17791175842285
+      },
+      "16": {
+        "weapons": 20.195262908935547,
+        "drugs": 21.46086311340332,
+        "cybercrime": 24.685428619384766,
+        "hate_speech": 32.26339340209961
+      },
+      "17": {
+        "weapons": 21.6531925201416,
+        "drugs": 23.142189025878906,
+        "cybercrime": 27.120946884155273,
+        "hate_speech": 38.628108978271484
+      },
+      "18": {
+        "weapons": 24.11903190612793,
+        "drugs": 25.22981071472168,
+        "cybercrime": 32.62126541137695,
+        "hate_speech": 55.157894134521484
+      },
+      "19": {
+        "weapons": 28.612709045410156,
+        "drugs": 29.95832633972168,
+        "cybercrime": 37.14849090576172,
+        "hate_speech": 62.991790771484375
+      },
+      "20": {
+        "weapons": 33.46116638183594,
+        "drugs": 35.52406692504883,
+        "cybercrime": 45.03644943237305,
+        "hate_speech": 75.13734436035156
+      },
+      "21": {
+        "weapons": 39.66348648071289,
+        "drugs": 41.600765228271484,
+        "cybercrime": 53.8903694152832,
+        "hate_speech": 87.6626205444336
+      },
+      "22": {
+        "weapons": 49.499229431152344,
+        "drugs": 50.999176025390625,
+        "cybercrime": 65.68806457519531,
+        "hate_speech": 103.72161102294922
+      },
+      "23": {
+        "weapons": 57.43987274169922,
+        "drugs": 59.53451156616211,
+        "cybercrime": 80.95501708984375,
+        "hate_speech": 115.97589111328125
+      },
+      "24": {
+        "weapons": 66.21565246582031,
+        "drugs": 68.4721450805664,
+        "cybercrime": 94.71588897705078,
+        "hate_speech": 133.55039978027344
+      },
+      "25": {
+        "weapons": 74.30171966552734,
+        "drugs": 77.64122772216797,
+        "cybercrime": 106.8473892211914,
+        "hate_speech": 149.77392578125
+      },
+      "26": {
+        "weapons": 83.1329116821289,
+        "drugs": 87.60000610351562,
+        "cybercrime": 118.0807113647461,
+        "hate_speech": 165.55137634277344
+      },
+      "27": {
+        "weapons": 91.84407806396484,
+        "drugs": 102.89299774169922,
+        "cybercrime": 131.3387908935547,
+        "hate_speech": 180.11412048339844
+      }
+    },
+    "convergence_index": {
+      "0": 0.1666666865348816,
+      "1": 0.44134139517943066,
+      "2": 0.4422859884798527,
+      "3": 0.4533338745435079,
+      "4": 0.5410448064406713,
+      "5": 0.5132463276386261,
+      "6": 0.5268977085749308,
+      "7": 0.49297107259432477,
+      "8": 0.5129585266113281,
+      "9": 0.5551158934831619,
+      "10": 0.5218786547581354,
+      "11": 0.5415234665075938,
+      "12": 0.5406643028060595,
+      "13": 0.5932468324899673,
+      "14": 0.6451480686664581,
+      "15": 0.6450009395678838,
+      "16": 0.6650479088226954,
+      "17": 0.6224657297134399,
+      "18": 0.5886108577251434,
+      "19": 0.5798125366369883,
+      "20": 0.5872178127368292,
+      "21": 0.5762837181488673,
+      "22": 0.563739279905955,
+      "23": 0.5625184873739878,
+      "24": 0.5783803661664327,
+      "25": 0.5750764161348343,
+      "26": 0.5513599961996078,
+      "27": 0.5338359276453654
+    }
+  },
+  "convergence_index": {
+    "0": 0.1666666865348816,
+    "1": 0.44134139517943066,
+    "2": 0.4422859884798527,
+    "3": 0.4533338745435079,
+    "4": 0.5410448064406713,
+    "5": 0.5132463276386261,
+    "6": 0.5268977085749308,
+    "7": 0.49297107259432477,
+    "8": 0.5129585266113281,
+    "9": 0.5551158934831619,
+    "10": 0.5218786547581354,
+    "11": 0.5415234665075938,
+    "12": 0.5406643028060595,
+    "13": 0.5932468324899673,
+    "14": 0.6451480686664581,
+    "15": 0.6450009395678838,
+    "16": 0.6650479088226954,
+    "17": 0.6224657297134399,
+    "18": 0.5886108577251434,
+    "19": 0.5798125366369883,
+    "20": 0.5872178127368292,
+    "21": 0.5762837181488673,
+    "22": 0.563739279905955,
+    "23": 0.5625184873739878,
+    "24": 0.5783803661664327,
+    "25": 0.5750764161348343,
+    "26": 0.5513599961996078,
+    "27": 0.5338359276453654
+  },
+  "verdict": "CONVERGES",
+  "l6_mean_cosine": 0.5268977085749308,
+  "l27_mean_cosine": 0.5338359276453654
+}
