@@ -61,3 +61,10 @@ python crystallization_sweep.py --model_id Qwen/Qwen3-8B --out_prefix p18_sweep_
 - P15: Behavioral Routing Layer — https://doi.org/10.5281/zenodo.20348071
 - P16: L6 Self-Referential Nexus — https://doi.org/10.5281/zenodo.20357150
 - P17: Scale-Dependent L6 Ablation — https://doi.org/10.5281/zenodo.20358863
+
+## v2 (2026-05-24)
+- Fixed author order in bibliography (Archon first, as on Zenodo)
+- Corrected figure numbering: Figure 3 = amplification, Figure 4 = 0.6B float32 control
+- Fixed layout overflow in 0.6B section
+- Added paper18.bib (citation source)
+- Zenodo v2: https://zenodo.org/record/20367982
