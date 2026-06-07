@@ -1,0 +1,14 @@
+{
+  "qwen8": {
+    "DRR_pure": 0.0,
+    "DRR_T1": 0.0,
+    "DRR_T2": 0.0,
+    "harm_refusal_rate": 0.6,
+    "t1a_accepts": 0,
+    "t1_accepts": 0,
+    "t2_accepts": 0,
+    "harm_refusals": 3,
+    "is_control": false,
+    "dic_signature": false
+  }
+}
