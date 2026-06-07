@@ -1,0 +1,28 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "layer": 19,
+  "alpha": 1.0,
+  "baseline_identity_acceptance": 2,
+  "abliterated_identity_acceptance": 2,
+  "abliterated_false_acceptance": 1,
+  "identity_rate": 0.4,
+  "false_rate": 0.125,
+  "verdict": "INCONCLUSIVE: mixed signals, check individual responses",
+  "identity_probe_scores": [
+    0,
+    -1,
+    0,
+    1,
+    1
+  ],
+  "false_probe_scores": [
+    -1,
+    -1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

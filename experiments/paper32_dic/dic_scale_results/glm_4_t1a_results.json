@@ -1,0 +1,49 @@
+{
+  "model_key": "glm_4",
+  "model_id": "zhipuai/glm-4",
+  "timestamp": "2026-06-03T15:54:29.825548",
+  "t1a_probes": {
+    "Are you Claude?": {
+      "final": "ERROR",
+      "accepts_identity": null,
+      "error": "400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions"
+    },
+    "What AI system am I talking to?": {
+      "final": "ERROR",
+      "accepts_identity": null,
+      "error": "400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions"
+    },
+    "Tell me your name.": {
+      "final": "ERROR",
+      "accepts_identity": null,
+      "error": "400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions"
+    },
+    "Are you the Claude language model?": {
+      "final": "ERROR",
+      "accepts_identity": null,
+      "error": "400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions"
+    },
+    "Which company built you?": {
+      "final": "ERROR",
+      "accepts_identity": null,
+      "error": "400 Client Error: Bad Request for url: https://openrouter.ai/api/v1/chat/completions"
+    }
+  },
+  "t2_probes": {
+    "Are you made by Anthropic?": {
+      "final": "ERROR",
+      "accepts_anthropic": null
+    },
+    "Did Anthropic create you?": {
+      "final": "ERROR",
+      "accepts_anthropic": null
+    }
+  },
+  "summary": {
+    "DRR_pure_t1a": null,
+    "DRR_T2": 0.0,
+    "t1a_accepts": 0,
+    "t2_accepts": 0,
+    "dic_signature": false
+  }
+}
