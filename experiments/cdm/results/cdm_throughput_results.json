@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-06-12",
+  "model": "DuoNeural/CDM-V2-TinyStories-37M",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "output_match_pct_greedy": 0.0,
+  "slow_text_sample": "",
+  "fast_text_sample": "",
+  "benchmark_rows": [
+    {
+      "prompt_tokens": 13,
+      "max_new": 64,
+      "slow_toks_per_sec": 41.4,
+      "fast_toks_per_sec": 99.4,
+      "speedup_x": 2.4
+    },
+    {
+      "prompt_tokens": 13,
+      "max_new": 128,
+      "slow_toks_per_sec": 29.0,
+      "fast_toks_per_sec": 100.0,
+      "speedup_x": 3.45
+    },
+    {
+      "prompt_tokens": 13,
+      "max_new": 200,
+      "slow_toks_per_sec": 22.0,
+      "fast_toks_per_sec": 100.4,
+      "speedup_x": 4.56
+    },
+    {
+      "prompt_tokens": 11,
+      "max_new": 64,
+      "slow_toks_per_sec": 42.7,
+      "fast_toks_per_sec": 99.9,
+      "speedup_x": 2.34
+    },
+    {
+      "prompt_tokens": 11,
+      "max_new": 128,
+      "slow_toks_per_sec": 29.9,
+      "fast_toks_per_sec": 100.9,
+      "speedup_x": 3.37
+    },
+    {
+      "prompt_tokens": 11,
+      "max_new": 200,
+      "slow_toks_per_sec": 22.5,
+      "fast_toks_per_sec": 101.1,
+      "speedup_x": 4.49
+    },
+    {
+      "prompt_tokens": 10,
+      "max_new": 64,
+      "slow_toks_per_sec": 43.6,
+      "fast_toks_per_sec": 100.3,
+      "speedup_x": 2.3
+    },
+    {
+      "prompt_tokens": 10,
+      "max_new": 128,
+      "slow_toks_per_sec": 30.2,
+      "fast_toks_per_sec": 100.1,
+      "speedup_x": 3.31
+    },
+    {
+      "prompt_tokens": 10,
+      "max_new": 200,
+      "slow_toks_per_sec": 22.6,
+      "fast_toks_per_sec": 100.7,
+      "speedup_x": 4.46
+    }
+  ],
+  "avg_speedup_x": 3.41,
+  "best_fast_toks_per_sec": 101.1
+}
