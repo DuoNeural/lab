@@ -1,0 +1,1207 @@
+{
+  "timestamp": "2026-06-12",
+  "model": "DuoNeural/CDM-V2-TinyStories-37M",
+  "n_domains": 5,
+  "domains_tested": [
+    "tinystories",
+    "code_python",
+    "news_factual",
+    "poetry_verse",
+    "lists_numeric"
+  ],
+  "domain_results": [
+    {
+      "domain": "tinystories",
+      "n_tokens": 206,
+      "mi_bits": 0.515,
+      "routing_entropy_pct": 26.74,
+      "layer_entropy_pcts": [
+        26.0,
+        3.96,
+        61.73,
+        7.12,
+        38.62,
+        9.69,
+        42.74,
+        24.06
+      ],
+      "top_slot": 10,
+      "top_slot_pct": 9.71,
+      "slot11_share_pct": 4.37,
+      "slot11_top_tokens": [
+        "and",
+        "helped",
+        "it",
+        "better",
+        "her"
+      ],
+      "slot_win_counts": {
+        "3": 7,
+        "5": 8,
+        "13": 13,
+        "8": 14,
+        "6": 11,
+        "2": 7,
+        "0": 16,
+        "1": 14,
+        "15": 12,
+        "10": 20,
+        "4": 19,
+        "7": 16,
+        "12": 13,
+        "9": 19,
+        "14": 8,
+        "11": 9
+      },
+      "category_counts": {
+        "CAPS": 19,
+        "OTHER": 112,
+        "COMMON": 39,
+        "PUNCT": 19,
+        "KEYWORD": 17
+      },
+      "slot_top_tokens": {
+        "3": [
+          "Once",
+          "upon",
+          "there",
+          "was",
+          "to"
+        ],
+        "5": [
+          "a",
+          "little",
+          "small",
+          "hurt",
+          "the"
+        ],
+        "13": [
+          "her",
+          "time",
+          "Spot",
+          "sunny",
+          "carefully"
+        ],
+        "8": [
+          "Lily",
+          "girl",
+          "her",
+          "cotton",
+          "seeds"
+        ],
+        "6": [
+          ".",
+          "named"
+        ],
+        "2": [
+          "Lily",
+          "it",
+          "mother",
+          "make",
+          "ox"
+        ],
+        "0": [
+          "and",
+          "She",
+          "found",
+          "to",
+          "her"
+        ],
+        "1": [
+          "loved",
+          "with",
+          "morning",
+          "picked",
+          "Her"
+        ],
+        "15": [
+          "and",
+          ",",
+          "play",
+          "every",
+          "little"
+        ],
+        "10": [
+          "She",
+          "Lily",
+          "in",
+          "bird",
+          "wing"
+        ],
+        "4": [
+          "the",
+          "her",
+          "One",
+          "a",
+          "old"
+        ],
+        "7": [
+          "bird",
+          "garden",
+          "it",
+          "with",
+          "fence"
+        ],
+        "12": [
+          "smiled",
+          "dog",
+          "near",
+          "up",
+          "and"
+        ],
+        "9": [
+          "told",
+          "at",
+          ",",
+          "inside",
+          "show"
+        ],
+        "14": [
+          ".",
+          "brought",
+          "felt",
+          "said",
+          "had"
+        ],
+        "11": [
+          "and",
+          "helped",
+          "it",
+          "better",
+          "her"
+        ]
+      },
+      "fingerprint": [
+        0.0777,
+        0.068,
+        0.034,
+        0.034,
+        0.0922,
+        0.0388,
+        0.0534,
+        0.0777,
+        0.068,
+        0.0922,
+        0.0971,
+        0.0437,
+        0.0631,
+        0.0631,
+        0.0388,
+        0.0583
+      ],
+      "late_layer_tops": {
+        "layer_5": {
+          "top_slot": 10,
+          "top_slot_pct": 9.71,
+          "entropy_pct": 9.69
+        },
+        "layer_6": {
+          "top_slot": 1,
+          "top_slot_pct": 8.25,
+          "entropy_pct": 42.74
+        },
+        "layer_7": {
+          "top_slot": 10,
+          "top_slot_pct": 9.71,
+          "entropy_pct": 24.06
+        }
+      }
+    },
+    {
+      "domain": "code_python",
+      "n_tokens": 498,
+      "mi_bits": 0.8295,
+      "routing_entropy_pct": 19.2,
+      "layer_entropy_pcts": [
+        45.22,
+        6.61,
+        54.83,
+        4.45,
+        14.26,
+        7.3,
+        10.52,
+        10.43
+      ],
+      "top_slot": 15,
+      "top_slot_pct": 36.55,
+      "slot11_share_pct": 3.41,
+      "slot11_top_tokens": [
+        "return",
+        "self",
+        ":",
+        "",
+        "'"
+      ],
+      "slot_win_counts": {
+        "10": 44,
+        "6": 25,
+        "3": 7,
+        "2": 24,
+        "5": 15,
+        "15": 182,
+        "8": 146,
+        "1": 10,
+        "11": 17,
+        "14": 8,
+        "0": 15,
+        "13": 4,
+        "7": 1
+      },
+      "category_counts": {
+        "KEYWORD": 46,
+        "OTHER": 121,
+        "SPACE": 183,
+        "CAPS": 14,
+        "PUNCT": 107,
+        "COMMON": 3,
+        "DIGIT": 24
+      },
+      "slot_top_tokens": {
+        "10": [
+          "(",
+          "results",
+          "_",
+          "append",
+          "data"
+        ],
+        "6": [
+          ""
+        ],
+        "3": [
+          "n",
+          "import",
+          "from",
+          "Optional",
+          "def"
+        ],
+        "2": [
+          "print",
+          "List",
+          "or",
+          "sys",
+          "typing"
+        ],
+        "5": [
+          "",
+          "n",
+          "ib"
+        ],
+        "15": [
+          "",
+          ",",
+          ":",
+          ".",
+          "if"
+        ],
+        "8": [
+          "=",
+          "[",
+          "(",
+          ")",
+          "__"
+        ],
+        "1": [
+          ""
+        ],
+        "11": [
+          "return",
+          "self",
+          ":",
+          "",
+          "'"
+        ],
+        "14": [
+          "-",
+          "int",
+          "el",
+          "th",
+          "2"
+        ],
+        "0": [
+          "1",
+          "[",
+          "if",
+          "==",
+          "class"
+        ],
+        "13": [
+          "x",
+          "in",
+          "3"
+        ],
+        "7": [
+          "self"
+        ]
+      },
+      "fingerprint": [
+        0.0301,
+        0.0201,
+        0.0482,
+        0.0141,
+        0.0,
+        0.0301,
+        0.0502,
+        0.002,
+        0.2932,
+        0.0,
+        0.0884,
+        0.0341,
+        0.0,
+        0.008,
+        0.0161,
+        0.3655
+      ],
+      "late_layer_tops": {
+        "layer_5": {
+          "top_slot": 15,
+          "top_slot_pct": 30.52,
+          "entropy_pct": 7.3
+        },
+        "layer_6": {
+          "top_slot": 8,
+          "top_slot_pct": 20.88,
+          "entropy_pct": 10.52
+        },
+        "layer_7": {
+          "top_slot": 15,
+          "top_slot_pct": 36.55,
+          "entropy_pct": 10.43
+        }
+      }
+    },
+    {
+      "domain": "news_factual",
+      "n_tokens": 231,
+      "mi_bits": 1.066,
+      "routing_entropy_pct": 25.73,
+      "layer_entropy_pcts": [
+        50.97,
+        7.42,
+        68.83,
+        4.58,
+        18.07,
+        7.1,
+        32.84,
+        16.04
+      ],
+      "top_slot": 10,
+      "top_slot_pct": 20.78,
+      "slot11_share_pct": 3.9,
+      "slot11_top_tokens": [
+        "different",
+        "mission",
+        ",",
+        "spend",
+        "or"
+      ],
+      "slot_win_counts": {
+        "5": 2,
+        "3": 12,
+        "2": 7,
+        "10": 48,
+        "8": 26,
+        "15": 35,
+        "4": 12,
+        "9": 5,
+        "12": 8,
+        "0": 23,
+        "6": 11,
+        "14": 11,
+        "1": 3,
+        "13": 12,
+        "11": 9,
+        "7": 7
+      },
+      "category_counts": {
+        "COMMON": 38,
+        "CAPS": 19,
+        "OTHER": 114,
+        "DIGIT": 17,
+        "PUNCT": 24,
+        "KEYWORD": 19
+      },
+      "slot_top_tokens": {
+        "5": [
+          "The",
+          "a"
+        ],
+        "3": [
+          "station",
+          "International",
+          "altitude",
+          "sun",
+          "Ros"
+        ],
+        "2": [
+          "conducted",
+          "Space",
+          "orbits",
+          "Earth",
+          "serves"
+        ],
+        "10": [
+          "approximately",
+          "meters",
+          "Station",
+          "orbits",
+          "408"
+        ],
+        "8": [
+          "research",
+          "Earth",
+          "travels",
+          "600",
+          "kilometers"
+        ],
+        "15": [
+          ",",
+          "and",
+          "of",
+          "in",
+          "with"
+        ],
+        "4": [
+          "The",
+          "a",
+          "the",
+          "an",
+          "its"
+        ],
+        "9": [
+          "of",
+          ",",
+          "at"
+        ],
+        "12": [
+          ",",
+          "above",
+          "It",
+          "is",
+          "power"
+        ],
+        "0": [
+          "space",
+          "station",
+          "sea",
+          "day",
+          "nations"
+        ],
+        "6": [
+          "."
+        ],
+        "14": [
+          "per",
+          "have",
+          "completing",
+          "15",
+          "ro"
+        ],
+        "1": [
+          "of",
+          "the",
+          "than"
+        ],
+        "13": [
+          "from",
+          "which",
+          "first",
+          "ed",
+          "in"
+        ],
+        "11": [
+          "different",
+          "mission",
+          ",",
+          "spend",
+          "or"
+        ],
+        "7": [
+          "crew",
+          "to",
+          "months",
+          "station",
+          "returning"
+        ]
+      },
+      "fingerprint": [
+        0.0996,
+        0.013,
+        0.0303,
+        0.0519,
+        0.0519,
+        0.0087,
+        0.0476,
+        0.0303,
+        0.1126,
+        0.0216,
+        0.2078,
+        0.039,
+        0.0346,
+        0.0519,
+        0.0476,
+        0.1515
+      ],
+      "late_layer_tops": {
+        "layer_5": {
+          "top_slot": 0,
+          "top_slot_pct": 25.11,
+          "entropy_pct": 7.1
+        },
+        "layer_6": {
+          "top_slot": 11,
+          "top_slot_pct": 18.61,
+          "entropy_pct": 32.84
+        },
+        "layer_7": {
+          "top_slot": 10,
+          "top_slot_pct": 20.78,
+          "entropy_pct": 16.04
+        }
+      }
+    },
+    {
+      "domain": "poetry_verse",
+      "n_tokens": 172,
+      "mi_bits": 1.1481,
+      "routing_entropy_pct": 22.86,
+      "layer_entropy_pcts": [
+        36.12,
+        6.09,
+        65.13,
+        4.57,
+        22.14,
+        7.67,
+        25.05,
+        16.07
+      ],
+      "top_slot": 6,
+      "top_slot_pct": 12.79,
+      "slot11_share_pct": 5.81,
+      "slot11_top_tokens": [
+        "sleep",
+        "fall",
+        "long",
+        "secret",
+        ","
+      ],
+      "slot_win_counts": {
+        "5": 7,
+        "3": 12,
+        "13": 11,
+        "1": 7,
+        "10": 8,
+        "12": 7,
+        "0": 18,
+        "6": 22,
+        "8": 15,
+        "15": 11,
+        "11": 10,
+        "2": 9,
+        "9": 13,
+        "4": 13,
+        "7": 4,
+        "14": 5
+      },
+      "category_counts": {
+        "COMMON": 21,
+        "OTHER": 96,
+        "KEYWORD": 9,
+        "PUNCT": 19,
+        "SPACE": 19,
+        "CAPS": 8
+      },
+      "slot_top_tokens": {
+        "5": [
+          "",
+          "The",
+          "the",
+          "sn",
+          "forg"
+        ],
+        "3": [
+          "silver",
+          "road",
+          "ancient",
+          "moon",
+          "wand"
+        ],
+        "13": [
+          "What",
+          "not",
+          "tangled",
+          "walks",
+          "frozen"
+        ],
+        "1": [
+          "taken",
+          ",",
+          "where",
+          "Where",
+          "through"
+        ],
+        "10": [
+          "leads",
+          "to",
+          "moss",
+          "hollow",
+          "mourn"
+        ],
+        "12": [
+          "silence",
+          "Where",
+          "fall",
+          "twisted",
+          "watch"
+        ],
+        "0": [
+          "keep",
+          "deep",
+          "memories",
+          "paths",
+          "wind"
+        ],
+        "6": [
+          "",
+          "."
+        ],
+        "8": [
+          "shadows",
+          "streams",
+          "erer",
+          "foot",
+          "s"
+        ],
+        "15": [
+          "and",
+          ",",
+          "between",
+          "While",
+          "words"
+        ],
+        "11": [
+          "sleep",
+          "fall",
+          "long",
+          "secret",
+          ","
+        ],
+        "2": [
+          "Through",
+          "lit",
+          "step",
+          "echoes",
+          "call"
+        ],
+        "9": [
+          ",",
+          "of",
+          "buried",
+          "At",
+          "left"
+        ],
+        "4": [
+          "The",
+          "the",
+          "its",
+          "their"
+        ],
+        "7": [
+          "dreams",
+          "song",
+          ",",
+          "time"
+        ],
+        "14": [
+          "No",
+          "ful",
+          "?",
+          "behind",
+          "and"
+        ]
+      },
+      "fingerprint": [
+        0.1047,
+        0.0407,
+        0.0523,
+        0.0698,
+        0.0756,
+        0.0407,
+        0.1279,
+        0.0233,
+        0.0872,
+        0.0756,
+        0.0465,
+        0.0581,
+        0.0407,
+        0.064,
+        0.0291,
+        0.064
+      ],
+      "late_layer_tops": {
+        "layer_5": {
+          "top_slot": 0,
+          "top_slot_pct": 18.02,
+          "entropy_pct": 7.67
+        },
+        "layer_6": {
+          "top_slot": 6,
+          "top_slot_pct": 11.05,
+          "entropy_pct": 25.05
+        },
+        "layer_7": {
+          "top_slot": 6,
+          "top_slot_pct": 12.79,
+          "entropy_pct": 16.07
+        }
+      }
+    },
+    {
+      "domain": "lists_numeric",
+      "n_tokens": 248,
+      "mi_bits": 1.2354,
+      "routing_entropy_pct": 24.69,
+      "layer_entropy_pcts": [
+        50.92,
+        8.26,
+        68.15,
+        3.97,
+        20.02,
+        6.58,
+        24.05,
+        15.57
+      ],
+      "top_slot": 8,
+      "top_slot_pct": 28.23,
+      "slot11_share_pct": 2.42,
+      "slot11_top_tokens": [
+        "",
+        "at",
+        "by",
+        "use"
+      ],
+      "slot_win_counts": {
+        "10": 25,
+        "0": 17,
+        "11": 6,
+        "1": 1,
+        "3": 4,
+        "15": 50,
+        "6": 23,
+        "2": 28,
+        "9": 2,
+        "7": 3,
+        "14": 10,
+        "8": 70,
+        "13": 2,
+        "5": 5,
+        "12": 1,
+        "4": 1
+      },
+      "category_counts": {
+        "CAPS": 25,
+        "OTHER": 82,
+        "COMMON": 12,
+        "KEYWORD": 10,
+        "DIGIT": 46,
+        "PUNCT": 53,
+        "SPACE": 20
+      },
+      "slot_top_tokens": {
+        "10": [
+          "enterprise",
+          "Top",
+          "programming",
+          "developer",
+          "usage"
+        ],
+        "0": [
+          "4",
+          "languages",
+          "web",
+          "5",
+          "#"
+        ],
+        "11": [
+          "",
+          "at",
+          "by",
+          "use"
+        ],
+        "1": [
+          "in"
+        ],
+        "3": [
+          "C",
+          "20",
+          "growing"
+        ],
+        "15": [
+          ".",
+          "-",
+          ":",
+          "in",
+          ","
+        ],
+        "6": [
+          "",
+          "."
+        ],
+        "2": [
+          "1",
+          "%",
+          "2",
+          "7",
+          "Python"
+        ],
+        "9": [
+          "of",
+          "at"
+        ],
+        "7": [
+          "it",
+          "years",
+          "learning"
+        ],
+        "14": [
+          "-",
+          "as",
+          "across",
+          "4"
+        ],
+        "8": [
+          "%",
+          "development",
+          "Java",
+          "dominant",
+          "systems"
+        ],
+        "13": [
+          "growing",
+          "all"
+        ],
+        "5": [
+          ""
+        ],
+        "12": [
+          "game"
+        ],
+        "4": [
+          "the"
+        ]
+      },
+      "fingerprint": [
+        0.0685,
+        0.004,
+        0.1129,
+        0.0161,
+        0.004,
+        0.0202,
+        0.0927,
+        0.0121,
+        0.2823,
+        0.0081,
+        0.1008,
+        0.0242,
+        0.004,
+        0.0081,
+        0.0403,
+        0.2016
+      ],
+      "late_layer_tops": {
+        "layer_5": {
+          "top_slot": 11,
+          "top_slot_pct": 37.9,
+          "entropy_pct": 6.58
+        },
+        "layer_6": {
+          "top_slot": 11,
+          "top_slot_pct": 27.02,
+          "entropy_pct": 24.05
+        },
+        "layer_7": {
+          "top_slot": 8,
+          "top_slot_pct": 28.23,
+          "entropy_pct": 15.57
+        }
+      }
+    }
+  ],
+  "cross_domain_sim": {
+    "tinystories__vs__code_python": 0.4872,
+    "tinystories__vs__news_factual": 0.8046,
+    "tinystories__vs__poetry_verse": 0.8894,
+    "tinystories__vs__lists_numeric": 0.5887,
+    "code_python__vs__news_factual": 0.7402,
+    "code_python__vs__poetry_verse": 0.5384,
+    "code_python__vs__lists_numeric": 0.9269,
+    "news_factual__vs__poetry_verse": 0.7476,
+    "news_factual__vs__lists_numeric": 0.7906,
+    "poetry_verse__vs__lists_numeric": 0.6777
+  },
+  "avg_cross_domain_sim": 0.7191,
+  "verdict": "PARTIALLY DOMAIN-SPECIFIC \u2014 moderate re-specialization between domains",
+  "verdict_code": "partial",
+  "slot_stability": {
+    "0": {
+      "role": "",
+      "mean_share": 0.0761,
+      "std_share": 0.0266,
+      "shares_per_domain": [
+        0.0777,
+        0.0301,
+        0.0996,
+        0.1047,
+        0.0685
+      ],
+      "coefficient_of_var": 0.35
+    },
+    "1": {
+      "role": "",
+      "mean_share": 0.0292,
+      "std_share": 0.0229,
+      "shares_per_domain": [
+        0.068,
+        0.0201,
+        0.013,
+        0.0407,
+        0.004
+      ],
+      "coefficient_of_var": 0.784
+    },
+    "2": {
+      "role": "",
+      "mean_share": 0.0555,
+      "std_share": 0.0299,
+      "shares_per_domain": [
+        0.034,
+        0.0482,
+        0.0303,
+        0.0523,
+        0.1129
+      ],
+      "coefficient_of_var": 0.538
+    },
+    "3": {
+      "role": "",
+      "mean_share": 0.0372,
+      "std_share": 0.0213,
+      "shares_per_domain": [
+        0.034,
+        0.0141,
+        0.0519,
+        0.0698,
+        0.0161
+      ],
+      "coefficient_of_var": 0.573
+    },
+    "4": {
+      "role": "",
+      "mean_share": 0.0448,
+      "std_share": 0.0372,
+      "shares_per_domain": [
+        0.0922,
+        0.0,
+        0.0519,
+        0.0756,
+        0.004
+      ],
+      "coefficient_of_var": 0.831
+    },
+    "5": {
+      "role": "",
+      "mean_share": 0.0277,
+      "std_share": 0.012,
+      "shares_per_domain": [
+        0.0388,
+        0.0301,
+        0.0087,
+        0.0407,
+        0.0202
+      ],
+      "coefficient_of_var": 0.433
+    },
+    "6": {
+      "role": "",
+      "mean_share": 0.0744,
+      "std_share": 0.0314,
+      "shares_per_domain": [
+        0.0534,
+        0.0502,
+        0.0476,
+        0.1279,
+        0.0927
+      ],
+      "coefficient_of_var": 0.423
+    },
+    "7": {
+      "role": "",
+      "mean_share": 0.0291,
+      "std_share": 0.0261,
+      "shares_per_domain": [
+        0.0777,
+        0.002,
+        0.0303,
+        0.0233,
+        0.0121
+      ],
+      "coefficient_of_var": 0.899
+    },
+    "8": {
+      "role": "",
+      "mean_share": 0.1686,
+      "std_share": 0.0983,
+      "shares_per_domain": [
+        0.068,
+        0.2932,
+        0.1126,
+        0.0872,
+        0.2823
+      ],
+      "coefficient_of_var": 0.583
+    },
+    "9": {
+      "role": "",
+      "mean_share": 0.0395,
+      "std_share": 0.0373,
+      "shares_per_domain": [
+        0.0922,
+        0.0,
+        0.0216,
+        0.0756,
+        0.0081
+      ],
+      "coefficient_of_var": 0.944
+    },
+    "10": {
+      "role": "",
+      "mean_share": 0.1081,
+      "std_share": 0.0535,
+      "shares_per_domain": [
+        0.0971,
+        0.0884,
+        0.2078,
+        0.0465,
+        0.1008
+      ],
+      "coefficient_of_var": 0.495
+    },
+    "11": {
+      "role": "",
+      "mean_share": 0.0398,
+      "std_share": 0.0112,
+      "shares_per_domain": [
+        0.0437,
+        0.0341,
+        0.039,
+        0.0581,
+        0.0242
+      ],
+      "coefficient_of_var": 0.281
+    },
+    "12": {
+      "role": "",
+      "mean_share": 0.0285,
+      "std_share": 0.0236,
+      "shares_per_domain": [
+        0.0631,
+        0.0,
+        0.0346,
+        0.0407,
+        0.004
+      ],
+      "coefficient_of_var": 0.83
+    },
+    "13": {
+      "role": "",
+      "mean_share": 0.039,
+      "std_share": 0.0256,
+      "shares_per_domain": [
+        0.0631,
+        0.008,
+        0.0519,
+        0.064,
+        0.0081
+      ],
+      "coefficient_of_var": 0.657
+    },
+    "14": {
+      "role": "",
+      "mean_share": 0.0344,
+      "std_share": 0.0109,
+      "shares_per_domain": [
+        0.0388,
+        0.0161,
+        0.0476,
+        0.0291,
+        0.0403
+      ],
+      "coefficient_of_var": 0.317
+    },
+    "15": {
+      "role": "",
+      "mean_share": 0.1682,
+      "std_share": 0.1125,
+      "shares_per_domain": [
+        0.0583,
+        0.3655,
+        0.1515,
+        0.064,
+        0.2016
+      ],
+      "coefficient_of_var": 0.669
+    }
+  },
+  "slot11_consistency": {
+    "share_per_domain": {
+      "tinystories": 4.37,
+      "code_python": 3.41,
+      "news_factual": 3.9,
+      "poetry_verse": 5.81,
+      "lists_numeric": 2.42
+    },
+    "top_tokens_per_domain": {
+      "tinystories": [
+        "and",
+        "helped",
+        "it",
+        "better",
+        "her"
+      ],
+      "code_python": [
+        "return",
+        "self",
+        ":",
+        "",
+        "'"
+      ],
+      "news_factual": [
+        "different",
+        "mission",
+        ",",
+        "spend",
+        "or"
+      ],
+      "poetry_verse": [
+        "sleep",
+        "fall",
+        "long",
+        "secret",
+        ","
+      ],
+      "lists_numeric": [
+        "",
+        "at",
+        "by",
+        "use"
+      ]
+    },
+    "mean_share_pct": 3.98,
+    "std_share_pct": 1.12
+  },
+  "slot_roles_ref": {},
+  "hypothesis_thresholds": {
+    "general": ">0.85",
+    "partial": "0.65-0.85",
+    "specific": "<0.65"
+  }
+}

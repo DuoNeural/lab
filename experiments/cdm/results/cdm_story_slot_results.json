@@ -1,0 +1,4646 @@
+{
+  "model_config": {
+    "K": 16,
+    "n_layers": 8,
+    "d_model": 384
+  },
+  "max_entropy": 2.772588722239781,
+  "n_prompts": 45,
+  "results": [
+    {
+      "text": "He ran",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 2,
+      "tokens": [
+        "He",
+        " ran"
+      ],
+      "last_layer": {
+        "dominant_slot": 10,
+        "dominant_pct": 50.0,
+        "entropy": 2.6252176761627197,
+        "entropy_pct_max": 94.68471306635011,
+        "n_active_slots": 2,
+        "winners_per_token": [
+          10,
+          15
+        ],
+        "slot_token_affinity": {
+          "10": [
+            "He"
+          ],
+          "15": [
+            "ran"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 100.0,
+          "entropy_pct_max": 95.36651248829808,
+          "n_active": 1
+        },
+        "1": {
+          "dominant_slot": 10,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 99.6376930233434,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 99.48756936740526,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 100.0,
+          "entropy_pct_max": 84.51291096979236,
+          "n_active": 1
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 84.55638818393048,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 83.30831868575162,
+          "n_active": 2
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 91.72107363015202,
+          "n_active": 2
+        },
+        "7": {
+          "dominant_slot": 10,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 94.68471306635011,
+          "n_active": 2
+        }
+      }
+    },
+    {
+      "text": "She laughed",
+      "category": "emotion",
+      "prompt_type": "fragment",
+      "n_tokens": 2,
+      "tokens": [
+        "She",
+        " laughed"
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 50.0,
+        "entropy": 2.616222620010376,
+        "entropy_pct_max": 94.3602849937625,
+        "n_active_slots": 2,
+        "winners_per_token": [
+          3,
+          15
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "15": [
+            "laughed"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 100.0,
+          "entropy_pct_max": 93.21611881410242,
+          "n_active": 1
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.94303789824343,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 99.11863218477436,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 95.08698908585076,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 8,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 84.35534046507185,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 92.80130525935387,
+          "n_active": 2
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 95.98620037588697,
+          "n_active": 2
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 94.3602849937625,
+          "n_active": 2
+        }
+      }
+    },
+    {
+      "text": "The dog barked",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 4,
+      "tokens": [
+        "The",
+        " dog",
+        " bark",
+        "ed"
+      ],
+      "last_layer": {
+        "dominant_slot": 15,
+        "dominant_pct": 50.0,
+        "entropy": 2.5881927013397217,
+        "entropy_pct_max": 93.34931937719567,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          5,
+          13,
+          15,
+          15
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "13": [
+            "dog"
+          ],
+          "15": [
+            "bark",
+            "ed"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 75.0,
+          "entropy_pct_max": 98.5309416693785,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 75.0,
+          "entropy_pct_max": 94.35506532030882,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 93.71004438824787,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 92.37081548597916,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 88.67547586168526,
+          "n_active": 4
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 89.96880259443867,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 10,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 95.75857273833749,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 15,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 93.34931937719567,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "A small bird",
+      "category": "nature",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "A",
+        " small",
+        " bird"
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 66.66666666666667,
+        "entropy": 2.5274999141693115,
+        "entropy_pct_max": 91.16028980048367,
+        "n_active_slots": 2,
+        "winners_per_token": [
+          5,
+          5,
+          10
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "A",
+            "small"
+          ],
+          "10": [
+            "bird"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.88896138508913,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.90313275552022,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 6,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 87.21258283431366,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 93.28517844755638,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 85.53592397105214,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 4,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 89.69461065416809,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 97.79975742923529,
+          "n_active": 2
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 91.16028980048367,
+          "n_active": 2
+        }
+      }
+    },
+    {
+      "text": "The old man walked",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 4,
+      "tokens": [
+        "The",
+        " old",
+        " man",
+        " walked"
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 50.0,
+        "entropy": 2.4127838611602783,
+        "entropy_pct_max": 87.02278278082147,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          5,
+          5,
+          13,
+          15
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The",
+            "old"
+          ],
+          "13": [
+            "man"
+          ],
+          "15": [
+            "walked"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 75.0,
+          "entropy_pct_max": 97.19162677578439,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.25923315583856,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 92.62522082226798,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 91.69473448717238,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 79.32993861380024,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 94.22062648212936,
+          "n_active": 4
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 84.66922600116156,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 87.02278278082147,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "She smiled at",
+      "category": "emotion",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "She",
+        " smiled",
+        " at"
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.645721673965454,
+        "entropy_pct_max": 95.42423846506018,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          3,
+          8,
+          14
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "8": [
+            "smiled"
+          ],
+          "14": [
+            "at"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 96.59457180504906,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.6739727635429,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 97.96404385647197,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 96.54415509094864,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 8,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 93.80607090135712,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.83156389793801,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.46851712109917,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 95.42423846506018,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "The children played",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "The",
+        " children",
+        " played"
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.5079236030578613,
+        "entropy_pct_max": 90.45422362649894,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          5,
+          10,
+          15
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "10": [
+            "children"
+          ],
+          "15": [
+            "played"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.63112499491561,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 10,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 97.89386633578741,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 95.35007954600815,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 94.60165404511592,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 85.03609079284956,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 94.30489798105215,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 94.17003778537807,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 90.45422362649894,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "It was dark",
+      "category": "setting",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "It",
+        " was",
+        " dark"
+      ],
+      "last_layer": {
+        "dominant_slot": 2,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.6901307106018066,
+        "entropy_pct_max": 97.02595588820824,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          6,
+          2,
+          15
+        ],
+        "slot_token_affinity": {
+          "6": [
+            "It"
+          ],
+          "2": [
+            "was"
+          ],
+          "15": [
+            "dark"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 98.16866881446855,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.61600256592091,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 98.15685360635428,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.50537987973726,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.49720382726308,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 85.88749950507844,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 98.72116308036532,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 2,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.02595588820824,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "The door opened",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "The",
+        " door",
+        " opened"
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.098386287689209,
+        "entropy_pct_max": 75.68328727796559,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          5,
+          7,
+          13
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "7": [
+            "door"
+          ],
+          "13": [
+            "opened"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 100.0,
+          "entropy_pct_max": 93.37980330206109,
+          "n_active": 1
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.9855588860949,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 97.75255679070598,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 92.23900798235792,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 92.76568765236019,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 86.05737536846819,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 90.07672170785509,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 75.68328727796559,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "Once upon a time",
+      "category": "narrative",
+      "prompt_type": "fragment",
+      "n_tokens": 4,
+      "tokens": [
+        "Once",
+        " upon",
+        " a",
+        " time"
+      ],
+      "last_layer": {
+        "dominant_slot": 2,
+        "dominant_pct": 25.0,
+        "entropy": 2.700428009033203,
+        "entropy_pct_max": 97.39735242274648,
+        "n_active_slots": 4,
+        "winners_per_token": [
+          2,
+          3,
+          5,
+          11
+        ],
+        "slot_token_affinity": {
+          "2": [
+            "Once"
+          ],
+          "3": [
+            "upon"
+          ],
+          "5": [
+            "a"
+          ],
+          "11": [
+            "time"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 7,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 95.96745426694291,
+          "n_active": 4
+        },
+        "1": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.42264591670454,
+          "n_active": 4
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.26693797859721,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.10863139362668,
+          "n_active": 4
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.16796368560001,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 4,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 92.99617020191397,
+          "n_active": 2
+        },
+        "6": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.18073339742658,
+          "n_active": 4
+        },
+        "7": {
+          "dominant_slot": 2,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.39735242274648,
+          "n_active": 4
+        }
+      }
+    },
+    {
+      "text": "He was afraid",
+      "category": "emotion",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "He",
+        " was",
+        " afraid"
+      ],
+      "last_layer": {
+        "dominant_slot": 4,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.6537559032440186,
+        "entropy_pct_max": 95.71401203349893,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          10,
+          12,
+          4
+        ],
+        "slot_token_affinity": {
+          "10": [
+            "He"
+          ],
+          "12": [
+            "was"
+          ],
+          "4": [
+            "afraid"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 97.03342853438824,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.26258166354653,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 100.0,
+          "entropy_pct_max": 95.72356566975436,
+          "n_active": 1
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 92.69967211182649,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 89.83985000282173,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 11,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 94.340549984576,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.34619446067299,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 4,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 95.71401203349893,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "The little cat",
+      "category": "character",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "The",
+        " little",
+        " cat"
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 1.8761568069458008,
+        "entropy_pct_max": 67.66805303276948,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          5,
+          3,
+          10
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "3": [
+            "little"
+          ],
+          "10": [
+            "cat"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.19823090957752,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.80737281551981,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 6,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 88.57640525565574,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 95.57594436138628,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 75.69920427230294,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 4,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 91.89116447185535,
+          "n_active": 2
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 65.92586018039668,
+          "n_active": 2
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 67.66805303276948,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "She found a",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "She",
+        " found",
+        " a"
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.665740728378296,
+        "entropy_pct_max": 96.14627322817752,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          3,
+          14,
+          5
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "14": [
+            "found"
+          ],
+          "5": [
+            "a"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.24937854994411,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.48580654523391,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 96.07777253833886,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 95.9125144091248,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.45264999898272,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 94.6921427168674,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.13922366206648,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.14627322817752,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "They looked up",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "They",
+        " looked",
+        " up"
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.6794590950012207,
+        "entropy_pct_max": 96.64105871557727,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          3,
+          15,
+          13
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "They"
+          ],
+          "15": [
+            "looked"
+          ],
+          "13": [
+            "up"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 96.85184925160728,
+          "n_active": 2
+        },
+        "1": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.72806130723926,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 3,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 98.00678154521138,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 92.12189639625288,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 92.60600176103407,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.0038991132351,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.21548421460774,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.64105871557727,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "Deep in the forest",
+      "category": "setting",
+      "prompt_type": "fragment",
+      "n_tokens": 4,
+      "tokens": [
+        "Deep",
+        " in",
+        " the",
+        " forest"
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 25.0,
+        "entropy": 2.740722179412842,
+        "entropy_pct_max": 98.85065741733247,
+        "n_active_slots": 4,
+        "winners_per_token": [
+          3,
+          9,
+          6,
+          4
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "Deep"
+          ],
+          "9": [
+            "in"
+          ],
+          "6": [
+            "the"
+          ],
+          "4": [
+            "forest"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 11,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.06651111985603,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 2,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 95.21121215456897,
+          "n_active": 4
+        },
+        "2": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 96.76160995469957,
+          "n_active": 4
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.37558974085414,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.14507107219582,
+          "n_active": 4
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.20366728391913,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.12740157739401,
+          "n_active": 4
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.85065741733247,
+          "n_active": 4
+        }
+      }
+    },
+    {
+      "text": "His name was",
+      "category": "character",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "His",
+        " name",
+        " was"
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 66.66666666666667,
+        "entropy": 2.656888961791992,
+        "entropy_pct_max": 95.82701323424834,
+        "n_active_slots": 2,
+        "winners_per_token": [
+          5,
+          13,
+          5
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "His",
+            "was"
+          ],
+          "13": [
+            "name"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 94.85330765899093,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 96.80753792161248,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 94.97516596625977,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.13642379000612,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.24602833340099,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.28571676149708,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 98.86508676173986,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.82701323424834,
+          "n_active": 2
+        }
+      }
+    },
+    {
+      "text": "The sun rose",
+      "category": "nature",
+      "prompt_type": "fragment",
+      "n_tokens": 3,
+      "tokens": [
+        "The",
+        " sun",
+        " rose"
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.311903715133667,
+        "entropy_pct_max": 83.3843006209028,
+        "n_active_slots": 3,
+        "winners_per_token": [
+          5,
+          7,
+          8
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "7": [
+            "sun"
+          ],
+          "8": [
+            "rose"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 100.0,
+          "entropy_pct_max": 95.35443930620752,
+          "n_active": 1
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 95.97877072536969,
+          "n_active": 2
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 92.54120729732149,
+          "n_active": 2
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 87.6140161388251,
+          "n_active": 2
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 87.22449263288591,
+          "n_active": 2
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 80.4985951229432,
+          "n_active": 2
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 94.53185488626325,
+          "n_active": 2
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 83.3843006209028,
+          "n_active": 3
+        }
+      }
+    },
+    {
+      "text": "She picked up the",
+      "category": "action",
+      "prompt_type": "fragment",
+      "n_tokens": 4,
+      "tokens": [
+        "She",
+        " picked",
+        " up",
+        " the"
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 25.0,
+        "entropy": 2.7074007987976074,
+        "entropy_pct_max": 97.64884265310316,
+        "n_active_slots": 4,
+        "winners_per_token": [
+          3,
+          15,
+          9,
+          6
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "15": [
+            "picked"
+          ],
+          "9": [
+            "up"
+          ],
+          "6": [
+            "the"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.48536626689986,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.12761827828194,
+          "n_active": 4
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.48903981907013,
+          "n_active": 4
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 95.23639041465529,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 15,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 96.93523503987811,
+          "n_active": 3
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 96.62024021569033,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.70357613174025,
+          "n_active": 4
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.64884265310316,
+          "n_active": 4
+        }
+      }
+    },
+    {
+      "text": "A long time ago",
+      "category": "narrative",
+      "prompt_type": "fragment",
+      "n_tokens": 4,
+      "tokens": [
+        "A",
+        " long",
+        " time",
+        " ago"
+      ],
+      "last_layer": {
+        "dominant_slot": 13,
+        "dominant_pct": 75.0,
+        "entropy": 2.6221261024475098,
+        "entropy_pct_max": 94.57320811466322,
+        "n_active_slots": 2,
+        "winners_per_token": [
+          5,
+          13,
+          13,
+          13
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "A"
+          ],
+          "13": [
+            "long",
+            "time",
+            "ago"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 95.90425924188338,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 99.57995844744876,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 99.04286522793674,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.72714807661535,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 2,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.66893882585649,
+          "n_active": 4
+        },
+        "5": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.80013579106718,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 2,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.8816039727809,
+          "n_active": 4
+        },
+        "7": {
+          "dominant_slot": 13,
+          "dominant_pct": 75.0,
+          "entropy_pct_max": 94.57320811466322,
+          "n_active": 2
+        }
+      }
+    },
+    {
+      "text": "The water was cold",
+      "category": "setting",
+      "prompt_type": "fragment",
+      "n_tokens": 4,
+      "tokens": [
+        "The",
+        " water",
+        " was",
+        " cold"
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 25.0,
+        "entropy": 2.3397531509399414,
+        "entropy_pct_max": 84.3887566941345,
+        "n_active_slots": 4,
+        "winners_per_token": [
+          5,
+          7,
+          9,
+          15
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "7": [
+            "water"
+          ],
+          "9": [
+            "was"
+          ],
+          "15": [
+            "cold"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.56102143501441,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.76057978136873,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.75703006220276,
+          "n_active": 3
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 94.92852427134578,
+          "n_active": 3
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 95.39700501229606,
+          "n_active": 4
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 81.14236918078541,
+          "n_active": 3
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 93.56455566475047,
+          "n_active": 3
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 84.3887566941345,
+          "n_active": 4
+        }
+      }
+    },
+    {
+      "text": "He ran to see the dog.",
+      "category": "action",
+      "prompt_type": "sentence",
+      "n_tokens": 7,
+      "tokens": [
+        "He",
+        " ran",
+        " to",
+        " see",
+        " the",
+        " dog",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 15,
+        "dominant_pct": 28.571428571428573,
+        "entropy": 2.6890766620635986,
+        "entropy_pct_max": 96.98793912323502,
+        "n_active_slots": 6,
+        "winners_per_token": [
+          10,
+          15,
+          2,
+          15,
+          5,
+          13,
+          11
+        ],
+        "slot_token_affinity": {
+          "10": [
+            "He"
+          ],
+          "15": [
+            "ran",
+            "see"
+          ],
+          "2": [
+            "to"
+          ],
+          "5": [
+            "the"
+          ],
+          "13": [
+            "dog"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 42.857142857142854,
+          "entropy_pct_max": 99.57810963395198,
+          "n_active": 4
+        },
+        "1": {
+          "dominant_slot": 1,
+          "dominant_pct": 28.571428571428573,
+          "entropy_pct_max": 99.65115926490596,
+          "n_active": 6
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 28.571428571428573,
+          "entropy_pct_max": 99.3350121569574,
+          "n_active": 6
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 28.571428571428573,
+          "entropy_pct_max": 96.40692153469266,
+          "n_active": 6
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 28.571428571428573,
+          "entropy_pct_max": 98.99676527837298,
+          "n_active": 6
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 42.857142857142854,
+          "entropy_pct_max": 95.92788105897938,
+          "n_active": 5
+        },
+        "6": {
+          "dominant_slot": 2,
+          "dominant_pct": 28.571428571428573,
+          "entropy_pct_max": 99.42820095632742,
+          "n_active": 6
+        },
+        "7": {
+          "dominant_slot": 15,
+          "dominant_pct": 28.571428571428573,
+          "entropy_pct_max": 96.98793912323502,
+          "n_active": 6
+        }
+      }
+    },
+    {
+      "text": "She laughed when she saw the clown.",
+      "category": "emotion",
+      "prompt_type": "sentence",
+      "n_tokens": 8,
+      "tokens": [
+        "She",
+        " laughed",
+        " when",
+        " she",
+        " saw",
+        " the",
+        " clown",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 15,
+        "dominant_pct": 25.0,
+        "entropy": 2.581542730331421,
+        "entropy_pct_max": 93.10947237230239,
+        "n_active_slots": 7,
+        "winners_per_token": [
+          3,
+          15,
+          2,
+          0,
+          15,
+          5,
+          7,
+          11
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "15": [
+            "laughed",
+            "saw"
+          ],
+          "2": [
+            "when"
+          ],
+          "0": [
+            "she"
+          ],
+          "5": [
+            "the"
+          ],
+          "7": [
+            "clown"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.09733041089065,
+          "n_active": 5
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.64370381699105,
+          "n_active": 6
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 37.5,
+          "entropy_pct_max": 99.1096116947366,
+          "n_active": 6
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.37524577555241,
+          "n_active": 7
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.71651094965948,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.66098462825408,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 10,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.37639118275499,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 15,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 93.10947237230239,
+          "n_active": 7
+        }
+      }
+    },
+    {
+      "text": "The dog barked loudly at the mailman.",
+      "category": "action",
+      "prompt_type": "sentence",
+      "n_tokens": 10,
+      "tokens": [
+        "The",
+        " dog",
+        " bark",
+        "ed",
+        " loudly",
+        " at",
+        " the",
+        " mail",
+        "man",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 20.0,
+        "entropy": 2.4730238914489746,
+        "entropy_pct_max": 89.19548260483405,
+        "n_active_slots": 8,
+        "winners_per_token": [
+          5,
+          13,
+          15,
+          15,
+          4,
+          14,
+          5,
+          7,
+          3,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The",
+            "the"
+          ],
+          "13": [
+            "dog"
+          ],
+          "15": [
+            "bark",
+            "ed"
+          ],
+          "4": [
+            "loudly"
+          ],
+          "14": [
+            "at"
+          ],
+          "7": [
+            "mail"
+          ],
+          "3": [
+            "man"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 99.29002149549169,
+          "n_active": 5
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.76629820450992,
+          "n_active": 6
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 40.0,
+          "entropy_pct_max": 96.3466932103605,
+          "n_active": 6
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 40.0,
+          "entropy_pct_max": 94.78393845676541,
+          "n_active": 4
+        },
+        "4": {
+          "dominant_slot": 8,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 96.4870826482598,
+          "n_active": 6
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 40.0,
+          "entropy_pct_max": 92.74087055584067,
+          "n_active": 4
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 97.13849273580033,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 89.19548260483405,
+          "n_active": 8
+        }
+      }
+    },
+    {
+      "text": "A small bird sat on the windowsill.",
+      "category": "nature",
+      "prompt_type": "sentence",
+      "n_tokens": 9,
+      "tokens": [
+        "A",
+        " small",
+        " bird",
+        " sat",
+        " on",
+        " the",
+        " windows",
+        "ill",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 22.22222222222222,
+        "entropy": 2.6779677867889404,
+        "entropy_pct_max": 96.58727114151993,
+        "n_active_slots": 8,
+        "winners_per_token": [
+          5,
+          5,
+          10,
+          15,
+          1,
+          6,
+          13,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "A",
+            "small"
+          ],
+          "10": [
+            "bird"
+          ],
+          "15": [
+            "sat"
+          ],
+          "1": [
+            "on"
+          ],
+          "6": [
+            "the"
+          ],
+          "13": [
+            "windows"
+          ],
+          "4": [
+            "ill"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 44.44444444444444,
+          "entropy_pct_max": 98.77297285393774,
+          "n_active": 5
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 66.66666666666667,
+          "entropy_pct_max": 97.87123341893385,
+          "n_active": 3
+        },
+        "2": {
+          "dominant_slot": 3,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 97.77778664558755,
+          "n_active": 7
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.3256786529994,
+          "n_active": 6
+        },
+        "4": {
+          "dominant_slot": 2,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 98.33562957192616,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 97.04124514586995,
+          "n_active": 8
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.47236610106899,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 96.58727114151993,
+          "n_active": 8
+        }
+      }
+    },
+    {
+      "text": "The old man walked slowly down the road.",
+      "category": "action",
+      "prompt_type": "sentence",
+      "n_tokens": 9,
+      "tokens": [
+        "The",
+        " old",
+        " man",
+        " walked",
+        " slowly",
+        " down",
+        " the",
+        " road",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 22.22222222222222,
+        "entropy": 2.6357710361480713,
+        "entropy_pct_max": 95.06534506923968,
+        "n_active_slots": 6,
+        "winners_per_token": [
+          5,
+          5,
+          13,
+          15,
+          15,
+          13,
+          14,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The",
+            "old"
+          ],
+          "13": [
+            "man",
+            "down"
+          ],
+          "15": [
+            "walked",
+            "slowly"
+          ],
+          "14": [
+            "the"
+          ],
+          "4": [
+            "road"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 55.55555555555556,
+          "entropy_pct_max": 98.96652212921875,
+          "n_active": 5
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.33566569103068,
+          "n_active": 6
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 44.44444444444444,
+          "entropy_pct_max": 96.56511117695626,
+          "n_active": 5
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.31719818573752,
+          "n_active": 5
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 95.24547969775338,
+          "n_active": 8
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.66824229612048,
+          "n_active": 7
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 96.6917935975818,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 95.06534506923968,
+          "n_active": 6
+        }
+      }
+    },
+    {
+      "text": "She smiled at her friend across the room.",
+      "category": "emotion",
+      "prompt_type": "sentence",
+      "n_tokens": 9,
+      "tokens": [
+        "She",
+        " smiled",
+        " at",
+        " her",
+        " friend",
+        " across",
+        " the",
+        " room",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 8,
+        "dominant_pct": 22.22222222222222,
+        "entropy": 2.6943295001983643,
+        "entropy_pct_max": 97.17739521142549,
+        "n_active_slots": 6,
+        "winners_per_token": [
+          3,
+          8,
+          14,
+          8,
+          13,
+          13,
+          14,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "8": [
+            "smiled",
+            "her"
+          ],
+          "14": [
+            "at",
+            "the"
+          ],
+          "13": [
+            "friend",
+            "across"
+          ],
+          "4": [
+            "room"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 44.44444444444444,
+          "entropy_pct_max": 99.2806570401522,
+          "n_active": 6
+        },
+        "1": {
+          "dominant_slot": 7,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.65026495512147,
+          "n_active": 8
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.7519496974441,
+          "n_active": 8
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.38059615856858,
+          "n_active": 7
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.26353616725882,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 97.57480412190672,
+          "n_active": 8
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.30297178910166,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 8,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 97.17739521142549,
+          "n_active": 6
+        }
+      }
+    },
+    {
+      "text": "The children played in the park all afternoon.",
+      "category": "action",
+      "prompt_type": "sentence",
+      "n_tokens": 9,
+      "tokens": [
+        "The",
+        " children",
+        " played",
+        " in",
+        " the",
+        " park",
+        " all",
+        " afternoon",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 15,
+        "dominant_pct": 22.22222222222222,
+        "entropy": 2.721864700317383,
+        "entropy_pct_max": 98.17051762796532,
+        "n_active_slots": 8,
+        "winners_per_token": [
+          5,
+          10,
+          15,
+          13,
+          14,
+          15,
+          2,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "10": [
+            "children"
+          ],
+          "15": [
+            "played",
+            "park"
+          ],
+          "13": [
+            "in"
+          ],
+          "14": [
+            "the"
+          ],
+          "2": [
+            "all"
+          ],
+          "4": [
+            "afternoon"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 99.34938990656953,
+          "n_active": 5
+        },
+        "1": {
+          "dominant_slot": 10,
+          "dominant_pct": 44.44444444444444,
+          "entropy_pct_max": 99.54515775804667,
+          "n_active": 6
+        },
+        "2": {
+          "dominant_slot": 12,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.5223614576748,
+          "n_active": 8
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.25498862951093,
+          "n_active": 8
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 11.11111111111111,
+          "entropy_pct_max": 98.60205649551028,
+          "n_active": 9
+        },
+        "5": {
+          "dominant_slot": 0,
+          "dominant_pct": 11.11111111111111,
+          "entropy_pct_max": 99.02640648824918,
+          "n_active": 9
+        },
+        "6": {
+          "dominant_slot": 0,
+          "dominant_pct": 11.11111111111111,
+          "entropy_pct_max": 99.66478888998684,
+          "n_active": 9
+        },
+        "7": {
+          "dominant_slot": 15,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 98.17051762796532,
+          "n_active": 8
+        }
+      }
+    },
+    {
+      "text": "It was dark when they arrived home.",
+      "category": "setting",
+      "prompt_type": "sentence",
+      "n_tokens": 8,
+      "tokens": [
+        "It",
+        " was",
+        " dark",
+        " when",
+        " they",
+        " arrived",
+        " home",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 2,
+        "dominant_pct": 25.0,
+        "entropy": 2.7093329429626465,
+        "entropy_pct_max": 97.71853002323277,
+        "n_active_slots": 6,
+        "winners_per_token": [
+          6,
+          2,
+          15,
+          2,
+          8,
+          8,
+          0,
+          5
+        ],
+        "slot_token_affinity": {
+          "6": [
+            "It"
+          ],
+          "2": [
+            "was",
+            "when"
+          ],
+          "15": [
+            "dark"
+          ],
+          "8": [
+            "they",
+            "arrived"
+          ],
+          "0": [
+            "home"
+          ],
+          "5": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 62.5,
+          "entropy_pct_max": 98.75754601015535,
+          "n_active": 3
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.17676232076599,
+          "n_active": 7
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.40230552309133,
+          "n_active": 4
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.4565505737478,
+          "n_active": 5
+        },
+        "4": {
+          "dominant_slot": 1,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.97527604614766,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 15,
+          "dominant_pct": 37.5,
+          "entropy_pct_max": 93.68721369134582,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 0,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.90317231977343,
+          "n_active": 6
+        },
+        "7": {
+          "dominant_slot": 2,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.71853002323277,
+          "n_active": 6
+        }
+      }
+    },
+    {
+      "text": "The door opened and a tall man walked in.",
+      "category": "action",
+      "prompt_type": "sentence",
+      "n_tokens": 10,
+      "tokens": [
+        "The",
+        " door",
+        " opened",
+        " and",
+        " a",
+        " tall",
+        " man",
+        " walked",
+        " in",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 30.0,
+        "entropy": 2.626983404159546,
+        "entropy_pct_max": 94.74839824196461,
+        "n_active_slots": 6,
+        "winners_per_token": [
+          5,
+          7,
+          13,
+          2,
+          5,
+          5,
+          13,
+          15,
+          13,
+          4
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The",
+            "a",
+            "tall"
+          ],
+          "7": [
+            "door"
+          ],
+          "13": [
+            "opened",
+            "man",
+            "in"
+          ],
+          "2": [
+            "and"
+          ],
+          "15": [
+            "walked"
+          ],
+          "4": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 99.27074224032997,
+          "n_active": 4
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.61436357675386,
+          "n_active": 8
+        },
+        "2": {
+          "dominant_slot": 3,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 98.63913595503631,
+          "n_active": 8
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 97.28150490912529,
+          "n_active": 6
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 96.66254794780258,
+          "n_active": 8
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 98.16556452762048,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 98.77823552305414,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 94.74839824196461,
+          "n_active": 6
+        }
+      }
+    },
+    {
+      "text": "Once upon a time there was a brave little girl.",
+      "category": "narrative",
+      "prompt_type": "sentence",
+      "n_tokens": 11,
+      "tokens": [
+        "Once",
+        " upon",
+        " a",
+        " time",
+        " there",
+        " was",
+        " a",
+        " brave",
+        " little",
+        " girl",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 36.36363636363637,
+        "entropy": 2.397143602371216,
+        "entropy_pct_max": 86.45867968599146,
+        "n_active_slots": 5,
+        "winners_per_token": [
+          2,
+          3,
+          5,
+          11,
+          11,
+          3,
+          5,
+          3,
+          3,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "2": [
+            "Once"
+          ],
+          "3": [
+            "upon",
+            "was",
+            "brave",
+            "little"
+          ],
+          "5": [
+            "a",
+            "a"
+          ],
+          "11": [
+            "time",
+            "there",
+            "."
+          ],
+          "4": [
+            "girl"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 7,
+          "dominant_pct": 18.181818181818183,
+          "entropy_pct_max": 99.4356736025074,
+          "n_active": 8
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 18.181818181818183,
+          "entropy_pct_max": 99.82843898141535,
+          "n_active": 8
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 18.181818181818183,
+          "entropy_pct_max": 96.95760138362282,
+          "n_active": 7
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 99.69526421571972,
+          "n_active": 7
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 18.181818181818183,
+          "entropy_pct_max": 98.97197397925109,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 4,
+          "dominant_pct": 36.36363636363637,
+          "entropy_pct_max": 96.65228058354607,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 96.53614929855097,
+          "n_active": 6
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 36.36363636363637,
+          "entropy_pct_max": 86.45867968599146,
+          "n_active": 5
+        }
+      }
+    },
+    {
+      "text": "He was afraid of the thunder outside.",
+      "category": "emotion",
+      "prompt_type": "sentence",
+      "n_tokens": 8,
+      "tokens": [
+        "He",
+        " was",
+        " afraid",
+        " of",
+        " the",
+        " thunder",
+        " outside",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 4,
+        "dominant_pct": 25.0,
+        "entropy": 2.604936361312866,
+        "entropy_pct_max": 93.95321925743534,
+        "n_active_slots": 6,
+        "winners_per_token": [
+          10,
+          12,
+          4,
+          12,
+          5,
+          7,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "10": [
+            "He"
+          ],
+          "12": [
+            "was",
+            "of"
+          ],
+          "4": [
+            "afraid",
+            "outside"
+          ],
+          "5": [
+            "the"
+          ],
+          "7": [
+            "thunder"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 37.5,
+          "entropy_pct_max": 99.40986760574543,
+          "n_active": 5
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.56873657947996,
+          "n_active": 7
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.96144004188575,
+          "n_active": 5
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 37.5,
+          "entropy_pct_max": 98.01670494416616,
+          "n_active": 5
+        },
+        "4": {
+          "dominant_slot": 11,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.06296827724826,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 95.12092986199855,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 5,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.98834672761323,
+          "n_active": 6
+        },
+        "7": {
+          "dominant_slot": 4,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 93.95321925743534,
+          "n_active": 6
+        }
+      }
+    },
+    {
+      "text": "The little cat curled up by the fire.",
+      "category": "character",
+      "prompt_type": "sentence",
+      "n_tokens": 9,
+      "tokens": [
+        "The",
+        " little",
+        " cat",
+        " curled",
+        " up",
+        " by",
+        " the",
+        " fire",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 10,
+        "dominant_pct": 22.22222222222222,
+        "entropy": 2.4303905963897705,
+        "entropy_pct_max": 87.65781152086731,
+        "n_active_slots": 8,
+        "winners_per_token": [
+          5,
+          3,
+          10,
+          15,
+          0,
+          10,
+          6,
+          7,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "3": [
+            "little"
+          ],
+          "10": [
+            "cat",
+            "by"
+          ],
+          "15": [
+            "curled"
+          ],
+          "0": [
+            "up"
+          ],
+          "6": [
+            "the"
+          ],
+          "7": [
+            "fire"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.77772989680844,
+          "n_active": 6
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 44.44444444444444,
+          "entropy_pct_max": 98.82488581710068,
+          "n_active": 6
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.98899681653782,
+          "n_active": 5
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 98.5805328667548,
+          "n_active": 7
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 97.24154474019731,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 4,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.6542515074728,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 92.9872271040691,
+          "n_active": 8
+        },
+        "7": {
+          "dominant_slot": 10,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 87.65781152086731,
+          "n_active": 8
+        }
+      }
+    },
+    {
+      "text": "She found a shiny coin under the bench.",
+      "category": "action",
+      "prompt_type": "sentence",
+      "n_tokens": 9,
+      "tokens": [
+        "She",
+        " found",
+        " a",
+        " shiny",
+        " coin",
+        " under",
+        " the",
+        " bench",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 14,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.563183069229126,
+        "entropy_pct_max": 92.44728757168532,
+        "n_active_slots": 6,
+        "winners_per_token": [
+          3,
+          14,
+          5,
+          5,
+          7,
+          14,
+          14,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "14": [
+            "found",
+            "under",
+            "the"
+          ],
+          "5": [
+            "a",
+            "shiny"
+          ],
+          "7": [
+            "coin"
+          ],
+          "4": [
+            "bench"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 55.55555555555556,
+          "entropy_pct_max": 98.78954338234837,
+          "n_active": 4
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 44.44444444444444,
+          "entropy_pct_max": 99.39520608475938,
+          "n_active": 5
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.51620447877391,
+          "n_active": 6
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.93058463174661,
+          "n_active": 7
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 98.66760768288664,
+          "n_active": 6
+        },
+        "5": {
+          "dominant_slot": 4,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 96.64390502844905,
+          "n_active": 7
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.58088715376341,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 14,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 92.44728757168532,
+          "n_active": 6
+        }
+      }
+    },
+    {
+      "text": "They looked up and saw a rainbow.",
+      "category": "nature",
+      "prompt_type": "sentence",
+      "n_tokens": 8,
+      "tokens": [
+        "They",
+        " looked",
+        " up",
+        " and",
+        " saw",
+        " a",
+        " rainbow",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 2,
+        "dominant_pct": 12.5,
+        "entropy": 2.6683411598205566,
+        "entropy_pct_max": 96.24006396682556,
+        "n_active_slots": 8,
+        "winners_per_token": [
+          3,
+          15,
+          13,
+          2,
+          9,
+          5,
+          7,
+          4
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "They"
+          ],
+          "15": [
+            "looked"
+          ],
+          "13": [
+            "up"
+          ],
+          "2": [
+            "and"
+          ],
+          "9": [
+            "saw"
+          ],
+          "5": [
+            "a"
+          ],
+          "7": [
+            "rainbow"
+          ],
+          "4": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 37.5,
+          "entropy_pct_max": 98.90318951803852,
+          "n_active": 5
+        },
+        "1": {
+          "dominant_slot": 5,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.74611088644731,
+          "n_active": 7
+        },
+        "2": {
+          "dominant_slot": 3,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.1983719408469,
+          "n_active": 7
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 98.17947792407527,
+          "n_active": 6
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.02699638324596,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 97.42563496968087,
+          "n_active": 7
+        },
+        "6": {
+          "dominant_slot": 2,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.70530800253012,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 2,
+          "dominant_pct": 12.5,
+          "entropy_pct_max": 96.24006396682556,
+          "n_active": 8
+        }
+      }
+    },
+    {
+      "text": "Deep in the forest lived a family of rabbits.",
+      "category": "setting",
+      "prompt_type": "sentence",
+      "n_tokens": 10,
+      "tokens": [
+        "Deep",
+        " in",
+        " the",
+        " forest",
+        " lived",
+        " a",
+        " family",
+        " of",
+        " rabbits",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 30.0,
+        "entropy": 2.7270097732543945,
+        "entropy_pct_max": 98.3560869082463,
+        "n_active_slots": 7,
+        "winners_per_token": [
+          3,
+          9,
+          6,
+          4,
+          15,
+          5,
+          7,
+          5,
+          7,
+          5
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "Deep"
+          ],
+          "9": [
+            "in"
+          ],
+          "6": [
+            "the"
+          ],
+          "4": [
+            "forest"
+          ],
+          "15": [
+            "lived"
+          ],
+          "5": [
+            "a",
+            "of",
+            "."
+          ],
+          "7": [
+            "family",
+            "rabbits"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 11,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.32651621400477,
+          "n_active": 6
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 98.97973899593755,
+          "n_active": 8
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 98.62028665650173,
+          "n_active": 6
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.24290684828782,
+          "n_active": 6
+        },
+        "4": {
+          "dominant_slot": 14,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.12165907942955,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 40.0,
+          "entropy_pct_max": 97.74855819407342,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 98.32421852304141,
+          "n_active": 6
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 98.3560869082463,
+          "n_active": 7
+        }
+      }
+    },
+    {
+      "text": "His name was Tom and he loved adventure.",
+      "category": "character",
+      "prompt_type": "sentence",
+      "n_tokens": 9,
+      "tokens": [
+        "His",
+        " name",
+        " was",
+        " Tom",
+        " and",
+        " he",
+        " loved",
+        " adventure",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 33.333333333333336,
+        "entropy": 2.6911001205444336,
+        "entropy_pct_max": 97.06091996112865,
+        "n_active_slots": 7,
+        "winners_per_token": [
+          5,
+          13,
+          5,
+          3,
+          2,
+          10,
+          9,
+          15,
+          5
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "His",
+            "was",
+            "."
+          ],
+          "13": [
+            "name"
+          ],
+          "3": [
+            "Tom"
+          ],
+          "2": [
+            "and"
+          ],
+          "10": [
+            "he"
+          ],
+          "9": [
+            "loved"
+          ],
+          "15": [
+            "adventure"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 8,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 98.40265981009993,
+          "n_active": 4
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.47312282473278,
+          "n_active": 6
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 44.44444444444444,
+          "entropy_pct_max": 98.0457958095596,
+          "n_active": 5
+        },
+        "3": {
+          "dominant_slot": 2,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.71765635686207,
+          "n_active": 6
+        },
+        "4": {
+          "dominant_slot": 1,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 96.99437987350983,
+          "n_active": 6
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 98.27447254127935,
+          "n_active": 7
+        },
+        "6": {
+          "dominant_slot": 0,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 98.23628379365526,
+          "n_active": 6
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 33.333333333333336,
+          "entropy_pct_max": 97.06091996112865,
+          "n_active": 7
+        }
+      }
+    },
+    {
+      "text": "The sun rose over the mountains slowly.",
+      "category": "nature",
+      "prompt_type": "sentence",
+      "n_tokens": 8,
+      "tokens": [
+        "The",
+        " sun",
+        " rose",
+        " over",
+        " the",
+        " mountains",
+        " slowly",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 4,
+        "dominant_pct": 25.0,
+        "entropy": 2.5875253677368164,
+        "entropy_pct_max": 93.32525040520741,
+        "n_active_slots": 7,
+        "winners_per_token": [
+          5,
+          7,
+          8,
+          13,
+          6,
+          4,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The"
+          ],
+          "7": [
+            "sun"
+          ],
+          "8": [
+            "rose"
+          ],
+          "13": [
+            "over"
+          ],
+          "6": [
+            "the"
+          ],
+          "4": [
+            "mountains",
+            "slowly"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.85815413833575,
+          "n_active": 4
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 98.81159155818898,
+          "n_active": 5
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.33776903335506,
+          "n_active": 4
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 37.5,
+          "entropy_pct_max": 96.12787968366774,
+          "n_active": 5
+        },
+        "4": {
+          "dominant_slot": 11,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 96.89729566709778,
+          "n_active": 6
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 37.5,
+          "entropy_pct_max": 93.36797089568174,
+          "n_active": 6
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.641897999157,
+          "n_active": 6
+        },
+        "7": {
+          "dominant_slot": 4,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 93.32525040520741,
+          "n_active": 7
+        }
+      }
+    },
+    {
+      "text": "She picked up the red ball and threw it far.",
+      "category": "action",
+      "prompt_type": "sentence",
+      "n_tokens": 11,
+      "tokens": [
+        "She",
+        " picked",
+        " up",
+        " the",
+        " red",
+        " ball",
+        " and",
+        " threw",
+        " it",
+        " far",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 7,
+        "dominant_pct": 18.181818181818183,
+        "entropy": 2.648794174194336,
+        "entropy_pct_max": 95.53505548614365,
+        "n_active_slots": 9,
+        "winners_per_token": [
+          3,
+          15,
+          9,
+          6,
+          7,
+          7,
+          2,
+          15,
+          8,
+          11,
+          4
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "15": [
+            "picked",
+            "threw"
+          ],
+          "9": [
+            "up"
+          ],
+          "6": [
+            "the"
+          ],
+          "7": [
+            "red",
+            "ball"
+          ],
+          "2": [
+            "and"
+          ],
+          "8": [
+            "it"
+          ],
+          "11": [
+            "far"
+          ],
+          "4": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 45.45454545454545,
+          "entropy_pct_max": 99.45727462345577,
+          "n_active": 6
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 99.45826352369824,
+          "n_active": 7
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 99.62086452095647,
+          "n_active": 7
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 97.91523518015711,
+          "n_active": 6
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 97.3293848791255,
+          "n_active": 6
+        },
+        "5": {
+          "dominant_slot": 1,
+          "dominant_pct": 18.181818181818183,
+          "entropy_pct_max": 97.08174706014813,
+          "n_active": 7
+        },
+        "6": {
+          "dominant_slot": 10,
+          "dominant_pct": 36.36363636363637,
+          "entropy_pct_max": 99.33484017430654,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 7,
+          "dominant_pct": 18.181818181818183,
+          "entropy_pct_max": 95.53505548614365,
+          "n_active": 9
+        }
+      }
+    },
+    {
+      "text": "A long time ago, dragons ruled the land.",
+      "category": "narrative",
+      "prompt_type": "sentence",
+      "n_tokens": 10,
+      "tokens": [
+        "A",
+        " long",
+        " time",
+        " ago",
+        ",",
+        " dragons",
+        " ruled",
+        " the",
+        " land",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 13,
+        "dominant_pct": 30.0,
+        "entropy": 2.7480695247650146,
+        "entropy_pct_max": 99.11565688491443,
+        "n_active_slots": 8,
+        "winners_per_token": [
+          5,
+          13,
+          13,
+          13,
+          12,
+          3,
+          15,
+          6,
+          7,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "A"
+          ],
+          "13": [
+            "long",
+            "time",
+            "ago"
+          ],
+          "12": [
+            ","
+          ],
+          "3": [
+            "dragons"
+          ],
+          "15": [
+            "ruled"
+          ],
+          "6": [
+            "the"
+          ],
+          "7": [
+            "land"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 9,
+          "dominant_pct": 50.0,
+          "entropy_pct_max": 97.13576681078415,
+          "n_active": 4
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 40.0,
+          "entropy_pct_max": 97.82635454619121,
+          "n_active": 7
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.35012943196824,
+          "n_active": 7
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.3123276453086,
+          "n_active": 7
+        },
+        "4": {
+          "dominant_slot": 2,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 98.80293223171805,
+          "n_active": 8
+        },
+        "5": {
+          "dominant_slot": 0,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.37195403036273,
+          "n_active": 7
+        },
+        "6": {
+          "dominant_slot": 5,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.61997881030453,
+          "n_active": 8
+        },
+        "7": {
+          "dominant_slot": 13,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.11565688491443,
+          "n_active": 8
+        }
+      }
+    },
+    {
+      "text": "The water was cold but the fish swam fast.",
+      "category": "setting",
+      "prompt_type": "sentence",
+      "n_tokens": 11,
+      "tokens": [
+        "The",
+        " water",
+        " was",
+        " cold",
+        " but",
+        " the",
+        " fish",
+        " sw",
+        "am",
+        " fast",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 18.181818181818183,
+        "entropy": 2.6031863689422607,
+        "entropy_pct_max": 93.89010162456869,
+        "n_active_slots": 8,
+        "winners_per_token": [
+          5,
+          7,
+          9,
+          15,
+          2,
+          5,
+          7,
+          6,
+          15,
+          4,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The",
+            "the"
+          ],
+          "7": [
+            "water",
+            "fish"
+          ],
+          "9": [
+            "was"
+          ],
+          "15": [
+            "cold",
+            "am"
+          ],
+          "2": [
+            "but"
+          ],
+          "6": [
+            "sw"
+          ],
+          "4": [
+            "fast"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 45.45454545454545,
+          "entropy_pct_max": 99.13231340465049,
+          "n_active": 7
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 45.45454545454545,
+          "entropy_pct_max": 99.14181544611067,
+          "n_active": 7
+        },
+        "2": {
+          "dominant_slot": 11,
+          "dominant_pct": 54.54545454545455,
+          "entropy_pct_max": 97.75772486936441,
+          "n_active": 5
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 36.36363636363637,
+          "entropy_pct_max": 97.14096928597274,
+          "n_active": 7
+        },
+        "4": {
+          "dominant_slot": 0,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 97.4223930967121,
+          "n_active": 7
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 93.43377145790184,
+          "n_active": 7
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 27.272727272727273,
+          "entropy_pct_max": 97.22757114981471,
+          "n_active": 7
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 18.181818181818183,
+          "entropy_pct_max": 93.89010162456869,
+          "n_active": 8
+        }
+      }
+    },
+    {
+      "text": "Lily was a kind girl who loved animals. She had a rabbit named Bun.",
+      "category": "character",
+      "prompt_type": "paragraph",
+      "n_tokens": 17,
+      "tokens": [
+        "L",
+        "ily",
+        " was",
+        " a",
+        " kind",
+        " girl",
+        " who",
+        " loved",
+        " animals",
+        ".",
+        " She",
+        " had",
+        " a",
+        " rabbit",
+        " named",
+        " Bun",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 3,
+        "dominant_pct": 17.647058823529413,
+        "entropy": 2.510551929473877,
+        "entropy_pct_max": 90.54902046365453,
+        "n_active_slots": 10,
+        "winners_per_token": [
+          3,
+          3,
+          12,
+          5,
+          5,
+          4,
+          10,
+          9,
+          7,
+          4,
+          10,
+          14,
+          5,
+          7,
+          1,
+          3,
+          11
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "L",
+            "ily",
+            "Bun"
+          ],
+          "12": [
+            "was"
+          ],
+          "5": [
+            "a",
+            "kind",
+            "a"
+          ],
+          "4": [
+            "girl",
+            "."
+          ],
+          "10": [
+            "who",
+            "She"
+          ],
+          "9": [
+            "loved"
+          ],
+          "7": [
+            "animals",
+            "rabbit"
+          ],
+          "14": [
+            "had"
+          ],
+          "1": [
+            "named"
+          ],
+          "11": [
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 29.41176470588235,
+          "entropy_pct_max": 99.89999236330681,
+          "n_active": 9
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 29.41176470588235,
+          "entropy_pct_max": 99.02194353845928,
+          "n_active": 9
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 29.41176470588235,
+          "entropy_pct_max": 97.47187250536534,
+          "n_active": 7
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 17.647058823529413,
+          "entropy_pct_max": 99.08406367195093,
+          "n_active": 11
+        },
+        "4": {
+          "dominant_slot": 1,
+          "dominant_pct": 23.529411764705884,
+          "entropy_pct_max": 95.81742520146274,
+          "n_active": 9
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 17.647058823529413,
+          "entropy_pct_max": 98.31138001815451,
+          "n_active": 9
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 29.41176470588235,
+          "entropy_pct_max": 97.28109215076321,
+          "n_active": 9
+        },
+        "7": {
+          "dominant_slot": 3,
+          "dominant_pct": 17.647058823529413,
+          "entropy_pct_max": 90.54902046365453,
+          "n_active": 10
+        }
+      }
+    },
+    {
+      "text": "The forest was quiet. No birds sang. No leaves moved. Then a sound came.",
+      "category": "setting",
+      "prompt_type": "paragraph",
+      "n_tokens": 18,
+      "tokens": [
+        "The",
+        " forest",
+        " was",
+        " quiet",
+        ".",
+        " No",
+        " birds",
+        " sang",
+        ".",
+        " No",
+        " leaves",
+        " moved",
+        ".",
+        " Then",
+        " a",
+        " sound",
+        " came",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 11,
+        "dominant_pct": 22.22222222222222,
+        "entropy": 2.718137502670288,
+        "entropy_pct_max": 98.0360873889184,
+        "n_active_slots": 10,
+        "winners_per_token": [
+          5,
+          7,
+          12,
+          4,
+          11,
+          3,
+          13,
+          15,
+          11,
+          8,
+          7,
+          15,
+          11,
+          2,
+          5,
+          7,
+          8,
+          11
+        ],
+        "slot_token_affinity": {
+          "5": [
+            "The",
+            "a"
+          ],
+          "7": [
+            "forest",
+            "leaves",
+            "sound"
+          ],
+          "12": [
+            "was"
+          ],
+          "4": [
+            "quiet"
+          ],
+          "11": [
+            ".",
+            ".",
+            ".",
+            "."
+          ],
+          "3": [
+            "No"
+          ],
+          "13": [
+            "birds"
+          ],
+          "15": [
+            "sang",
+            "moved"
+          ],
+          "8": [
+            "No",
+            "came"
+          ],
+          "2": [
+            "Then"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 55.55555555555556,
+          "entropy_pct_max": 98.1425876454652,
+          "n_active": 6
+        },
+        "1": {
+          "dominant_slot": 6,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.54516635717921,
+          "n_active": 10
+        },
+        "2": {
+          "dominant_slot": 12,
+          "dominant_pct": 27.77777777777778,
+          "entropy_pct_max": 99.68309644317118,
+          "n_active": 9
+        },
+        "3": {
+          "dominant_slot": 15,
+          "dominant_pct": 27.77777777777778,
+          "entropy_pct_max": 98.76987716622222,
+          "n_active": 8
+        },
+        "4": {
+          "dominant_slot": 3,
+          "dominant_pct": 16.666666666666668,
+          "entropy_pct_max": 98.4469625409622,
+          "n_active": 10
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 27.77777777777778,
+          "entropy_pct_max": 97.27533933109186,
+          "n_active": 8
+        },
+        "6": {
+          "dominant_slot": 7,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 99.83316850431407,
+          "n_active": 10
+        },
+        "7": {
+          "dominant_slot": 11,
+          "dominant_pct": 22.22222222222222,
+          "entropy_pct_max": 98.0360873889184,
+          "n_active": 10
+        }
+      }
+    },
+    {
+      "text": "Max wanted to fly. He built wings out of cardboard and jumped from the steps. He fell.",
+      "category": "action",
+      "prompt_type": "paragraph",
+      "n_tokens": 20,
+      "tokens": [
+        "Max",
+        " wanted",
+        " to",
+        " fly",
+        ".",
+        " He",
+        " built",
+        " wings",
+        " out",
+        " of",
+        " cardboard",
+        " and",
+        " jumped",
+        " from",
+        " the",
+        " steps",
+        ".",
+        " He",
+        " fell",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 7,
+        "dominant_pct": 15.0,
+        "entropy": 2.640702247619629,
+        "entropy_pct_max": 95.24320092762946,
+        "n_active_slots": 10,
+        "winners_per_token": [
+          3,
+          9,
+          1,
+          15,
+          11,
+          10,
+          15,
+          7,
+          0,
+          14,
+          7,
+          10,
+          15,
+          14,
+          6,
+          7,
+          11,
+          10,
+          9,
+          11
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "Max"
+          ],
+          "9": [
+            "wanted",
+            "fell"
+          ],
+          "1": [
+            "to"
+          ],
+          "15": [
+            "fly",
+            "built",
+            "jumped"
+          ],
+          "11": [
+            ".",
+            ".",
+            "."
+          ],
+          "10": [
+            "He",
+            "and",
+            "He"
+          ],
+          "7": [
+            "wings",
+            "cardboard",
+            "steps"
+          ],
+          "0": [
+            "out"
+          ],
+          "14": [
+            "of",
+            "from"
+          ],
+          "6": [
+            "the"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 30.0,
+          "entropy_pct_max": 99.29831105926327,
+          "n_active": 8
+        },
+        "1": {
+          "dominant_slot": 4,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.46998414135453,
+          "n_active": 11
+        },
+        "2": {
+          "dominant_slot": 3,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.18001279286729,
+          "n_active": 8
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 25.0,
+          "entropy_pct_max": 99.24839309485034,
+          "n_active": 9
+        },
+        "4": {
+          "dominant_slot": 1,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.25084384762513,
+          "n_active": 10
+        },
+        "5": {
+          "dominant_slot": 2,
+          "dominant_pct": 15.0,
+          "entropy_pct_max": 98.86673779518814,
+          "n_active": 10
+        },
+        "6": {
+          "dominant_slot": 10,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.26150677197863,
+          "n_active": 11
+        },
+        "7": {
+          "dominant_slot": 7,
+          "dominant_pct": 15.0,
+          "entropy_pct_max": 95.24320092762946,
+          "n_active": 10
+        }
+      }
+    },
+    {
+      "text": "Every morning Tom woke up and looked out his window. He always saw the same thing: fog.",
+      "category": "setting",
+      "prompt_type": "paragraph",
+      "n_tokens": 20,
+      "tokens": [
+        "Every",
+        " morning",
+        " Tom",
+        " woke",
+        " up",
+        " and",
+        " looked",
+        " out",
+        " his",
+        " window",
+        ".",
+        " He",
+        " always",
+        " saw",
+        " the",
+        " same",
+        " thing",
+        ":",
+        " fog",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 4,
+        "dominant_pct": 15.0,
+        "entropy": 2.7115087509155273,
+        "entropy_pct_max": 97.79700570682148,
+        "n_active_slots": 13,
+        "winners_per_token": [
+          8,
+          4,
+          3,
+          15,
+          4,
+          2,
+          8,
+          13,
+          14,
+          4,
+          11,
+          10,
+          10,
+          15,
+          5,
+          6,
+          7,
+          9,
+          7,
+          5
+        ],
+        "slot_token_affinity": {
+          "8": [
+            "Every",
+            "looked"
+          ],
+          "4": [
+            "morning",
+            "up",
+            "window"
+          ],
+          "3": [
+            "Tom"
+          ],
+          "15": [
+            "woke",
+            "saw"
+          ],
+          "2": [
+            "and"
+          ],
+          "13": [
+            "out"
+          ],
+          "14": [
+            "his"
+          ],
+          "11": [
+            "."
+          ],
+          "10": [
+            "He",
+            "always"
+          ],
+          "5": [
+            "the",
+            "."
+          ],
+          "6": [
+            "same"
+          ],
+          "7": [
+            "thing",
+            "fog"
+          ],
+          "9": [
+            ":"
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 35.0,
+          "entropy_pct_max": 98.81702620995625,
+          "n_active": 9
+        },
+        "1": {
+          "dominant_slot": 3,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.6957973619374,
+          "n_active": 11
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.69001874486841,
+          "n_active": 9
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.7369012154936,
+          "n_active": 10
+        },
+        "4": {
+          "dominant_slot": 5,
+          "dominant_pct": 20.0,
+          "entropy_pct_max": 99.4138060084502,
+          "n_active": 11
+        },
+        "5": {
+          "dominant_slot": 8,
+          "dominant_pct": 15.0,
+          "entropy_pct_max": 99.1480842137346,
+          "n_active": 13
+        },
+        "6": {
+          "dominant_slot": 0,
+          "dominant_pct": 15.0,
+          "entropy_pct_max": 99.87081550658793,
+          "n_active": 12
+        },
+        "7": {
+          "dominant_slot": 4,
+          "dominant_pct": 15.0,
+          "entropy_pct_max": 97.79700570682148,
+          "n_active": 13
+        }
+      }
+    },
+    {
+      "text": "She was the best baker in the village. Everyone loved her bread. Even the mayor came.",
+      "category": "character",
+      "prompt_type": "paragraph",
+      "n_tokens": 19,
+      "tokens": [
+        "She",
+        " was",
+        " the",
+        " best",
+        " baker",
+        " in",
+        " the",
+        " village",
+        ".",
+        " Everyone",
+        " loved",
+        " her",
+        " bread",
+        ".",
+        " Even",
+        " the",
+        " mayor",
+        " came",
+        "."
+      ],
+      "last_layer": {
+        "dominant_slot": 5,
+        "dominant_pct": 21.05263157894737,
+        "entropy": 2.7011260986328125,
+        "entropy_pct_max": 97.4225306828328,
+        "n_active_slots": 10,
+        "winners_per_token": [
+          3,
+          12,
+          5,
+          6,
+          7,
+          13,
+          5,
+          4,
+          5,
+          13,
+          2,
+          8,
+          7,
+          11,
+          2,
+          5,
+          13,
+          8,
+          11
+        ],
+        "slot_token_affinity": {
+          "3": [
+            "She"
+          ],
+          "12": [
+            "was"
+          ],
+          "5": [
+            "the",
+            "the",
+            ".",
+            "the"
+          ],
+          "6": [
+            "best"
+          ],
+          "7": [
+            "baker",
+            "bread"
+          ],
+          "13": [
+            "in",
+            "Everyone",
+            "mayor"
+          ],
+          "4": [
+            "village"
+          ],
+          "2": [
+            "loved",
+            "Even"
+          ],
+          "8": [
+            "her",
+            "came"
+          ],
+          "11": [
+            ".",
+            "."
+          ]
+        }
+      },
+      "all_layers": {
+        "0": {
+          "dominant_slot": 3,
+          "dominant_pct": 31.57894736842105,
+          "entropy_pct_max": 99.17257454321748,
+          "n_active": 6
+        },
+        "1": {
+          "dominant_slot": 1,
+          "dominant_pct": 21.05263157894737,
+          "entropy_pct_max": 99.05287461821696,
+          "n_active": 9
+        },
+        "2": {
+          "dominant_slot": 0,
+          "dominant_pct": 26.31578947368421,
+          "entropy_pct_max": 99.78251101450243,
+          "n_active": 9
+        },
+        "3": {
+          "dominant_slot": 0,
+          "dominant_pct": 21.05263157894737,
+          "entropy_pct_max": 99.42321345945238,
+          "n_active": 8
+        },
+        "4": {
+          "dominant_slot": 12,
+          "dominant_pct": 21.05263157894737,
+          "entropy_pct_max": 98.37503939637138,
+          "n_active": 12
+        },
+        "5": {
+          "dominant_slot": 4,
+          "dominant_pct": 15.789473684210526,
+          "entropy_pct_max": 98.91632899256443,
+          "n_active": 9
+        },
+        "6": {
+          "dominant_slot": 4,
+          "dominant_pct": 15.789473684210526,
+          "entropy_pct_max": 99.74614528297748,
+          "n_active": 12
+        },
+        "7": {
+          "dominant_slot": 5,
+          "dominant_pct": 21.05263157894737,
+          "entropy_pct_max": 97.4225306828328,
+          "n_active": 10
+        }
+      }
+    }
+  ]
+}
